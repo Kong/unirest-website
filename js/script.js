@@ -8,6 +8,7 @@ $(document).ready(function () {
 		onAfter: function () {		
 			window.location.hash = hash;
 			enableScroll = true;
+			$('nav.main a[href="'+ hash + '"]').addClass('selected');
 		},
 		easing: 'easeOutQuad'
 	});
@@ -34,14 +35,12 @@ $(document).ready(function () {
 	/* Navigation */
 	$('nav.main a').click(function () {
 		
-		/* Select menu item */
-		$('nav.main a').removeClass('selected');
-		$(this).addClass('selected');
-		
 		/* Scroll to section */
 		hash = $(this).attr('href');
 		$('section.selected').removeClass('selected');
 		$('section' + hash).addClass('selected');
+		$('nav.main a').removeClass('selected');
+		$('nav.main a[href="'+ hash + '"]').addClass('selected');
 		$.scrollTo($('section' + hash), 1000, { 
 			onAfter: function () {		
 				window.location.hash = hash;
