@@ -531,41 +531,41 @@ Un-parsed response body</p>
 			<div class="docs">
 
 				<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
-<a name="unicorn-objective-c" class="anchor" href="#unicorn-objective-c"><span class="mini-icon mini-icon-link"></span></a>Unicorn Obj-C</h1>
+<a name="unirest-objective-c" class="anchor" href="#unirest-objective-c"><span class="mini-icon mini-icon-link"></span></a>unirest Obj-C</h1>
 
 <p class="center">Unirest is a set of lightweight HTTP libraries available in PHP, Ruby, Python, Java, Objective-C.</p>
 
 <h3>
 <a name="installing" class="anchor" href="#installing"><span class="mini-icon mini-icon-link"></span></a>Installing</h3>
 
-<p>Download the Objective-C Unicorn Library from Github and import the folder into your project to begin utilizing unicorns amazing powers today!</p>
+<p>Download the Objective-C unirest Library from Github and import the folder into your project to begin utilizing unirests amazing powers today!</p>
 
 <h3>
 <a name="creating-request" class="anchor" href="#creating-request"><span class="mini-icon mini-icon-link"></span></a>Creating Request</h3>
 
-<p>So you're probably wondering how using Unicorn makes creating requests in Objective-C easier, let's look at a working example:</p>
+<p>So you're probably wondering how using unirest makes creating requests in Objective-C easier, let's look at a working example:</p>
 
 <div class="highlight"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 <span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="s">@"bar"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 
-<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Unicorn</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">unirest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
 <span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
 </pre></div>
 
-<p>Just like in the Unicorn Java library the Objective-C library supports multiple response types given as the last parameter. In the example above we use <code>asJson</code> to get a JSON response, likewise there are <code>asBinary</code> and <code>asString</code> for responses of other nature such as file data and hypermedia responses.</p>
+<p>Just like in the unirest Java library the Objective-C library supports multiple response types given as the last parameter. In the example above we use <code>asJson</code> to get a JSON response, likewise there are <code>asBinary</code> and <code>asString</code> for responses of other nature such as file data and hypermedia responses.</p>
 
 <h3>
 <a name="asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="mini-icon mini-icon-link"></span></a>Asynchronous Requests</h3>
 
-<p>For non-blocking requests you will want to make an asychronous request to keep your application going while data is fetched or updated in the background, doing so with Unicorn is extremely easy with barely any code change from the previous example:</p>
+<p>For non-blocking requests you will want to make an asychronous request to keep your application going while data is fetched or updated in the background, doing so with unirest is extremely easy with barely any code change from the previous example:</p>
 
 <div class="highlight"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 <span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="s">@"bar"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 
-<span class="p">[[</span><span class="n">Unicorn</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[[</span><span class="n">unirest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
@@ -581,13 +581,13 @@ Un-parsed response body</p>
 <h3>
 <a name="file-uploads" class="anchor" href="#file-uploads"><span class="mini-icon mini-icon-link"></span></a>File Uploads</h3>
 
-<p>Transferring files through request with Unicorn in Objective-C can be done by creating a <code>NSURL</code> object and passing it along as a parameter value with a <code>MultipartRequest</code> like so:</p>
+<p>Transferring files through request with unirest in Objective-C can be done by creating a <code>NSURL</code> object and passing it along as a parameter value with a <code>MultipartRequest</code> like so:</p>
 
 <div class="highlight"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 <span class="n">NSURL</span> <span class="n">file</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
 <span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="s">@"file"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 
-<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Unicorn</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">unirest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
@@ -602,7 +602,7 @@ Un-parsed response body</p>
 <div class="highlight"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 <span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="s">@"bar"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 
-<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Unicorn</span> <span class="n">postEntity</span><span class="o">:^</span><span class="p">(</span><span class="n">BodyRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">unirest</span> <span class="n">postEntity</span><span class="o">:^</span><span class="p">(</span><span class="n">BodyRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
   <span class="c1">// Converting NSDictionary to JSON:</span>
@@ -613,7 +613,7 @@ Un-parsed response body</p>
 <h3>
 <a name="request-reference" class="anchor" href="#request-reference"><span class="mini-icon mini-icon-link"></span></a>Request Reference</h3>
 
-<p>The Objective-C Unicorn library uses configuration blocks of type SimpleRequest, MultipartRequest and BodyRequest to configure the URL, Headers, and Parameters / Body of the request.</p>
+<p>The Objective-C unirest library uses configuration blocks of type SimpleRequest, MultipartRequest and BodyRequest to configure the URL, Headers, and Parameters / Body of the request.</p>
 
 <div class="highlight"><pre><span class="k">+</span><span class="p">(</span><span class="n">HttpRequest</span><span class="o">*</span><span class="p">)</span> <span class="nf">get:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">SimpleRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
 
@@ -629,19 +629,19 @@ Un-parsed response body</p>
 <span class="k">+</span><span class="p">(</span><span class="n">HttpRequest</span><span class="o">*</span><span class="p">)</span> <span class="nf">delete:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">SimpleRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
 </pre></div>
 
-<p><code>HttpRequest</code> <code>[Unicorn get:</code> <code>(void (^)(SimpleRequest*))] config;</code><br>
+<p><code>HttpRequest</code> <code>[unirest get:</code> <code>(void (^)(SimpleRequest*))] config;</code><br>
 Sends equivalent request with method type to given URL</p>
 
-<p><code>HttpRequestWithBody</code> <code>[Unicorn (post|postEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code><br>
+<p><code>HttpRequestWithBody</code> <code>[unirest (post|postEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code><br>
 Sends equivalent request with method type to given URL</p>
 
-<p><code>HttpRequestWithBody</code> <code>[Unicorn (put|putEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code><br>
+<p><code>HttpRequestWithBody</code> <code>[unirest (put|putEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code><br>
 Sends equivalent request with method type to given URL</p>
 
-<p><code>HttpRequestWithBody</code> <code>[Unicorn (patch|patchEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code><br>
+<p><code>HttpRequestWithBody</code> <code>[unirest (patch|patchEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code><br>
 Sends equivalent request with method type to given URL</p>
 
-<p><code>HttpRequest</code> <code>[Unicorn delete:</code> <code>(void (^)(SimpleRequest*))] config;</code><br>
+<p><code>HttpRequest</code> <code>[unirest delete:</code> <code>(void (^)(SimpleRequest*))] config;</code><br>
 Sends equivalent request with method type to given URL</p>
 
 <h3>
