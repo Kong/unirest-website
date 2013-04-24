@@ -26,8 +26,6 @@ $(document).ready(function () {
 												   
 		// Slideshow Images							
 		slides 					:  	[
-			{image : 'http://farm7.staticflickr.com/6224/6240022647_41233835f4_b.jpg', thumb: ''},
-			{image : 'http://farm2.staticflickr.com/1256/4728043610_f7889a00a8_b.jpg', thumb: ''},
 			{image : 'http://farm6.staticflickr.com/5252/5453113651_703fc669bc_o.jpg', thumb: ''}
 		]
 		
