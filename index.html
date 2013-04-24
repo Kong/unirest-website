@@ -131,7 +131,9 @@
   <span class="o">.</span><span class="na">asJson</span><span class="o">();</span>
 </pre></div>
 
-<p>Requests are made when <code>as[Type]()</code> is invoked, possible types include <code>Json</code>, <code>Binary</code>, <code>String</code>. If the request supports and it is of type <code>HttpRequestWithBody</code>, a body it can be passed along with <code>.body(String|JsonNode)</code>. If you already have a map of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Map&lt;String, Object&gt; fields)</code> method that will serialize each key - value to form parameters on your request.</p>
+<p>Requests are made when <code>as[Type]()</code> is invoked, possible types include Json, Binary, String. If the request supports and it is of type HttpRequestWithBody, a body it can be passed along with <code>.body(String|JsonNode)</code>. </p>
+
+<p>If you already have a map of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Map&lt;String, Object&gt; fields)</code> method that will serialize each key - value to form parameters on your request.</p>
 
 <p><code>.headers(Map&lt;String, String&gt; headers)</code> is also supported in replacement of multiple header methods.</p>
 
