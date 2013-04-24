@@ -1,5 +1,4 @@
-Unirest.io
-===========
+<h1><a href="http://unirest.io">Unirest.io</a></h1>
 
 Yesterday we released our newest open source project, which we called unicorn, unfortunately that was also the name of two other open source projects. We really dropped the ball and have been working hard to clean up the mess.  We would like to apologize to anyone in the Ruby or Python community who was confused or pissed off.  Hopefully you can look past our mistake and see the value in this project.
 
