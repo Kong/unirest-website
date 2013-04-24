@@ -131,7 +131,9 @@
   <span class="o">.</span><span class="na">asJson</span><span class="o">();</span>
 </pre></div>
 
-<p>Requests are made when <code>as[Type]()</code> is invoked, possible types include Json, Binary, String. If the request supports and it is of type HttpRequestWithBody, a body it can be passed along with <code>.body(String|JsonNode)</code>. </p>
+<p>Requests are made when <code>as[Type]()</code> is invoked, possible types include Json, Binary, String. </p>
+
+<p>If the request supports and it is of type HttpRequestWithBody, a body it can be passed along with <code>.body(String|JsonNode)</code>. </p>
 
 <p>If you already have a map of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Map&lt;String, Object&gt; fields)</code> method that will serialize each key - value to form parameters on your request.</p>
 
@@ -320,14 +322,14 @@ Un-parsed response body</p>
 <h3>
 <a name="installing" class="anchor" href="#installing"><span class="mini-icon mini-icon-link"></span></a>Installing</h3>
 
-<p>To utilize unirest, install the <code>unirest-rest</code> gem:</p>
+<p>To utilize unirest, install the <code>unirest</code> gem:</p>
 
-<pre><code>gem install unirest-rest
+<pre><code>gem install unirest
 </code></pre>
 
-<p>After installing the gem package you can now begin to simplifying requests by requiring <code>unirest-rest</code>:</p>
+<p>After installing the gem package you can now begin to simplifying requests by requiring <code>unirest</code>:</p>
 
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'unirest-rest'</span>
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'unirest'</span>
 </pre></div>
 
 <h3>
@@ -335,7 +337,7 @@ Un-parsed response body</p>
 
 <p>So you're probably wondering how using Unirest makes creating requests in Ruby easier, let's start with a working example:</p>
 
-<div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+<div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
   <span class="p">{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span>
   <span class="p">{</span>
     <span class="ss">:parameter</span> <span class="o">=&gt;</span> <span class="mi">23</span><span class="p">,</span>
@@ -346,7 +348,7 @@ Un-parsed response body</p>
 <h3>
 <a name="file-uploads" class="anchor" href="#file-uploads"><span class="mini-icon mini-icon-link"></span></a>File Uploads</h3>
 
-<div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+<div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
   <span class="p">{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span>
   <span class="p">{</span>
     <span class="ss">:parameter</span> <span class="o">=&gt;</span> <span class="mi">23</span><span class="p">,</span>
@@ -357,7 +359,7 @@ Un-parsed response body</p>
 <h3>
 <a name="custom-entity-body" class="anchor" href="#custom-entity-body"><span class="mini-icon mini-icon-link"></span></a>Custom Entity Body</h3>
 
-<div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+<div class="highlight"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
   <span class="p">{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span>
   <span class="p">{</span>
     <span class="ss">:parameter</span> <span class="o">=&gt;</span> <span class="s2">"value"</span><span class="p">,</span>
@@ -368,11 +370,11 @@ Un-parsed response body</p>
 <h3>
 <a name="request-reference" class="anchor" href="#request-reference"><span class="mini-icon mini-icon-link"></span></a>Request Reference</h3>
 
-<div class="highlight"><pre><span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span> 
-<span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-<span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-<span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-<span class="ss">UnirestRest</span><span class="p">:</span><span class="ss">:delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<div class="highlight"><pre><span class="ss">Unirest</span><span class="p">:</span><span class="ss">:get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span> 
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
 </pre></div>
 
 <p><code>url</code>
