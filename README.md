@@ -3,7 +3,7 @@ Unirest.io
 
 Today we released our newest open source project, which we called unicorn, unfortunately that was also the name of two other open source projects.  We really dropped the ball and have been working hard to clean up the mess.
 
-To remedy the situation we changed the project name to unirest, which suits the project even better in my opinion.  Also we built a new website with a cool space theme and have updated all of the docs and github repos.
+To remedy the situation we changed the project name to unirest, which suits the project even better in my opinion.  Also we built a <a href="http://unirest.io">new website</a> with a cool space theme and have updated all of the docs and github repos.
 
 I'd like to personally apologize to anyone who was confused or pissed off.  Hopefully you can look past our mistake and see the value in this project. 
 
