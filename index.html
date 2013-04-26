@@ -252,11 +252,27 @@ Un-parsed response body</p>
 			</nav>
 
 <h3>
-<a name="installing" class="anchor" href="#installing"><span class="mini-icon mini-icon-link"></span></a>Installing</h3>
+<a name="installing" class="anchor" href="#installing"><span class="mini-icon mini-icon-link"></span></a>Manual Install</h3>
 
 <p>Download the PHP library from <a href="https://github.com/mashape/unirest-php">GitHub</a>, and require in your script like so:</p>
 
-<p><code>require_once './lib/Unirest.php';</code></p>
+<p><code>require_once './lib/Unirest/Unirest.php';</code></p>
+
+<h3>Using Composer</h3>
+
+<p><a href="http://getcomposer.org">Composer</a> is a package manager for PHP.</p>
+
+<p>In the composer.json file in your project add:</p>
+
+<div class="highlight"><pre>
+{
+  "require" : {
+    "mashape/unirest-php" : "dev-master"
+  }
+}
+</pre></div>
+<p>And then run:</p> <p><code>php composer.phar install</code></p>
+
 
 <h3>
 <a name="creating-request" class="anchor" href="#creating-request"><span class="mini-icon mini-icon-link"></span></a>Creating Request</h3>
@@ -741,7 +757,7 @@ Asynchronous request call with response returned as JSON.</p>
 			</div>
 
 		</div></section>
-		
+
 	<div id="_Poply_Holder"></div>
 
 	</div>
@@ -757,11 +773,6 @@ Asynchronous request call with response returned as JSON.</p>
   var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
   	  analytics.load("xsv6p66v1y");
 </script>
-
-<!-- Start PopFeedback for unirest.io -->
-<script type='text/javascript'>    var _poply_custom = ''; var _poply_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + _poply_protocol + 'www.popfeedback.com/api/response/' + Math.random() + '?key=2f3cc4ab-445d-4a6a-8d2b-b8174f0b4d65&location=' + encodeURIComponent(window.location) + '&custom=' + _poply_custom + '" type="text/javascript"%3E%3C/script%3E')); </script> 
-<!-- END PopFeedback for unirest.io -->
-
 
 <!--[if lt IE 7 ]>
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
