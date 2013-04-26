@@ -45,6 +45,9 @@ $(document).ready(function () {
 			onAfter: function () {		
 				window.location.hash = hash;
 				enableScroll = true;
+				analytics.track('Selected Language', {
+				    language        : hash,
+				});
 			},
 			easing: 'easeOutQuad'
 		});
