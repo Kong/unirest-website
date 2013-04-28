@@ -76,6 +76,7 @@ header .github {
 	float: right;
 	position: relative;
 	right: 20px;
+	top:5px;
 }
 
 header .github div {
