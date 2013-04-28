@@ -6,9 +6,13 @@ $(document).ready(function () {
 		doThings(hash);
 	}
 
-    window.onhashchange = function(){
-		hash = window.location.hash;
-		doThings(hash);
+	if ("onhashchange" in window) {
+		window.onhashchange = function(){
+			hash = window.location.hash;
+			doThings(hash);
+		}
+	} else {
+		alert('Your browser sucks, come back using a modern one like chrome to view the website.');
 	}
 
 	/* Logic */
