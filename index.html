@@ -294,7 +294,7 @@ Un-parsed response body</p>
 
 <p>Download the PHP library from <a href="https://github.com/mashape/unirest-php">GitHub</a>, and require in your script like so:</p>
 
-<p><code>require_once './lib/Unirest/Unirest.php';</code></p>
+<p class="highlight"><code>require_once './lib/Unirest.php';</code></p>
 
 <h3>Using Composer</h3>
 
@@ -309,7 +309,14 @@ Un-parsed response body</p>
   }
 }
 </pre></div>
-<p>And then run:</p> <p><code>php composer.phar install</code></p>
+<p>And then run:</p> 
+
+<p class="highlight"><code>php composer.phar install</code></p>
+
+<p>Include the library in your project with:</p>
+<p class="highlight">
+	<code>require 'vendor/autoload.php';</code>
+</p>
 
 
 <h3>
