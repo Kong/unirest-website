@@ -199,18 +199,28 @@
 
 <p>Sometimes, well most of the time, you want your application to be asynchronous and not block, Unirest supports this in Java using anonymous callbacks, or direct method placement:</p>
 
-<div class="highlight"><pre><span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="n">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"http://httpbin.org/post"</span><span class="o">)</span>
+<div class="highlight"><pre><span class="n">Future</span><span class="o">&lt;</span><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="n">JsonNode</span><span class="o">&gt;&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="n">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"http://httpbin.org/post"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="s">"param1"</span><span class="o">,</span> <span class="s">"value1"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="s">"param2"</span><span class="o">,</span> <span class="s">"value2"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">asJson</span><span class="o">(</span><span class="k">new</span> <span class="n">Callback</span><span class="o">&lt;</span><span class="n">JsonNode</span><span class="o">&gt;()</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">completed</span><span class="o">(</span><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="n">JsonNode</span><span class="o">&gt;</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
-      <span class="kt">int</span> <span class="n">code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
-      <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
-      <span class="n">JsonNode</span> <span class="n">body</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
-      <span class="n">InputStream</span> <span class="n">rawBody</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getRawBody</span><span class="o">();</span>
+  <span class="o">.</span><span class="na">asJsonAsync</span><span class="o">(</span><span class="k">new</span> <span class="n">Callback</span><span class="o">&lt;</span><span class="n">JsonNode</span><span class="o">&gt;()</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">failed</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The request has failed"</span><span class="o">);</span>
     <span class="o">}</span>
-  <span class="o">});</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">completed</span><span class="o">(</span><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="n">JsonNode</span><span class="o">&gt;</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
+         <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
+         <span class="n">JsonNode</span> <span class="n">body</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+         <span class="n">InputStream</span> <span class="n">rawBody</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getRawBody</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancelled</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The request has been cancelled"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">});</span>
 </pre></div>
 
 <h3>
