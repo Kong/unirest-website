@@ -140,6 +140,12 @@ header li.active {
     opacity:1;
 }
 
+.big-text {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 4px 0;
+}
+
 
 nav {
 	z-index: 20;
