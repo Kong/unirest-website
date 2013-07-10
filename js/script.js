@@ -17,13 +17,13 @@ $(document).ready(function () {
 
 	/* Logic */
 	function doThings(hash) {
-		console.log(hash);
 		var lang = hash.substr(1);
 
 		/* Github Buttons */
 		$('#social').hide();
 		$('header .github div').hide();
 		$('header .github-'+lang).fadeIn();
+		
 
 		$('section.selected').removeClass('selected');
 		$('section' + hash).addClass('selected');
