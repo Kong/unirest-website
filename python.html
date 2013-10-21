@@ -1,0 +1,134 @@
+<head>
+  <meta charset="utf-8">
+
+  <!-- Page title -->
+  <title>Unirest for Python - Simplified, lightweight HTTP Request Library</title>
+
+  <!-- Gotsta have that favicon-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <!-- Stylesheet -->
+  <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+  <menu>
+    <right>
+      <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
+    </right>
+
+    <a href="http://mashape.com">Mashape</a>
+    <a href="https://github.com/Mashape/unirest-python/graphs/contributors">Built By Mashapers</a>
+  </menu>
+
+  <div class="documentation"><h1>
+<a name="unirest-for-python" class="anchor" href="#unirest-for-python"><span class="octicon octicon-link"></span></a>Unirest for Python</h1>
+
+<p>Unirest is a set of lightweight HTTP libraries in multiple languages.</p>
+
+<h2>
+<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+
+<p>To utilize unirest, install the unirest pip:</p>
+
+<p><code>pip install unirest</code></p>
+
+<p>After installing the pip package you can now begin to simplifying requests by import:</p>
+
+<p><code>import unirest</code></p>
+
+<h3>
+<a name="creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h3>
+
+<p>So you're probably wondering how using Unirest makes creating requests in Python easier, let's start with a working example:</p>
+
+<div class="highlight highlight-python"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="p">{</span> <span class="s">"parameter"</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span> <span class="p">})</span>
+</pre></div>
+
+<h2>
+<a name="asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
+
+<p>Python also has support for asynchronous requests in which you can define a <code>callback</code> to be passed along and invoked when Unirest recieves the response.
+For non-blocking requests in Python we need to define ourselves a callback to reference inside of our request method upon response:</p>
+
+<div class="highlight highlight-python"><pre><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+  <span class="n">response</span><span class="o">.</span><span class="n">code</span> <span class="c"># The HTTP status code</span>
+  <span class="n">response</span><span class="o">.</span><span class="n">headers</span> <span class="c"># The HTTP headers</span>
+  <span class="n">response</span><span class="o">.</span><span class="n">body</span> <span class="c"># The parsed response</span>
+  <span class="n">response</span><span class="o">.</span><span class="n">raw_body</span> <span class="c"># The unparsed response</span>
+
+  <span class="n">thread</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="p">{</span> <span class="s">"parameter"</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span> <span class="p">},</span> <span class="n">callback</span><span class="p">)</span>
+</pre></div>
+
+<h2>
+<a name="file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+
+<p>Transferring file data requires that you <code>open</code> the file in a readable <code>r</code> mode:</p>
+
+<div class="highlight highlight-python"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span><span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s">"parameter"</span><span class="p">:</span> <span class="s">"value"</span><span class="p">,</span>
+    <span class="s">"file"</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/tmp/file"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"r"</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+
+<h2>
+<a name="custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+
+<div class="highlight highlight-python"><pre><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span>
+  <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+    <span class="s">"parameter"</span><span class="p">:</span> <span class="s">"value"</span><span class="p">,</span>
+    <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span>
+  <span class="p">})</span>
+<span class="p">)</span>
+</pre></div>
+
+<h1>
+<a name="request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+
+<div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">unirest</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">unirest</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>    
+<span class="n">unirest</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+<ul>
+<li>
+<code>url</code> - Endpoint, address, or uri to be acted upon and requested information from.</li>
+<li>
+<code>headers</code> - Request Headers as associative array or object</li>
+<li>
+<code>body</code> - Request Body associative array or object</li>
+<li>
+<code>callback</code> - Asychronous callback method to be invoked upon result.</li>
+</ul><h1>
+<a name="response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+
+<p>Upon recieving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.</p>
+
+<ul>
+<li>
+<code>code</code> - HTTP Response Status Code (Example 200)</li>
+<li>
+<code>headers</code>- HTTP Response Headers</li>
+<li>
+<code>body</code>- Parsed response body where applicable, for example JSON responses are parsed to Objects / Associative Arrays.</li>
+<li>
+<code>raw_body</code>- Un-parsed response body</li>
+</ul>  </div>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  $('a img').parent().css('border-bottom', '0px')
+  </script>
+  <script type="text/javascript">
+    var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.NET/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])}; analytics.load("xsv6p66v1y");
+  </script>
+</body>
+</html>

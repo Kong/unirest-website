@@ -1,0 +1,475 @@
+@import url('fonts.css');
+@import url('normalize.css');
+
+body, html {
+  font-family: 'Open Sans', 'Helvetica';
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  
+  color: white;
+  background: #131C26;
+}
+
+a, a:hover {
+  color: #29BB9C;
+  text-decoration: none;
+  border-bottom: 1px solid #29BB9C;
+  transition: all .3s ease-in;
+}
+
+a ~ img {
+  border-bottom: 0px;
+}
+
+a:hover {
+  color: #FFFFFF;
+  border-bottom: 1px solid #121A24;
+}
+
+pre, code {
+  font-family: 'Source Code Pro';
+}
+
+.documentation {
+  padding-bottom: 80px;
+}
+
+menu {
+  font-family: 'Open Sans';
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  padding: 20px;
+  margin: 0;
+  background: white;
+  box-shadow: 0 -1px 15px rgba(0,0,0,0.2);
+}
+
+menu right {
+  display: inline-block;
+  float: right;
+  padding: 0 40px;
+}
+
+menu a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #97A3B6;
+  border: 0px;
+  transition: all .3s ease-in;
+  padding: 0 20px 0 0;
+  display: inline-block;
+}
+
+menu a:hover {
+  color: #0D131A;
+  text-decoration: none;
+  border: 0px;
+}
+
+article {
+    max-width: 944px;
+    margin: auto;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2, h3 , h4 {
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Titillium Web';
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+  min-width: 460px;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body { 
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 3.4285714285714284em;
+  line-height: 1.3125em;
+  margin-top: 1.5em;
+}
+
+h2 {
+  font-size: 2.2857142857142856em;
+  line-height: 1.96875em;
+}
+
+h3 {
+  font-size: 1.7142857142857142em;
+  line-height: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+  line-height: 2em;
+  margin-top: 2em;
+}
+
+h5 {
+  font-size: 1.2857142857142858em;
+  line-height: 2.3333333333333335em;
+}
+
+h6 {
+  font-size: 1.1428571428571428em;
+  line-height: 2.625em;
+}
+
+p {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  margin-bottom: 1.5em;
+}
+
+p a img {
+  background: hsl(167, 64%, 45%);
+  padding: 20px;
+  width: 100%;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.highlight, pre code {
+  display: block;
+  min-width: 460px;
+  max-width: 860px;
+  margin: 0 auto;
+  background: #0F161E;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.highlight pre {
+  margin: 0 2px;
+}
+
+.highlight pre span {
+  display: inline-block;
+}
+
+p, ol, ul, blockquote, pre, code, .highlight {
+  line-height: 18px;
+  margin-bottom 18px;
+  /* 1.5em provides good vertical spacing ( = 150% of the font-size) */
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+li {
+  margin-bottom: .2em;
+}
+
+p, ul, ol {
+  color: hsl(217, 24%, 25%);
+  list-style: none;
+}
+
+code {
+  color: #97A3B6;
+}
+
+.highlight {
+  color: #416082;
+}
+
+.highlight .c {
+  color: #192532;
+  font-style: italic;
+}
+
+.highlight .err {
+  color: hsl(0, 0%, 20%);
+}
+
+.highlight .k {
+  color: #334C67;
+}
+
+
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+
+.highlight .c1 {
+  color: #192532;
+  font-style: italic;
+}
+
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+
+.highlight .gd .x {
+  color: #000000;
+  background-color: #ffaaaa;
+}
+
+.highlight .ge {
+  font-style: italic;
+}
+
+.highlight .gr {
+  color: #aa0000;
+}
+
+.highlight .gh {
+  color: #999999;
+}
+
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+
+.highlight .gi .x {
+  color: #000000;
+  background-color: #aaffaa;
+}
+
+.highlight .go {
+  color: #888888;
+}
+
+.highlight .gp {
+  color: #555555;
+}
+
+.highlight .gs {
+  font-weight: bold;
+}
+
+.highlight .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+.highlight .gt {
+  color: #aa0000;
+}
+
+.highlight .kc {
+  font-weight: bold;
+}
+
+.highlight .kd {
+  color: #334C67;
+}
+
+.highlight .kn {
+  font-weight: bold;
+}
+
+.highlight .kp {
+  font-weight: bold;
+}
+
+.highlight .kr {
+  font-weight: bold;
+}
+
+.highlight .kt {
+  color: #3C94D3;
+}
+
+.highlight .m {
+  color: #009999;
+}
+
+.highlight .s {
+  color: #EB5250;
+}
+
+.highlight .na {
+  color: #29BB9C;
+}
+
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+
+.highlight .no {
+  color: #008080;
+}
+
+.highlight .ni {
+  color: #800080;
+}
+
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+
+.highlight .nf {
+  color: #ADBBD1;
+}
+
+.highlight .nn {
+  color: #555555;
+}
+
+.highlight .nt {
+  color: #1B2836;
+}
+
+.highlight .nv {
+  color: #008080;
+}
+
+.highlight .ow {
+  font-weight: bold;
+}
+
+.highlight .w {
+  color: #bbbbbb;
+}
+
+.highlight .mf {
+  color: #009999;
+}
+
+.highlight .mh {
+  color: #009999;
+}
+
+.highlight .mi {
+  color: #009999;
+}
+
+.highlight .mo {
+  color: #009999;
+}
+
+.highlight .sb {
+  color: #d14;
+}
+
+.highlight .sc {
+  color: #d14;
+}
+
+.highlight .sd {
+  color: #d14;
+}
+
+.highlight .s2 {
+  color: #d14;
+}
+
+.highlight .se {
+  color: #d14;
+}
+
+.highlight .sh {
+  color: #d14;
+}
+
+.highlight .si {
+  color: #d14;
+}
+
+.highlight .sx {
+  color: #d14;
+}
+
+.highlight .sr {
+  color: #009926;
+}
+
+.highlight .s1 {
+  color: #EB5250;
+}
+
+
+.highlight .bp {
+  color: #999999;
+}
+
+.highlight .vc {
+  color: #008080;
+}
+
+.highlight .vg {
+  color: #008080;
+}
+
+.highlight .vi {
+  color: #008080;
+}
+
+.highlight .il {
+  color: #009999;
+}
+
+.highlight .gc {
+  color: #999;
+  background-color: #EAF2F5;
+}
+
+.type-csharp .highlight .k {
+  color: #0000FF;
+}
+
+.type-csharp .highlight .kt {
+  color: #0000FF;
+}
+
+.type-csharp .highlight .nf {
+  color: #000000;
+  font-weight: normal;
+}
+
+.type-csharp .highlight .nc {
+  color: #2B91AF;
+}
+
+.type-csharp .highlight .nn {
+  color: #000000;
+}
+
+.type-csharp .highlight .s {
+  color: #A31515;
+}
+
+.type-csharp .highlight .sc {
+  color: #A31515;
+}
+
+@media (max-width: 860px) {
+  .highlight, pre code {
+    border-radius: 0;
+  }
+}

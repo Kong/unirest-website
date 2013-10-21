@@ -1,0 +1,122 @@
+<head>
+  <meta charset="utf-8">
+
+  <!-- Page title -->
+  <title>Unirest for Ruby - Simplified, lightweight HTTP Request Library</title>
+
+  <!-- Gotsta have that favicon-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <!-- Stylesheet -->
+  <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+  <menu>
+    <right>
+      <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
+    </right>
+
+    <a href="http://mashape.com">Mashape</a>
+    <a href="https://github.com/Mashape/unirest-ruby/graphs/contributors">Built By Mashapers</a>
+  </menu>
+
+  <div class="documentation"><h1>
+<a name="unirest-for-ruby" class="anchor" href="#unirest-for-ruby"><span class="octicon octicon-link"></span></a>Unirest for Ruby</h1>
+
+<p>Unirest is a set of lightweight HTTP libraries available in multiple languages.</p>
+
+<h2>
+<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+
+<p>To utilize unirest, install the <code>unirest</code> gem:</p>
+
+<pre><code>gem install unirest
+</code></pre>
+
+<p>After installing the gem package you can now begin to simplifying requests by requiring <code>unirest</code>:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'unirest'</span>
+</pre></div>
+
+<h2>
+<a name="creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
+
+<p>So you're probably wondering how using Unirest makes creating requests in Ruby easier, let's start with a working example:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+  <span class="p">{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="ss">:parameter</span> <span class="o">=&gt;</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span>
+  <span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+
+<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+  <span class="p">{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="ss">:parameter</span> <span class="o">=&gt;</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="ss">:file</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"/path/to/file"</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+
+<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+  <span class="p">{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="ss">:parameter</span> <span class="o">=&gt;</span> <span class="s2">"value"</span><span class="p">,</span>
+    <span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span>
+  <span class="p">}</span><span class="o">.</span><span class="n">to_json</span>
+</pre></div>
+
+<h1>
+<a name="request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+
+<div class="highlight highlight-ruby"><pre><span class="ss">Unirest</span><span class="p">:</span><span class="ss">:get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span> 
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">body</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="ss">Unirest</span><span class="p">:</span><span class="ss">:delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+</pre></div>
+
+<ul>
+<li>
+<code>url</code> (<code>String</code>) - Endpoint, address, or uri to be acted upon and requested information from.</li>
+<li>
+<code>headers</code> (<code>Object</code>) - Request Headers as associative array or object</li>
+<li>
+<code>body</code> (<code>Array</code> | <code>Object</code> | <code>String</code>) - Request Body associative array or object</li>
+<li>
+<code>callback</code> (<code>Function</code>) - <em>Optional</em>; Asychronous callback method to be invoked upon result.</li>
+</ul><h1>
+<a name="response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+
+<p>Upon recieving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.</p>
+
+<ul>
+<li>
+<code>code</code> - HTTP Response Status Code (Example <code>200</code>)</li>
+<li>
+<code>headers</code> - HTTP Response Headers</li>
+<li>
+<code>body</code> - Parsed response body where applicable, for example JSON responses are parsed to Objects / Associative Arrays.</li>
+<li>
+<code>raw_body</code> - Un-parsed response body</li>
+</ul>  </div>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  $('a img').parent().css('border-bottom', '0px')
+  </script>
+  <script type="text/javascript">
+    var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.NET/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])}; analytics.load("xsv6p66v1y");
+  </script>
+</body>
+</html>

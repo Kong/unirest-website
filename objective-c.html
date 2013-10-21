@@ -1,0 +1,213 @@
+<head>
+  <meta charset="utf-8">
+
+  <!-- Page title -->
+  <title>Unirest for Objective-C - Simplified, lightweight HTTP Request Library</title>
+
+  <!-- Gotsta have that favicon-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <!-- Stylesheet -->
+  <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+  <menu>
+    <right>
+      <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
+    </right>
+
+    <a href="http://mashape.com">Mashape</a>
+    <a href="https://github.com/Mashape/unirest-obj-c/graphs/contributors">Built By Mashapers</a>
+  </menu>
+
+  <div class="documentation"><h1>
+<a name="unirest-for-objective-c" class="anchor" href="#unirest-for-objective-c"><span class="octicon octicon-link"></span></a>Unirest for Objective-C</h1>
+
+<p>Unirest is a set of lightweight HTTP libraries available in multiple languages.</p>
+
+<h2>
+<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+
+<p><a href="https://github.com/Mashape/unirest-obj-c/archive/master.zip">Download</a> the Objective-C Unirest Library from <a href="https://github.com/Mashape/unirest-obj-c">GitHub</a> (or clone the repo) and import the folder into your project.</p>
+
+<p>The Unirest-Obj-C client library requires ARC (Automatic Reference Counting) to be enabled in your XCode project. To enable ARC select your project or target and then go to Build Settings and under the section Apple LLVM compiler 3.0 - Language you will see the option Objective-C Automatic Reference Counting:</p>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" alt="Enable ARC in xcode" style="max-width:100%;"></a></p>
+
+<p>For existing projects, fortunately XCode offers a tool to convert existing code to ARC, which is available at Edit -&gt; Refactor  -&gt; Convert to Objective-C ARC</p>
+
+<h2>
+<a name="creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
+
+<p>So you're probably wondering how using Unirest makes creating requests in Objective-C easier, let's look at a working example:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="s">@"bar"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+
+<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Unirest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
+<span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
+</pre></div>
+
+<p>Just like in the Unirest Java library the Objective-C library supports multiple response types given as the last parameter. In the example above we use <code>asJson</code> to get a JSON response, likewise there are <code>asBinary</code> and <code>asString</code> for responses of other nature such as file data and hypermedia responses.</p>
+
+<h2>
+<a name="asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
+
+<p>For non-blocking requests you will want to make an asychronous request to keep your application going while data is fetched or updated in the background, doing so with unirest is extremely easy with barely any code change from the previous example:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="s">@"bar"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+
+<span class="p">[[</span><span class="n">Unirest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
+<span class="p">}]</span> <span class="n">asJsonAsync</span><span class="o">:^</span><span class="p">(</span><span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// This is the asyncronous callback block</span>
+  <span class="kt">int</span> <span class="n">code</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">code</span><span class="p">];</span>
+  <span class="n">NSDictionary</span><span class="o">*</span> <span class="n">responseHeaders</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">headers</span><span class="p">];</span>
+  <span class="n">JsonNode</span><span class="o">*</span> <span class="n">body</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">body</span><span class="p">];</span>
+  <span class="n">NSData</span><span class="o">*</span> <span class="n">rawBody</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">rawBody</span><span class="p">];</span>
+<span class="p">}];</span>
+</pre></div>
+
+<h2>
+<a name="file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+
+<p>Transferring files through request with unirest in Objective-C can be done by creating a <code>NSURL</code> object and passing it along as a parameter value with a <code>MultipartRequest</code> like so:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<span class="n">NSURL</span> <span class="n">file</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="s">@"file"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+
+<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Unirest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">MultipartRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
+<span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
+</pre></div>
+
+<h2>
+<a name="custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+
+<p>To send a custom body such as JSON simply serialize your data utilizing the <code>NSJSONSerialization</code> with a <code>BodyRequest</code> and <code>[method]Entity</code> instead of just <code>[method]</code> block like so:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"application/json"</span><span class="p">,</span> <span class="s">@"accept"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span><span class="s">@"value"</span><span class="p">,</span> <span class="s">@"parameter"</span><span class="p">,</span> <span class="s">@"bar"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+
+<span class="n">HttpJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Unirest</span> <span class="n">postEntity</span><span class="o">:^</span><span class="p">(</span><span class="n">BodyRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
+  <span class="c1">// Converting NSDictionary to JSON:</span>
+  <span class="p">[</span><span class="n">request</span> <span class="n">setBody</span><span class="o">:</span><span class="p">[</span><span class="n">NSJSONSerialization</span> <span class="n">dataWithJSONObject</span><span class="o">:</span><span class="n">headers</span> <span class="n">options</span><span class="o">:</span><span class="mi">0</span> <span class="n">error</span><span class="o">:</span><span class="nb">nil</span><span class="p">]];</span>
+<span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
+</pre></div>
+
+<h1>
+<a name="request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+
+<p>The Objective-C unirest library uses configuration blocks of type SimpleRequest, MultipartRequest and BodyRequest to configure the URL, Headers, and Parameters / Body of the request.</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="k">+</span><span class="p">(</span><span class="n">HttpRequest</span><span class="o">*</span><span class="p">)</span> <span class="nf">get:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">SimpleRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">post:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MultipartRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">postEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BodyRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">put:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MultipartRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">putEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BodyRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">patch:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MultipartRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">patchEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BodyRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequest</span><span class="o">*</span><span class="p">)</span> <span class="nf">delete:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">SimpleRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+</pre></div>
+
+<ul>
+<li>
+<p><code>HttpRequest</code> <code>[Unirest get:</code> <code>(void (^)(SimpleRequest*))] config;</code>  </p>
+
+<p>Sends equivalent request with method type to given URL</p>
+</li>
+<li>
+<p><code>HttpRequestWithBody</code> <code>[Unirest (post|postEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code>  </p>
+
+<p>Sends equivalent request with method type to given URL</p>
+</li>
+<li>
+<p><code>HttpRequestWithBody</code> <code>[Unirest (put|putEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code>  </p>
+
+<p>Sends equivalent request with method type to given URL</p>
+</li>
+<li>
+<p><code>HttpRequestWithBody</code> <code>[Unirest (patch|patchEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code>  </p>
+
+<p>Sends equivalent request with method type to given URL</p>
+</li>
+<li>
+<p><code>HttpRequest</code> <code>[Unirest delete:</code> <code>(void (^)(SimpleRequest*))] config;</code>  </p>
+
+<p>Sends equivalent request with method type to given URL</p>
+</li>
+</ul><h1>
+<a name="response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+
+<p>The <code>HttpRequest</code> and <code>HttpRequestWithBody</code> can then be executed by calling one of:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="k">-</span><span class="p">(</span><span class="n">HttpStringResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asString</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">asStringAsync:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">HttpStringResponse</span><span class="o">*</span><span class="p">))</span> <span class="n">response</span><span class="p">;</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">HttpBinaryResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asBinary</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">asBinaryAsync:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">HttpBinaryResponse</span><span class="o">*</span><span class="p">))</span> <span class="n">response</span><span class="p">;</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">HttpJsonResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asJson</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">asJsonAsync:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">HttpJsonResponse</span><span class="o">*</span><span class="p">))</span> <span class="n">response</span><span class="p">;</span>
+</pre></div>
+
+<ul>
+<li>
+<p><code>-(HttpStringResponse*)</code> <code>asString;</code>  </p>
+
+<p>Blocking request call with response returned as string for Hypermedia APIs or other.</p>
+</li>
+<li>
+<p><code>-(void)</code> <code>asStringAsync:</code> <code>(void (^)(HttpBinaryResponse*)) response;</code>  </p>
+
+<p>Asynchronous request call with response returned as string for Hypermedia APIs or other.</p>
+</li>
+<li>
+<p><code>-(HttpStringResponse*)</code> <code>asBinary;</code>  </p>
+
+<p>Blocking request call with response returned as binary output for files and other media.</p>
+</li>
+<li>
+<p><code>-(void)</code> <code>asBinaryAsync:</code> <code>(void (^)(HttpBinaryResponse*)) response;</code>  </p>
+
+<p>Asynchronous request call with response returned as binary output for files and other media.</p>
+</li>
+<li>
+<p><code>-(HttpStringResponse*)</code> <code>asJson;</code>  </p>
+
+<p>Blocking request call with response returned as JSON.</p>
+</li>
+<li>
+<p><code>-(void)</code> <code>asJsonAsync:</code> <code>(void (^)(HttpBinaryResponse*)) response;</code>  </p>
+
+<p>Asynchronous request call with response returned as JSON.</p>
+</li>
+</ul>  </div>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  $('a img').parent().css('border-bottom', '0px')
+  </script>
+  <script type="text/javascript">
+    var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.NET/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])}; analytics.load("xsv6p66v1y");
+  </script>
+</body>
+</html>
