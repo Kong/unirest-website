@@ -39,7 +39,7 @@ menu {
   font-family: 'Open Sans';
   position: fixed;
   z-index: 1;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
   display: block;
@@ -179,7 +179,7 @@ li {
 }
 
 p, ul, ol {
-  color: #385576;
+  color: #486F9A;
   list-style: none;
 }
 
