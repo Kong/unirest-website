@@ -27,7 +27,8 @@
   </menu>
 
   <div class="documentation"><h1>
-<a name="unirest-for-objective-c" class="anchor" href="#unirest-for-objective-c"><span class="octicon octicon-link"></span></a>Unirest for Objective-C</h1>
+<a name="unirest-for-objective-c-" class="anchor" href="#unirest-for-objective-c-"><span class="octicon octicon-link"></span></a>Unirest for Objective-C <a href="https://travis-ci.org/Mashape/unirest-obj-c"><img src="https://api.travis-ci.org/Mashape/unirest-obj-c.png" alt="Build Status" style="max-width:100%;"></a>
+</h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages.</p>
 
@@ -36,11 +37,11 @@
 
 <p><a href="https://github.com/Mashape/unirest-obj-c/archive/master.zip">Download</a> the Objective-C Unirest Library from <a href="https://github.com/Mashape/unirest-obj-c">GitHub</a> (or clone the repo) and import the folder into your project.</p>
 
-<p>The Unirest-Obj-C client library requires ARC (Automatic Reference Counting) to be enabled in your XCode project. To enable ARC select your project or target and then go to Build Settings and under the section Apple LLVM compiler 3.0 - Language you will see the option Objective-C Automatic Reference Counting:</p>
+<p>The Unirest-Obj-C client library requires ARC (Automatic Reference Counting) to be enabled in your Xcode project. To enable ARC select your project or target and then go to Build Settings and under the section Apple LLVM compiler 3.0 - Language you will see the option Objective-C Automatic Reference Counting:</p>
 
-<p><a href="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" alt="Enable ARC in xcode" style="max-width:100%;"></a></p>
+<p><a href="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" alt="Enable ARC in Xcode" style="max-width:100%;"></a></p>
 
-<p>For existing projects, fortunately XCode offers a tool to convert existing code to ARC, which is available at Edit -&gt; Refactor  -&gt; Convert to Objective-C ARC</p>
+<p>For existing projects, fortunately Xcode offers a tool to convert existing code to ARC, which is available at Edit -&gt; Refactor  -&gt; Convert to Objective-C ARC</p>
 
 <h2>
 <a name="creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
@@ -128,7 +129,8 @@
 <span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">patch:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MultipartRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
 <span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">patchEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BodyRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
 
-<span class="k">+</span><span class="p">(</span><span class="n">HttpRequest</span><span class="o">*</span><span class="p">)</span> <span class="nf">delete:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">SimpleRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">delete:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MultipartRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+<span class="k">+</span><span class="p">(</span><span class="n">HttpRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">deleteEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BodyRequest</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
 </pre></div>
 
 <ul>
@@ -153,7 +155,7 @@
 <p>Sends equivalent request with method type to given URL</p>
 </li>
 <li>
-<p><code>HttpRequest</code> <code>[Unirest delete:</code> <code>(void (^)(SimpleRequest*))] config;</code>  </p>
+<p><code>HttpRequestWithBody</code> <code>[Unirest (delete|deleteEntity):</code> <code>(void (^)(MultipartRequest|BodyRequest)(*))] config;</code></p>
 
 <p>Sends equivalent request with method type to given URL</p>
 </li>
