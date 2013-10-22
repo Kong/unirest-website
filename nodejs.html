@@ -89,7 +89,7 @@
 <p>A request can be initiated by invoking the appropriate method on the unirest object, then calling <code>.end()</code> to send the request. Alternatively you can send the request directly by providing a callback along with the url.</p>
 
 <h2>
-<a name="unirestmethod--uri" class="anchor" href="#unirestmethod--uri"><span class="octicon octicon-link"></span></a>unirest(method [, uri])</h2>
+<a name="unirestmethod--uri-headers-body-callback" class="anchor" href="#unirestmethod--uri-headers-body-callback"><span class="octicon octicon-link"></span></a>unirest(method [, uri, headers, body, callback])</h2>
 
 <ul>
 <li>
@@ -97,8 +97,14 @@
 <li>
 <code>uri</code> - <em>Optional</em>; When declared the method will return a <a href="#request">Request</a> object. 
       Otherwise it will return the method below with <code>method</code> set to the method given.</li>
+<li>
+<code>headers</code> (<code>Object</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>headers</code> argument when <code>uri</code> is present.</li>
+<li>
+<code>body</code> (<code>Mixed</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>body</code> argument when <code>uri</code> is present.</li>
+<li>
+<code>callback</code> (<code>Function</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>callback</code> argument when <code>uri</code> is present.</li>
 </ul><h2>
-<a name="unirestmethodurl--callback" class="anchor" href="#unirestmethodurl--callback"><span class="octicon octicon-link"></span></a>unirest[method](url [, callback])</h2>
+<a name="unirestmethodurl--headers-body-callback" class="anchor" href="#unirestmethodurl--headers-body-callback"><span class="octicon octicon-link"></span></a>unirest[method](url [, headers, body, callback])</h2>
 
 <ul>
 <li>
@@ -106,8 +112,17 @@
 <li>
 <code>url</code> - Request location.</li>
 <li>
-<code>callback</code> - <em>Optional</em>; </li>
-</ul><h3>
+<code>headers</code> (<code>Object</code> | <code>Function</code>) - <em>Optional</em>; When <code>Object</code> headers are passed along to the <code>Request.set()</code> method, 
+when <code>Function</code> this argument is used as the <code>callback</code>.</li>
+<li>
+<code>body</code> (<code>Mixed</code> | <code>Function</code>) - <em>Optional</em>; When <code>body</code> is not a <code>Function</code> it will be passed along to <code>Request.send()</code> method,
+otherwise when a <code>Function</code> it will be used as the <code>callback</code>.</li>
+<li>
+<code>callback</code> (<code>Function</code>) - <em>Optional</em>; Calls end with given argument, otherwise <code>Request</code> is returned.</li>
+</ul><p>All arguments above, with the exclusion of <code>url</code>, will accept a <code>Function</code> as the <code>callback</code>. 
+When no <code>callback</code> is present, the <a href="#request">Request</a> object will be returned.</p>
+
+<h3>
 <a name="get" class="anchor" href="#get"><span class="octicon octicon-link"></span></a>get</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>GET</code></p>
