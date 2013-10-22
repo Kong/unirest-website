@@ -179,12 +179,12 @@ li {
 }
 
 p, ul, ol {
-  color: #507AAA;
+  color: hsla(0, 100%, 100%, 0.5);
   list-style: none;
 }
 
 code {
-  color: #97A3B6;
+  color: #507AAA;
 }
 
 .highlight {
