@@ -27,42 +27,58 @@
   </menu>
 
   <div class="documentation"><h1>
-<a name="unirest-for-python" class="anchor" href="#unirest-for-python"><span class="octicon octicon-link"></span></a>Unirest for Python</h1>
+<a name="unirest-for-python-" class="anchor" href="#unirest-for-python-"><span class="octicon octicon-link"></span></a>Unirest for Python <a href="https://travis-ci.org/Mashape/unirest-python"><img src="https://api.travis-ci.org/Mashape/unirest-python.png" alt="Build Status" style="max-width:100%;"></a>
+</h1>
 
-<p>Unirest is a set of lightweight HTTP libraries in multiple languages.</p>
+<p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
+
+<ul>
+<li>Make <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code> requests</li>
+<li>Both syncronous and asynchronous (non-blocking) requests</li>
+<li>It supports form parameters, file uploads and custom body entities</li>
+<li>Supports gzip</li>
+<li>Supports Basic Authentication natively</li>
+<li>Customizable timeout</li>
+<li>Customizable default headers for every request (DRY)</li>
+<li>Automatic JSON parsing into a native object for JSON responses</li>
+</ul><p>Created with love by <a href="https://github.com/thefosk">thefosk</a> @ <a href="https://mashape.com">mashape.com</a></p>
 
 <h2>
 <a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
 
-<p>To utilize unirest, install the unirest pip:</p>
+<p>To utilize Unirest, install it using pip:</p>
 
 <p><code>pip install unirest</code></p>
 
-<p>After installing the pip package you can now begin to simplifying requests by import:</p>
+<p>After installing the pip package, you can now begin simplifying requests by importing unirest:</p>
 
 <p><code>import unirest</code></p>
 
 <h3>
-<a name="creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h3>
+<a name="creating-requests" class="anchor" href="#creating-requests"><span class="octicon octicon-link"></span></a>Creating Requests</h3>
 
 <p>So you're probably wondering how using Unirest makes creating requests in Python easier, let's start with a working example:</p>
 
-<div class="highlight highlight-python"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="p">{</span> <span class="s">"parameter"</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span> <span class="p">})</span>
+<div class="highlight highlight-python"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span> <span class="s">"parameter"</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span> <span class="p">})</span>
+
+<span class="n">response</span><span class="o">.</span><span class="n">code</span> <span class="c"># The HTTP status code</span>
+<span class="n">response</span><span class="o">.</span><span class="n">headers</span> <span class="c"># The HTTP headers</span>
+<span class="n">response</span><span class="o">.</span><span class="n">body</span> <span class="c"># The parsed response</span>
+<span class="n">response</span><span class="o">.</span><span class="n">raw_body</span> <span class="c"># The unparsed response</span>
 </pre></div>
 
 <h2>
 <a name="asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
 
-<p>Python also has support for asynchronous requests in which you can define a <code>callback</code> to be passed along and invoked when Unirest recieves the response.
-For non-blocking requests in Python we need to define ourselves a callback to reference inside of our request method upon response:</p>
+<p>Python also supports asynchronous requests in which you can define a <code>callback</code> function to be passed along and invoked when Unirest receives the response:</p>
 
-<div class="highlight highlight-python"><pre><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+<div class="highlight highlight-python"><pre><span class="k">def</span> <span class="nf">callback_function</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
   <span class="n">response</span><span class="o">.</span><span class="n">code</span> <span class="c"># The HTTP status code</span>
   <span class="n">response</span><span class="o">.</span><span class="n">headers</span> <span class="c"># The HTTP headers</span>
   <span class="n">response</span><span class="o">.</span><span class="n">body</span> <span class="c"># The parsed response</span>
   <span class="n">response</span><span class="o">.</span><span class="n">raw_body</span> <span class="c"># The unparsed response</span>
 
-  <span class="n">thread</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="p">{</span> <span class="s">"parameter"</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span> <span class="p">},</span> <span class="n">callback</span><span class="p">)</span>
+<span class="n">thread</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span> <span class="s">"parameter"</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span> <span class="p">},</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback_function</span><span class="p">)</span>
 </pre></div>
 
 <h2>
@@ -70,8 +86,8 @@ For non-blocking requests in Python we need to define ourselves a callback to re
 
 <p>Transferring file data requires that you <code>open</code> the file in a readable <code>r</code> mode:</p>
 
-<div class="highlight highlight-python"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span><span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">},</span>
-  <span class="p">{</span>
+<div class="highlight highlight-python"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">},</span>
+  <span class="n">params</span><span class="o">=</span><span class="p">{</span>
     <span class="s">"parameter"</span><span class="p">:</span> <span class="s">"value"</span><span class="p">,</span>
     <span class="s">"file"</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/tmp/file"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"r"</span><span class="p">)</span>
   <span class="p">}</span>
@@ -83,37 +99,49 @@ For non-blocking requests in Python we need to define ourselves a callback to re
 
 <div class="highlight highlight-python"><pre><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span>
-  <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span> <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span>
+  <span class="n">params</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
     <span class="s">"parameter"</span><span class="p">:</span> <span class="s">"value"</span><span class="p">,</span>
     <span class="s">"foo"</span><span class="p">:</span> <span class="s">"bar"</span>
   <span class="p">})</span>
 <span class="p">)</span>
 </pre></div>
 
+<p><strong>Note</strong>: For the sake of semplicity, even with custom entities in the body, the keyword argument is still <code>params</code> (instead of <code>data</code> for example). I'm looking for feedback on this.</p>
+
+<h3>
+<a name="basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
+
+<p>Authenticating the request with basic authentication can be done by providing an <code>auth</code> array like:</p>
+
+<div class="highlight highlight-python"><pre><span class="n">response</span> <span class="o">=</span> <span class="n">unirest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://httpbin.org/get"</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s">'username'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">))</span>
+</pre></div>
+
 <h1>
 <a name="request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
 
-<div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-<span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-<span class="n">unirest</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-<span class="n">unirest</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>    
-<span class="n">unirest</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">auth</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">auth</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">unirest</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">auth</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">unirest</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">auth</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>    
+<span class="n">unirest</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">auth</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
 </pre></div>
 
 <ul>
 <li>
-<code>url</code> - Endpoint, address, or uri to be acted upon and requested information from.</li>
+<code>url</code> - Endpoint, address, or URI to be acted upon and requested information from in a string format.</li>
 <li>
-<code>headers</code> - Request Headers as associative array or object</li>
+<code>headers</code> - Request Headers as an associative array</li>
 <li>
-<code>body</code> - Request Body associative array or object</li>
+<code>params</code> - Request Body as an associative array or object</li>
+<li>
+<code>auth</code> - The Basic Authentication credentials as an array</li>
 <li>
 <code>callback</code> - Asychronous callback method to be invoked upon result.</li>
 </ul><h1>
 <a name="response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
 
-<p>Upon recieving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.</p>
+<p>Upon receiving a response, Unirest returns the result in the form of an Object. This object should always have the same keys for each language regarding to the response details.</p>
 
 <ul>
 <li>
@@ -124,7 +152,32 @@ For non-blocking requests in Python we need to define ourselves a callback to re
 <code>body</code>- Parsed response body where applicable, for example JSON responses are parsed to Objects / Associative Arrays.</li>
 <li>
 <code>raw_body</code>- Un-parsed response body</li>
-</ul>  </div>
+</ul><h1>
+<a name="advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
+
+<p>You can set some advanced configuration to tune Unirest-Python:</p>
+
+<h3>
+<a name="timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
+
+<p>You can set a custom timeout value (in <strong>seconds</strong>):</p>
+
+<div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># 5s timeout</span>
+</pre></div>
+
+<h3>
+<a name="default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
+
+<p>You can set default headers that will be sent on every request:</p>
+
+<div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">default_header</span><span class="p">(</span><span class="s">'Header1'</span><span class="p">,</span><span class="s">'Value1'</span><span class="p">)</span>
+<span class="n">unirest</span><span class="o">.</span><span class="n">default_header</span><span class="p">(</span><span class="s">'Header2'</span><span class="p">,</span><span class="s">'Value2'</span><span class="p">)</span>
+</pre></div>
+
+<p>You can clear the default headers anytime with:</p>
+
+<div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">clear_default_headers</span><span class="p">()</span>
+</pre></div>  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')
