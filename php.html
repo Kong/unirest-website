@@ -2,7 +2,11 @@
   <meta charset="utf-8">
 
   <!-- Page title -->
-  <title>Unirest for PHP - Simplified, lightweight HTTP Request Library</title>
+  <title>Unirest PHP - Lightweight HTTP Request Client Library</title>
+  <meta description="An opensource php http client library that speeds up making HTTP requests in multiple languages. Handles authentication, body parsing, and more."/>
+  <meta keywords="http, client, library, REST, curl, alternative, query, headers, parameters, composer, guzzler, Httpful, json"/>
+  <meta property="og:title" content="Unirest {{libraryFormatted}} - Lightweight HTTP Request Client Library" />
+  <meta property="og:image" content="http://unirest.io/img/logo.png" />
 
   <!-- Gotsta have that favicon-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -17,19 +21,16 @@
 <body>
   <a href="https://github.com/mashape/unirest-php"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
-  <menu>
-    <right>
-      <a href="http://mashape.com">Mashape</a>
-      <a href="https://github.com/Mashape/unirest-php/graphs/contributors">Built By Mashapers</a>
-    </right>
+  <nav>
+    <div class="right">
+      <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+    </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
-  </menu>
+  </nav>
 
-  <div class="documentation"><hr><p><strong>To the community</strong>: At this time Unirest-PHP only support syncronous requests, and I would really love to implement  asynchronous support. If you guys have any feedback or ideas please comment on issue <a href="https://github.com/Mashape/unirest-php/issues/23">#23</a>.</p>
-
-<hr><h1>
-<a name="unirest-for-php-" class="anchor" href="#unirest-for-php-"><span class="octicon octicon-link"></span></a>Unirest for PHP <a href="https://travis-ci.org/Mashape/unirest-php"><img src="https://api.travis-ci.org/Mashape/unirest-php.png" alt="Build Status" style="max-width:100%;"></a>
+<h1>
+<a name="unirest-for-php-" class="anchor" href="#unirest-for-php-"><span class="octicon octicon-link"></span></a>Unirest for PHP 
 </h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
@@ -72,7 +73,7 @@ dependencies, you can add Unirest with it.</p>
 
 <p>And include it in your scripts:</p>
 
-<div class="highlight highlight-bash"><pre>require_once <span class="s1">'/path/to/unirest-php/lib/Unirest.php'</span>;
+<div class="highlight highlight-bash"><pre>require_once <span class="s1">'/path/to/unirest-php/lib/Unirest.php'</span><span class="p">;</span>
 </pre></div>
 
 <h2>
@@ -96,11 +97,11 @@ dependencies, you can add Unirest with it.</p>
 <h3>
 <a name="file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h3>
 
-<p>To upload files in a multipart form representation simply place an <code>@</code> symbol before the path:</p>
+<p>To upload files in a multipart form representation use the return value of <code>Unirest::file($path)</code> as the value of a parameter:</p>
 
 <div class="highlight highlight-php"><pre><span class="nv">$response</span> <span class="o">=</span> <span class="nx">Unirest</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s2">"http://httpbin.org/post"</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">),</span>
   <span class="k">array</span><span class="p">(</span>
-    <span class="s2">"file"</span> <span class="o">=&gt;</span> <span class="s2">"@/tmp/file.txt"</span>
+    <span class="s2">"file"</span> <span class="o">=&gt;</span> <span class="nx">Unirest</span><span class="o">::</span><span class="na">file</span><span class="p">(</span><span class="s2">"/tmp/file.txt"</span><span class="p">)</span> <span class="c1">// Tells Unirest where the file is located</span>
   <span class="p">)</span>
 <span class="p">);</span>
 </pre></div>
@@ -188,7 +189,17 @@ dependencies, you can add Unirest with it.</p>
 <p>You can clear the default headers anytime with:</p>
 
 <div class="highlight highlight-php"><pre><span class="nx">Unirest</span><span class="o">::</span><span class="na">clearDefaultHeaders</span><span class="p">();</span>
-</pre></div>  </div>
+</pre></div>
+
+<h3>
+<a name="ssl-validation" class="anchor" href="#ssl-validation"><span class="octicon octicon-link"></span></a>SSL validation</h3>
+
+<p>You can explicitly enable or disable SSL certificate validation when consuming an SSL protected endpoint:</p>
+
+<div class="highlight highlight-php"><pre><span class="nx">Unirest</span><span class="o">::</span><span class="na">verifyPeer</span><span class="p">(</span><span class="k">false</span><span class="p">);</span> <span class="c1">// Disables SSL cert validation</span>
+</pre></div>
+
+<p>By default is <code>true</code>.</p>  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')

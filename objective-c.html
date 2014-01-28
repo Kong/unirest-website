@@ -2,7 +2,11 @@
   <meta charset="utf-8">
 
   <!-- Page title -->
-  <title>Unirest for Objective-C - Simplified, lightweight HTTP Request Library</title>
+  <title>Unirest Objective-C - Lightweight HTTP Request Client Library</title>
+  <meta description="An opensource obj-c http client library that speeds up making HTTP requests in multiple languages. Handles authentication, body parsing, and more."/>
+  <meta keywords="http, client, library, REST, curl, alternative, query, headers, parameters, CocoaPods, asynchronous, gzip, json"/>
+  <meta property="og:title" content="Unirest {{libraryFormatted}} - Lightweight HTTP Request Client Library" />
+  <meta property="og:image" content="http://unirest.io/img/logo.png" />
 
   <!-- Gotsta have that favicon-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -17,17 +21,16 @@
 <body>
   <a href="https://github.com/mashape/unirest-obj-c"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
-  <menu>
-    <right>
-      <a href="http://mashape.com">Mashape</a>
-      <a href="https://github.com/Mashape/unirest-obj-c/graphs/contributors">Built By Mashapers</a>
-    </right>
+  <nav>
+    <div class="right">
+      <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+    </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
-  </menu>
+  </nav>
 
   <div class="documentation"><h1>
-<a name="unirest-for-objective-c-" class="anchor" href="#unirest-for-objective-c-"><span class="octicon octicon-link"></span></a>Unirest for Objective-C <a href="https://travis-ci.org/Mashape/unirest-obj-c"><img src="https://api.travis-ci.org/Mashape/unirest-obj-c.png" alt="Build Status" style="max-width:100%;"></a>
+<a name="unirest-for-objective-c-" class="anchor" href="#unirest-for-objective-c-"><span class="octicon octicon-link"></span></a>Unirest for Objective-C <a href="https://travis-ci.org/Mashape/unirest-obj-c"><img src="https://github-camo.global.ssl.fastly.net/ce9d3c5f4c47f3bd04ec3886d040731aeb879a85/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d6f626a2d632e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-obj-c.png" style="max-width:100%;"></a>
 </h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
@@ -48,9 +51,32 @@
 
 <p><a href="https://github.com/Mashape/unirest-obj-c/archive/master.zip">Download</a> the Objective-C Unirest Library from <a href="https://github.com/Mashape/unirest-obj-c">GitHub</a> (or clone the repo) and import the folder into your project. You can also install Unirest-obj-c with <a href="http://cocoapods.org/">CocoaPods</a>.</p>
 
+<h3>
+<a name="cocoapods" class="anchor" href="#cocoapods"><span class="octicon octicon-link"></span></a>CocoaPods</h3>
+
+<p>If you decide to use CocoaPods, create a <code>Podfile</code> file in your project's folder:</p>
+
+<pre><code>$ edit Podfile
+platform :ios, '5.0'
+pod 'Unirest', '~&gt; 1.1.2'
+</code></pre>
+
+<p>and then execute <code>pod install</code>. Make sure to always open the Xcode <strong>workspace</strong> instead of the project file when building your project:</p>
+
+<pre><code>$ open App.xcworkspace
+</code></pre>
+
+<p>Now you can import your dependencies:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="cp">#import &lt;UNIRest.h&gt;</span>
+</pre></div>
+
+<h3>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
+
 <p>The Unirest-Obj-C client library requires ARC (Automatic Reference Counting) to be enabled in your Xcode project. To enable ARC select your project or target and then go to Build Settings and under the section Apple LLVM compiler 3.0 - Language you will see the option Objective-C Automatic Reference Counting:</p>
 
-<p><a href="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" alt="Enable ARC in Xcode" style="max-width:100%;"></a></p>
+<p><a href="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" alt="Enable ARC in Xcode" data-canonical-src="http://unirest.io/img/arc-enable.png" style="max-width:100%;"></a></p>
 
 <p>For existing projects, fortunately Xcode offers a tool to convert existing code to ARC, which is available at Edit -&gt; Refactor  -&gt; Convert to Objective-C ARC</p>
 
@@ -59,8 +85,8 @@
 
 <p>So you're probably wondering how using Unirest makes creating requests in Objective-C easier, let's look at a working example:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
 
 <span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
@@ -76,8 +102,8 @@
 
 <p>For non-blocking requests you will want to make an asychronous request to keep your application going while data is fetched or updated in the background, doing so with unirest is extremely easy with barely any code change from the previous example:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
 
 <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
@@ -111,9 +137,9 @@
 
 <p>Transferring files through request with unirest in Objective-C can be done by creating a <code>NSURL</code> object and passing it along as a parameter value with a <code>UNISimpleRequest</code> like so:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
 <span class="n">NSURL</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"file"</span><span class="o">:</span> <span class="n">file</span><span class="p">};</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"file"</span><span class="o">:</span> <span class="n">file</span><span class="p">};</span>
 
 <span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
@@ -127,8 +153,8 @@
 
 <p>To send a custom body such as JSON simply serialize your data utilizing the <code>NSJSONSerialization</code> with a <code>BodyRequest</code> and <code>[method]Entity</code> instead of just <code>[method]</code> block like so:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
+<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
 
 <span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">postEntity</span><span class="o">:^</span><span class="p">(</span><span class="n">UNIBodyRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>

@@ -2,7 +2,11 @@
   <meta charset="utf-8">
 
   <!-- Page title -->
-  <title>Unirest for Node.js - Simplified, lightweight HTTP Request Library</title>
+  <title>Unirest Node.js - Lightweight HTTP Request Client Library</title>
+  <meta description="An opensource nodejs http client library that speeds up making HTTP requests in multiple languages. Handles authentication, body parsing, and more."/>
+  <meta keywords="http, client, library, REST, curl, alternative, query, headers, parameters, npm, superagent, requests, restler, gzip"/>
+  <meta property="og:title" content="Unirest {{libraryFormatted}} - Lightweight HTTP Request Client Library" />
+  <meta property="og:image" content="http://unirest.io/img/logo.png" />
 
   <!-- Gotsta have that favicon-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -17,17 +21,16 @@
 <body>
   <a href="https://github.com/mashape/unirest-nodejs"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
-  <menu>
-    <right>
-      <a href="http://mashape.com">Mashape</a>
-      <a href="https://github.com/Mashape/unirest-nodejs/graphs/contributors">Built By Mashapers</a>
-    </right>
+  <nav>
+    <div class="right">
+      <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+    </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
-  </menu>
+  </nav>
 
   <div class="documentation"><h1>
-<a name="unirest-for-nodejs-" class="anchor" href="#unirest-for-nodejs-"><span class="octicon octicon-link"></span></a>Unirest for Node.js <a href="https://travis-ci.org/Mashape/unirest-nodejs"><img src="https://travis-ci.org/Mashape/unirest-nodejs.png?branch=master" alt="Build Status" style="max-width:100%;"></a>
+<a name="unirest-for-nodejs-" class="anchor" href="#unirest-for-nodejs-"><span class="octicon octicon-link"></span></a>Unirest for Node.js <a href="https://travis-ci.org/Mashape/unirest-nodejs"><img src="https://github-camo.global.ssl.fastly.net/6fb32bc3e1e26ce8f7c4cad6e8764bc9aa7e44a0/68747470733a2f2f7472617669732d63692e6f72672f4d6173686170652f756e69726573742d6e6f64656a732e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/Mashape/unirest-nodejs.png?branch=master" style="max-width:100%;"></a>
 </h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages.</p>
@@ -303,6 +306,7 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 <p><strong>JSON</strong></p>
 
 <div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s1">'json'</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">send</span><span class="p">({</span>
   <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span><span class="p">,</span>
   <span class="nx">hello</span><span class="o">:</span> <span class="mi">3</span>

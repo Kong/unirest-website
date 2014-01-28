@@ -35,7 +35,7 @@ pre, code {
   padding-bottom: 80px;
 }
 
-menu {
+nav {
   font-family: 'Open Sans';
   position: fixed;
   z-index: 1;
@@ -49,13 +49,21 @@ menu {
   box-shadow: 0 -1px 15px rgba(0,0,0,0.2);
 }
 
-menu right {
+nav .right {
   display: inline-block;
   float: right;
   padding: 0 40px;
 }
 
-menu a {
+nav .right a {
+  color: hsl(200, 100%, 50%);
+}
+
+nav .right a span {
+  color: hsl(217, 18%, 65%);
+}
+
+nav a {
   font-size: 14px;
   font-weight: 600;
   color: #97A3B6;
@@ -65,7 +73,7 @@ menu a {
   display: inline-block;
 }
 
-menu a:hover {
+nav a:hover {
   color: #0D131A;
   text-decoration: none;
   border: 0px;
