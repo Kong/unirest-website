@@ -22,6 +22,10 @@ pre, code {
   font-family: 'Source Code Pro';
 }
 
+h1 {
+  font-weight: 400;
+}
+
 h1, h2 {
   margin: 0;
 }
