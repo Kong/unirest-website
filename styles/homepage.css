@@ -16,8 +16,6 @@ body, html {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d131a', endColorstr='#141c27',GradientType=0 );
 }
 
-
-
 pre, code {
   font-family: 'Source Code Pro';
 }
@@ -77,6 +75,7 @@ nav a {
   transition: all .3s ease-in;
   padding: 0 20px 0 0;
   display: inline-block;
+  text-decoration: none;
 }
 
 nav a:hover {
