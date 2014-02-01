@@ -35,6 +35,17 @@ pre, code {
   padding-bottom: 80px;
 }
 
+.social {
+  position: relative;
+  top: 30px;
+  float: right;
+}
+
+.center {
+  text-align: center;
+  margin: 20px auto;
+}
+
 nav {
   font-family: 'Open Sans';
   position: fixed;
