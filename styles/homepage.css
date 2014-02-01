@@ -281,6 +281,11 @@ header h2 {
   background: #0D131A;
 }
 
+.plug {
+  font-size: 1.4em;
+  margin: 18px auto;
+}
+
 @media (max-width: 700px) {
    .button-list .button {
     width: 45%;
