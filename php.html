@@ -2,42 +2,32 @@
   <meta charset="utf-8">
 
   <!-- Page title -->
-  <title>Unirest PHP - Lightweight HTTP Request Client Library</title>
-  <meta description="An opensource php http client library that speeds up making HTTP requests in multiple languages. Handles authentication, body parsing, and more."/>
-  <meta keywords="http, client, library, REST, curl, alternative, query, headers, parameters, composer, guzzler, Httpful, json"/>
-  <meta property="og:title" content="Unirest php - Lightweight HTTP Request Client Library" />
-  <meta property="og:image" content="http://unirest.io/img/logo.png" />
+  <title>Unirest for PHP - Simplified, lightweight HTTP Request Library</title>
 
   <!-- Gotsta have that favicon-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Viewport -->
   <meta name="viewport" content="width=480">
-  
+
   <!-- Stylesheet -->
   <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-<!--   <a href="https://github.com/mashape/unirest-php"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>-->  
-
   <nav>
     <div class="right">
       <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="small" data-related="mashape" data-count="none">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-php&type=fork&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="52" height="20"></iframe>
     </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
   </nav>
 
-  <div class="documentation">
-
-    <p class="social">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="large" data-related="mashape" data-count="none">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> &nbsp; &nbsp; 
-        <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-php&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="29"></iframe>
-   <h1>
-<a name="unirest-for-php-" class="anchor" href="#unirest-for-php-"><span class="octicon octicon-link"></span></a>Unirest for PHP <a href="https://travis-ci.org/Mashape/unirest-php"><img src="https://github-camo.global.ssl.fastly.net/14fec2caa56a92653eab90c0b6e8b4fe8fbdcf86/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d7068702e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-php.png" style="max-width:100%;"></a>
+  <div class="documentation"><h1>
+<a name="user-content-unirest-for-php-" class="anchor" href="#unirest-for-php-"><span class="octicon octicon-link"></span></a>Unirest for PHP <a href="https://travis-ci.org/Mashape/unirest-php"><img src="https://camo.githubusercontent.com/14fec2caa56a92653eab90c0b6e8b4fe8fbdcf86/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d7068702e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-php.png" style="max-width:100%;"></a>
 </h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
@@ -50,12 +40,12 @@
 <li>Customizable timeout</li>
 <li>Customizable default headers for every request (DRY)</li>
 <li>Automatic JSON parsing into a native object for JSON responses</li>
-</ul>
+</ul><p>Created with love by <a href="https://github.com/thefosk">thefosk</a> @ <a href="https://mashape.com">mashape.com</a></p>
 
-<p>Created with love by  <a href="https://mashape.com">mashape.com</a></p>
+<hr><p><strong>To the community</strong>: At this time Unirest-PHP only support syncronous requests, and I would really love to implement  asynchronous support. If you guys have any feedback or ideas please comment on issue <a href="https://github.com/Mashape/unirest-php/issues/23">#23</a>.</p>
 
-<h3>
-<a name="install-with-composer" class="anchor" href="#install-with-composer"><span class="octicon octicon-link"></span></a>Install with Composer</h3>
+<hr><h3>
+<a name="user-content-install-with-composer" class="anchor" href="#install-with-composer"><span class="octicon octicon-link"></span></a>Install with Composer</h3>
 
 <p>If you're using <a href="https://github.com/composer/composer">Composer</a> to manage
 dependencies, you can add Unirest with it.</p>
@@ -71,7 +61,7 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h3>
-<a name="install-source-from-github" class="anchor" href="#install-source-from-github"><span class="octicon octicon-link"></span></a>Install source from GitHub</h3>
+<a name="user-content-install-source-from-github" class="anchor" href="#install-source-from-github"><span class="octicon octicon-link"></span></a>Install source from GitHub</h3>
 
 <p>Unirest-PHP requires PHP <code>v5.3+</code>. Download the PHP library from Github, and require in your script like so:</p>
 
@@ -86,7 +76,7 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h2>
-<a name="creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
+<a name="user-content-creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
 
 <p>So you're probably wondering how using Unirest makes creating requests in PHP easier, let's look at a working example:</p>
 
@@ -104,7 +94,7 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h3>
-<a name="file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h3>
+<a name="user-content-file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h3>
 
 <p>To upload files in a multipart form representation use the return value of <code>Unirest::file($path)</code> as the value of a parameter:</p>
 
@@ -116,7 +106,7 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h3>
-<a name="custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h3>
+<a name="user-content-custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h3>
 
 <p>Sending a custom body such as a JSON Object rather than a string or form style parameters we utilize json_encode for the body:</p>
 
@@ -131,7 +121,7 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h3>
-<a name="basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
+<a name="user-content-basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
 
 <p>Authenticating the request with basic authentication can be done by providing the <code>username</code> and <code>password</code> arguments:</p>
 
@@ -139,7 +129,7 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h1>
-<a name="request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+<a name="user-content-request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
 
 <div class="highlight highlight-php"><pre><span class="nx">Unirest</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(),</span> <span class="nv">$parameters</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span> <span class="nv">$username</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span> <span class="nv">$password</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">)</span>
 <span class="nx">Unirest</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(),</span> <span class="nv">$body</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span> <span class="nv">$username</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span> <span class="nv">$password</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">)</span>
@@ -160,7 +150,7 @@ dependencies, you can add Unirest with it.</p>
 <li>
 <code>password</code> - Basic Authentication password</li>
 </ul><h1>
-<a name="response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+<a name="user-content-response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
 
 <p>Upon recieving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.</p>
 
@@ -174,12 +164,12 @@ dependencies, you can add Unirest with it.</p>
 <li>
 <code>raw_body</code> - Un-parsed response body</li>
 </ul><h1>
-<a name="advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
+<a name="user-content-advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
 
 <p>You can set some advanced configuration to tune Unirest-PHP:</p>
 
 <h3>
-<a name="timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
+<a name="user-content-timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
 
 <p>You can set a custom timeout value (in <strong>seconds</strong>):</p>
 
@@ -187,7 +177,7 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h3>
-<a name="default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
+<a name="user-content-default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
 
 <p>You can set default headers that will be sent on every request:</p>
 
@@ -201,22 +191,14 @@ dependencies, you can add Unirest with it.</p>
 </pre></div>
 
 <h3>
-<a name="ssl-validation" class="anchor" href="#ssl-validation"><span class="octicon octicon-link"></span></a>SSL validation</h3>
+<a name="user-content-ssl-validation" class="anchor" href="#ssl-validation"><span class="octicon octicon-link"></span></a>SSL validation</h3>
 
 <p>You can explicitly enable or disable SSL certificate validation when consuming an SSL protected endpoint:</p>
 
 <div class="highlight highlight-php"><pre><span class="nx">Unirest</span><span class="o">::</span><span class="na">verifyPeer</span><span class="p">(</span><span class="k">false</span><span class="p">);</span> <span class="c1">// Disables SSL cert validation</span>
 </pre></div>
 
-<p>By default is <code>true</code>.</p>     <p class="center">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="large" data-related="mashape" data-count="none">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> &nbsp; &nbsp; 
-        <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-php&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="29"></iframe>
-
-    </p>
-
-  </div>
+<p>By default is <code>true</code>.</p>  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')

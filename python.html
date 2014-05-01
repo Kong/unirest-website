@@ -2,42 +2,32 @@
   <meta charset="utf-8">
 
   <!-- Page title -->
-  <title>Unirest Python - Lightweight HTTP Request Client Library</title>
-  <meta description="An opensource python http client library that speeds up making HTTP requests in multiple languages. Handles authentication, body parsing, and more."/>
-  <meta keywords="http, client, library, REST, curl, alternative, query, headers, parameters, pip, asynchronous, gzip, json"/>
-  <meta property="og:title" content="Unirest python - Lightweight HTTP Request Client Library" />
-  <meta property="og:image" content="http://unirest.io/img/logo.png" />
+  <title>Unirest for Python - Simplified, lightweight HTTP Request Library</title>
 
   <!-- Gotsta have that favicon-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Viewport -->
   <meta name="viewport" content="width=480">
-  
+
   <!-- Stylesheet -->
   <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-<!--   <a href="https://github.com/mashape/unirest-python"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>-->  
-
   <nav>
     <div class="right">
       <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="small" data-related="mashape" data-count="none">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-python&type=fork&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="52" height="20"></iframe>
     </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
   </nav>
 
-  <div class="documentation">
-
-    <p class="social">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="large" data-related="mashape" data-count="none">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> &nbsp; &nbsp; 
-        <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-python&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="29"></iframe>
-    </p><h1>
-<a name="unirest-for-python-" class="anchor" href="#unirest-for-python-"><span class="octicon octicon-link"></span></a>Unirest for Python <a href="https://travis-ci.org/Mashape/unirest-python"><img src="https://github-camo.global.ssl.fastly.net/e7c1f67e3ee76abedc58795ebe4b1d2ca966aa3b/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d707974686f6e2e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-python.png" style="max-width:100%;"></a>
+  <div class="documentation"><h1>
+<a name="user-content-unirest-for-python-" class="anchor" href="#unirest-for-python-"><span class="octicon octicon-link"></span></a>Unirest for Python <a href="https://travis-ci.org/Mashape/unirest-python"><img src="https://camo.githubusercontent.com/e7c1f67e3ee76abedc58795ebe4b1d2ca966aa3b/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d707974686f6e2e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-python.png" style="max-width:100%;"></a>
 </h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
@@ -51,12 +41,10 @@
 <li>Customizable timeout</li>
 <li>Customizable default headers for every request (DRY)</li>
 <li>Automatic JSON parsing into a native object for JSON responses</li>
-</ul>
-
-<p>Created with love by <a href="https://mashape.com">mashape.com</a></p>
+</ul><p>Created with love by <a href="https://github.com/thefosk">thefosk</a> @ <a href="https://mashape.com">mashape.com</a></p>
 
 <h2>
-<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+<a name="user-content-installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
 
 <p>To utilize Unirest, install it using pip:</p>
 
@@ -67,7 +55,7 @@
 <p><code>import unirest</code></p>
 
 <h3>
-<a name="creating-requests" class="anchor" href="#creating-requests"><span class="octicon octicon-link"></span></a>Creating Requests</h3>
+<a name="user-content-creating-requests" class="anchor" href="#creating-requests"><span class="octicon octicon-link"></span></a>Creating Requests</h3>
 
 <p>So you're probably wondering how using Unirest makes creating requests in Python easier, let's start with a working example:</p>
 
@@ -80,7 +68,7 @@
 </pre></div>
 
 <h2>
-<a name="asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
+<a name="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
 
 <p>Python also supports asynchronous requests in which you can define a <code>callback</code> function to be passed along and invoked when Unirest receives the response:</p>
 
@@ -94,7 +82,7 @@
 </pre></div>
 
 <h2>
-<a name="file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+<a name="user-content-file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
 
 <p>Transferring file data requires that you <code>open</code> the file in a readable <code>r</code> mode:</p>
 
@@ -107,7 +95,7 @@
 </pre></div>
 
 <h2>
-<a name="custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+<a name="user-content-custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
 <div class="highlight highlight-python"><pre><span class="kn">import</span> <span class="nn">json</span>
 
@@ -122,7 +110,7 @@
 <p><strong>Note</strong>: For the sake of semplicity, even with custom entities in the body, the keyword argument is still <code>params</code> (instead of <code>data</code> for example). I'm looking for feedback on this.</p>
 
 <h3>
-<a name="basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
+<a name="user-content-basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
 
 <p>Authenticating the request with basic authentication can be done by providing an <code>auth</code> array like:</p>
 
@@ -130,7 +118,7 @@
 </pre></div>
 
 <h1>
-<a name="request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+<a name="user-content-request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
 
 <div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">auth</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
 <span class="n">unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">auth</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">callback</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
@@ -151,7 +139,7 @@
 <li>
 <code>callback</code> - Asychronous callback method to be invoked upon result.</li>
 </ul><h1>
-<a name="response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+<a name="user-content-response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
 
 <p>Upon receiving a response, Unirest returns the result in the form of an Object. This object should always have the same keys for each language regarding to the response details.</p>
 
@@ -165,12 +153,12 @@
 <li>
 <code>raw_body</code>- Un-parsed response body</li>
 </ul><h1>
-<a name="advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
+<a name="user-content-advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
 
 <p>You can set some advanced configuration to tune Unirest-Python:</p>
 
 <h3>
-<a name="timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
+<a name="user-content-timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
 
 <p>You can set a custom timeout value (in <strong>seconds</strong>):</p>
 
@@ -178,7 +166,7 @@
 </pre></div>
 
 <h3>
-<a name="default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
+<a name="user-content-default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
 
 <p>You can set default headers that will be sent on every request:</p>
 
@@ -189,15 +177,7 @@
 <p>You can clear the default headers anytime with:</p>
 
 <div class="highlight highlight-python"><pre><span class="n">unirest</span><span class="o">.</span><span class="n">clear_default_headers</span><span class="p">()</span>
-</pre></div>     <p class="center">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="large" data-related="mashape" data-count="none">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> &nbsp; &nbsp; 
-        <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-python&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="29"></iframe>
-
-    </p>
-
-  </div>
+</pre></div>  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')

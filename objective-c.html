@@ -2,42 +2,32 @@
   <meta charset="utf-8">
 
   <!-- Page title -->
-  <title>Unirest Objective-C - Lightweight HTTP Request Client Library</title>
-  <meta description="An opensource obj-c http client library that speeds up making HTTP requests in multiple languages. Handles authentication, body parsing, and more."/>
-  <meta keywords="http, client, library, REST, curl, alternative, query, headers, parameters, CocoaPods, asynchronous, gzip, json"/>
-  <meta property="og:title" content="Unirest obj-c - Lightweight HTTP Request Client Library" />
-  <meta property="og:image" content="http://unirest.io/img/logo.png" />
+  <title>Unirest for Objective-C - Simplified, lightweight HTTP Request Library</title>
 
   <!-- Gotsta have that favicon-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Viewport -->
   <meta name="viewport" content="width=480">
-  
+
   <!-- Stylesheet -->
   <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-<!--   <a href="https://github.com/mashape/unirest-obj-c"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>-->  
-
   <nav>
     <div class="right">
       <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="small" data-related="mashape" data-count="none">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-obj-c&type=fork&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="52" height="20"></iframe>
     </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
   </nav>
 
-  <div class="documentation">
-
-    <p class="social">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="large" data-related="mashape" data-count="none">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> &nbsp; &nbsp; 
-        <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-obj-c&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="29"></iframe>
-    </p><h1>
-<a name="unirest-for-objective-c-" class="anchor" href="#unirest-for-objective-c-"><span class="octicon octicon-link"></span></a>Unirest for Objective-C <a href="https://travis-ci.org/Mashape/unirest-obj-c"><img src="https://github-camo.global.ssl.fastly.net/ce9d3c5f4c47f3bd04ec3886d040731aeb879a85/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d6f626a2d632e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-obj-c.png" style="max-width:100%;"></a>
+  <div class="documentation"><h1>
+<a name="user-content-unirest-for-objective-c-" class="anchor" href="#unirest-for-objective-c-"><span class="octicon octicon-link"></span></a>Unirest for Objective-C <a href="https://travis-ci.org/Mashape/unirest-obj-c"><img src="https://camo.githubusercontent.com/ce9d3c5f4c47f3bd04ec3886d040731aeb879a85/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d6f626a2d632e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-obj-c.png" style="max-width:100%;"></a>
 </h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
@@ -51,29 +41,27 @@
 <li>Customizable timeout</li>
 <li>Customizable default headers for every request (DRY)</li>
 <li>Automatic JSON parsing into native object (<code>NSDictionary</code> or <code>NSArray</code>) for JSON responses</li>
-</ul>
-
-<p>Created with love by <a href="https://mashape.com">mashape.com</a></p>
+</ul><p>Created with love by <a href="https://github.com/thefosk">thefosk</a> @ <a href="https://mashape.com">mashape.com</a></p>
 
 <h2>
-<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+<a name="user-content-installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
 
 <p><a href="https://github.com/Mashape/unirest-obj-c/archive/master.zip">Download</a> the Objective-C Unirest Library from <a href="https://github.com/Mashape/unirest-obj-c">GitHub</a> (or clone the repo) and import the folder into your project. You can also install Unirest-obj-c with <a href="http://cocoapods.org/">CocoaPods</a>.</p>
 
 <h3>
-<a name="cocoapods" class="anchor" href="#cocoapods"><span class="octicon octicon-link"></span></a>CocoaPods</h3>
+<a name="user-content-cocoapods" class="anchor" href="#cocoapods"><span class="octicon octicon-link"></span></a>CocoaPods</h3>
 
 <p>If you decide to use CocoaPods, create a <code>Podfile</code> file in your project's folder:</p>
 
-<pre><code>$ edit Podfile
-platform :ios, '5.0'
-pod 'Unirest', '~&gt; 1.1.2'
-</code></pre>
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>edit Podfile
+platform :ios, <span class="s1">'5.0'</span>
+pod <span class="s1">'Unirest'</span>, <span class="s1">'~&gt; 1.1.3'</span>
+</pre></div>
 
 <p>and then execute <code>pod install</code>. Make sure to always open the Xcode <strong>workspace</strong> instead of the project file when building your project:</p>
 
-<pre><code>$ open App.xcworkspace
-</code></pre>
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>open App.xcworkspace
+</pre></div>
 
 <p>Now you can import your dependencies:</p>
 
@@ -81,16 +69,16 @@ pod 'Unirest', '~&gt; 1.1.2'
 </pre></div>
 
 <h3>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
+<a name="user-content-requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
 
 <p>The Unirest-Obj-C client library requires ARC (Automatic Reference Counting) to be enabled in your Xcode project. To enable ARC select your project or target and then go to Build Settings and under the section Apple LLVM compiler 3.0 - Language you will see the option Objective-C Automatic Reference Counting:</p>
 
-<p><a href="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" alt="Enable ARC in Xcode" data-canonical-src="http://unirest.io/img/arc-enable.png" style="max-width:100%;"></a></p>
+<p><a href="https://camo.githubusercontent.com/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" target="_blank"><img src="https://camo.githubusercontent.com/31234e7bfd3e5c4e65aa4a073ea157716cb4bfd3/687474703a2f2f756e69726573742e696f2f696d672f6172632d656e61626c652e706e67" alt="Enable ARC in Xcode" data-canonical-src="http://unirest.io/img/arc-enable.png" style="max-width:100%;"></a></p>
 
 <p>For existing projects, fortunately Xcode offers a tool to convert existing code to ARC, which is available at Edit -&gt; Refactor  -&gt; Convert to Objective-C ARC</p>
 
 <h2>
-<a name="creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
+<a name="user-content-creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
 
 <p>So you're probably wondering how using Unirest makes creating requests in Objective-C easier, let's look at a working example:</p>
 
@@ -107,7 +95,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 <p>Just like in the Unirest Java library the Objective-C library supports multiple response types given as the last parameter. In the example above we use <code>asJson</code> to get a JSON response, likewise there are <code>asBinary</code> and <code>asString</code> for responses of other nature such as file data and hypermedia responses.</p>
 
 <h2>
-<a name="asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
+<a name="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
 
 <p>For non-blocking requests you will want to make an asychronous request to keep your application going while data is fetched or updated in the background, doing so with unirest is extremely easy with barely any code change from the previous example:</p>
 
@@ -128,7 +116,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 </pre></div>
 
 <h3>
-<a name="cancel-asynchronous-request" class="anchor" href="#cancel-asynchronous-request"><span class="octicon octicon-link"></span></a>Cancel Asynchronous Request</h3>
+<a name="user-content-cancel-asynchronous-request" class="anchor" href="#cancel-asynchronous-request"><span class="octicon octicon-link"></span></a>Cancel Asynchronous Request</h3>
 
 <p>You can cancel an asyncronous request by invoking the <code>cancel</code> method on the <code>UNIUrlConnection</code> object:</p>
 
@@ -142,7 +130,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 </pre></div>
 
 <h2>
-<a name="file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+<a name="user-content-file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
 
 <p>Transferring files through request with unirest in Objective-C can be done by creating a <code>NSURL</code> object and passing it along as a parameter value with a <code>UNISimpleRequest</code> like so:</p>
 
@@ -158,7 +146,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 </pre></div>
 
 <h2>
-<a name="custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+<a name="user-content-custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
 <p>To send a custom body such as JSON simply serialize your data utilizing the <code>NSJSONSerialization</code> with a <code>BodyRequest</code> and <code>[method]Entity</code> instead of just <code>[method]</code> block like so:</p>
 
@@ -174,7 +162,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 </pre></div>
 
 <h2>
-<a name="basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h2>
+<a name="user-content-basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h2>
 
 <p>Authenticating the request with basic authentication can be done by setting the <code>username</code> and <code>password</code> properties in the builder:</p>
 
@@ -186,7 +174,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 </pre></div>
 
 <h1>
-<a name="request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+<a name="user-content-request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
 
 <p>The Objective-C unirest library uses configuration blocks of type UNISimpleRequest and UNIBodyRequest to configure the URL, Headers, and Parameters / Body of the request.</p>
 
@@ -232,7 +220,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 <p>Sends equivalent request with method type to given URL</p>
 </li>
 </ul><h1>
-<a name="response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+<a name="user-content-response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
 
 <p>The <code>UNIHTTPRequest</code> and <code>UNIHTTPRequestWithBody</code> can then be executed by calling one of:</p>
 
@@ -296,12 +284,12 @@ pod 'Unirest', '~&gt; 1.1.2'
 <p>Asynchronous request call with response returned as JSON.</p>
 </li>
 </ul><h1>
-<a name="advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
+<a name="user-content-advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
 
 <p>You can set some advanced configuration to tune Unirest-Obj-C:</p>
 
 <h3>
-<a name="timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
+<a name="user-content-timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
 
 <p>You can set a custom timeout value (in <strong>seconds</strong>):</p>
 
@@ -311,7 +299,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 <p>By default the timeout is <code>60</code>.</p>
 
 <h3>
-<a name="default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
+<a name="user-content-default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
 
 <p>You can set default headers that will be sent on every request:</p>
 
@@ -322,15 +310,7 @@ pod 'Unirest', '~&gt; 1.1.2'
 <p>You can clear the default headers anytime with:</p>
 
 <div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="n">UNIRest</span> <span class="n">clearDefaultHeaders</span><span class="p">];</span>
-</pre></div>     <p class="center">
-       <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="large" data-related="mashape" data-count="none">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> &nbsp; &nbsp; 
-        <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-obj-c&type=fork&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="80" height="29"></iframe>
-
-    </p>
-
-  </div>
+</pre></div>  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')

@@ -5,15 +5,6 @@ body, html {
   font-family: 'Open Sans', 'Helvetica';
   padding: 0px;
   margin: 0px;
-
-  background: #0d131a;
-  background: -moz-linear-gradient(top,  hsl(212,33%,8%) 0%, hsl(215,32%,12%) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsl(212,33%,8%)), color-stop(100%,hsl(215,32%,12%)));
-  background: -webkit-linear-gradient(top,  hsl(212,33%,8%) 0%,hsl(215,32%,12%) 100%);
-  background: -o-linear-gradient(top,  hsl(212,33%,8%) 0%,hsl(215,32%,12%) 100%);
-  background: -ms-linear-gradient(top,  hsl(212,33%,8%) 0%,hsl(215,32%,12%) 100%);
-  background: linear-gradient(to bottom,  hsl(212,33%,8%) 0%,hsl(215,32%,12%) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d131a', endColorstr='#141c27',GradientType=0 );
 }
 
 pre, code {
@@ -39,11 +30,12 @@ p {
 }
 
 p a {
-  color: hsl(167, 64%, 45%);
+  color: hsl(200, 100%, 50%);
 }
 
 p a:hover {
-  color: white;
+  color: #97A3B6;
+  border-bottom-color: #97A3B6;
   transition: all .3s ease-in;
 }
 
@@ -58,7 +50,7 @@ nav {
   padding: 20px;
   margin: 0;
   background: white;
-  box-shadow: 0 -1px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 -1px 5px hsla(0, 0%, 0%, 0.5);
 }
 
 nav .right {
@@ -86,13 +78,13 @@ nav a:hover {
 
 header {
   margin-top: 80px;
+  margin-bottom: 60px;
 }
 
 header h1 {
   display: block;
   font-size: 128pt;
   font-family: 'Titillium Web';
-  color: white;
   text-align: center;
   padding: 2% 0 0;
   line-height: 96pt;
@@ -105,7 +97,7 @@ header h2 {
   font-family: 'Titillium Web';
   text-align: center;
   padding: 20px 0 0 0;
-  color: #507AAA;
+  color: hsl(212, 10%, 49%);
 }
 
  .button-list {
@@ -140,17 +132,13 @@ header h2 {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   line-height: 35px;
-  font-weight: 500;
-  color: hsl(0, 100%, 100%);
-  background-color: hsl(217, 24%, 25%);
+  font-weight: 600;
+  color: hsl(212, 33%, 8%);
+  background-color: hsl(212, 13%, 88%);
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   -o-border-radius: 6px;
-  box-shadow: 0 -5px hsla(0, 0%, 0%, 0.2) inset;
-  -moz-box-shadow: 0 -5px rgba(0,0,0,0.2) inset;
-  -webkit-box-shadow: 0 -5px hsla(0, 0%, 0%, 0.2) inset;
-  -o-box-shadow: 0 -5px rgba(0,0,0,0.2) inset;
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
@@ -158,6 +146,10 @@ header h2 {
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
+}
+
+.button.active {
+  color: white;
 }
 
 .button.green {
@@ -263,14 +255,13 @@ header h2 {
 
 .button:active {
   padding-bottom: 0;
-  top: 4px;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -o-box-shadow: none;
+  box-shadow: 0 1px 5px hsla(0, 0%, 0%, 0.2) inset;
+  -moz-box-shadow: 0 1px 5px hsla(0, 0%, 0%, 0.2) inset;
+  -webkit-box-shadow: 0 1px 5px hsla(0, 0%, 0%, 0.2) inset;
+  -o-box-shadow: 0 1px 5px hsla(0, 0%, 0%, 0.2) inset;
 }
 
- .button-list .button {
+.button-list .button {
   box-sizing: border-box;
   width: 23.8%;
   padding: 0;
@@ -278,12 +269,11 @@ header h2 {
   margin: 2px 2px 4px;
   text-align: center;
   line-height: 100px;
-  background: #0D131A;
 }
 
 .plug {
-  font-size: 1.4em;
-  margin: 18px auto;
+  font-size: 1em;
+  margin: 30px auto;
 }
 
 @media (max-width: 700px) {

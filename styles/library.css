@@ -6,15 +6,14 @@ body, html {
   padding: 0px;
   margin: 0px;
   height: 100%;
-  
-  color: white;
-  background: #131C26;
+
+  color: hsl(212, 33%, 11%);
 }
 
 a, a:hover {
-  color: #29BB9C;
+  color: hsl(200, 100%, 50%);
   text-decoration: none;
-  border-bottom: 1px solid #29BB9C;
+  border-bottom: 1px solid hsl(200, 100%, 50%);
   transition: all .3s ease-in;
 }
 
@@ -23,8 +22,8 @@ a ~ img {
 }
 
 a:hover {
-  color: #FFFFFF;
-  border-bottom: 1px solid #121A24;
+  color: #97A3B6;
+  border-bottom: 1px solid #97A3B6;
 }
 
 pre, code {
@@ -57,7 +56,7 @@ nav {
   padding: 20px;
   margin: 0;
   background: white;
-  box-shadow: 0 -1px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 -1px 5px hsla(0, 0%, 0%, 0.5);
 }
 
 nav .right {
@@ -90,6 +89,11 @@ nav a:hover {
   border: 0px;
 }
 
+nav iframe {
+  margin-bottom: -5px;
+  margin-left: 10px;
+}
+
 article {
     max-width: 944px;
     margin: auto;
@@ -115,7 +119,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol {
   padding-right: 20px;
 }
 
-body { 
+body {
   font-size: 100%;
   line-height: 1.5;
 }
@@ -152,11 +156,25 @@ h6 {
   line-height: 2.625em;
 }
 
+.documentation > h1:first-of-type {
+  margin-top: 2em;
+  margin-bottom: .5em;
+}
+
+hr {
+  border-top: 1px solid hsl(0, 0%, 93%);
+  border-bottom: none;
+}
+
 p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
   margin-bottom: 1.5em;
+}
+
+p + hr {
+  margin-bottom: 1.2em;
 }
 
 p a img {
@@ -198,16 +216,16 @@ li {
 }
 
 p, ul, ol {
-  color: hsla(0, 100%, 100%, 0.5);
+  color: hsl(212, 33%, 11%);
   list-style: none;
 }
 
 code {
-  color: #507AAA;
+  color: hsl(333, 100%, 50%);
 }
 
 .highlight {
-  color: #416082;
+  color: hsl(0, 100%, 100%);
 }
 
 .highlight .c {
@@ -216,13 +234,12 @@ code {
 }
 
 .highlight .err {
-  color: hsl(0, 0%, 20%);
+  color: hsl(0, 100%, 80%);
 }
 
 .highlight .k {
-  color: #334C67;
+  color: hsl(33, 82%, 71%);
 }
-
 
 .highlight .cm {
   color: #999988;
@@ -235,7 +252,7 @@ code {
 }
 
 .highlight .c1 {
-  color: #192532;
+  color: hsl(35, 8%, 44%);
   font-style: italic;
 }
 
@@ -303,11 +320,10 @@ code {
 }
 
 .highlight .kd {
-  color: #334C67;
+  color: hsl(180, 61%, 41%);
 }
 
 .highlight .kn {
-  font-weight: bold;
 }
 
 .highlight .kp {
@@ -319,7 +335,7 @@ code {
 }
 
 .highlight .kt {
-  color: #3C94D3;
+  color: hsl(33, 82%, 71%);
 }
 
 .highlight .m {
@@ -327,11 +343,15 @@ code {
 }
 
 .highlight .s {
-  color: #EB5250;
+  color: hsl(41, 93%, 60%);
+}
+
+.highlight .n {
+  color: hsl(33, 82%, 71%);
 }
 
 .highlight .na {
-  color: #29BB9C;
+  color: white;
 }
 
 .highlight .nc {
@@ -340,7 +360,7 @@ code {
 }
 
 .highlight .no {
-  color: #008080;
+  color: hsl(180, 61%, 41%);
 }
 
 .highlight .ni {
@@ -353,19 +373,19 @@ code {
 }
 
 .highlight .nf {
-  color: #ADBBD1;
+  color: hsl(11, 83%, 70%);
 }
 
 .highlight .nn {
-  color: #555555;
+  color: hsl(0, 0%, 80%);
 }
 
 .highlight .nt {
-  color: #2F465E;
+  color: hsl(33, 82%, 71%);
 }
 
 .highlight .nv {
-  color: #008080;
+  color: hsl(180, 61%, 41%);
 }
 
 .highlight .ow {
@@ -385,7 +405,7 @@ code {
 }
 
 .highlight .mi {
-  color: #009999;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .mo {
@@ -393,35 +413,35 @@ code {
 }
 
 .highlight .sb {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .sc {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .sd {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .s2 {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .se {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .sh {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .si {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .sx {
-  color: #d14;
+  color: hsl(41, 93%, 60%);
 }
 
 .highlight .sr {
@@ -429,9 +449,8 @@ code {
 }
 
 .highlight .s1 {
-  color: #EB5250;
+  color: hsl(41, 93%, 60%);
 }
-
 
 .highlight .bp {
   color: #999999;
