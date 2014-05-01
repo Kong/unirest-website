@@ -39,7 +39,7 @@
 
 <p>To utilize unirest for node.js install the the <code>npm</code> module:</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">unirest</span>
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>npm install unirest
 </pre></div>
 
 <p>After installing the <code>npm</code> package you can now start simplifying requests like so:</p>
@@ -250,8 +250,8 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 </ul><p><strong>Object</strong></p>
 
 <div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
-  <span class="s1">'Accepts'</span><span class="o">:</span> <span class="s1">'application/json'</span>
-<span class="p">,</span> <span class="s1">'User-Agent'</span><span class="o">:</span> <span class="s1">'Unirest Node.js'</span>
+  <span class="s1">'Accepts'</span><span class="o">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'User-Agent'</span><span class="o">:</span> <span class="s1">'Unirest Node.js'</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -270,11 +270,11 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 <p>Each object is then appended to the <code>Request.options.multipart</code> array.</p>
 
 <div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">part</span><span class="p">({</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'application/json'</span>
-<span class="p">,</span> <span class="nx">body</span><span class="o">:</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span> <span class="p">}</span>
+  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span> <span class="p">}</span>
 <span class="p">}).</span><span class="nx">part</span><span class="p">({</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'text/html'</span>
-<span class="p">,</span> <span class="nx">body</span><span class="o">:</span> <span class="s1">'&lt;strong&gt;Hello World!&lt;/strong&gt;'</span>
+  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'text/html'</span><span class="p">,</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="s1">'&lt;strong&gt;Hello World!&lt;/strong&gt;'</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -371,9 +371,9 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
   <span class="s1">'parameter'</span><span class="o">:</span> <span class="s1">'value'</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">attach</span><span class="p">({</span>
-  <span class="s1">'file'</span><span class="o">:</span> <span class="s1">'dog.png'</span>
-<span class="p">,</span> <span class="s1">'relative file'</span><span class="o">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'dog.png'</span><span class="p">),</span>
-<span class="p">,</span> <span class="s1">'remote file'</span><span class="o">:</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'http://google.com/doodle.png'</span><span class="p">)</span>
+  <span class="s1">'file'</span><span class="o">:</span> <span class="s1">'dog.png'</span><span class="p">,</span>
+  <span class="s1">'relative file'</span><span class="o">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'dog.png'</span><span class="p">),</span>
+  <span class="s1">'remote file'</span><span class="o">:</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'http://google.com/doodle.png'</span><span class="p">)</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
@@ -498,13 +498,13 @@ you are free to do so.</p>
 <p>Each objects property with the exclusion of <code>body</code> is treated as a header value. Each <code>body</code> value must be pre-processed if necessary when using this method.</p>
 
 <div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">multipart</span><span class="p">([{</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'application/json'</span>
-<span class="p">,</span> <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span>
   <span class="p">})</span>
 <span class="p">},</span> <span class="p">{</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'text/html'</span>
-<span class="p">,</span> <span class="nx">body</span><span class="o">:</span> <span class="s1">'&lt;strong&gt;Hello World!&lt;/strong&gt;'</span>
+  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'text/html'</span><span class="p">,</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="s1">'&lt;strong&gt;Hello World!&lt;/strong&gt;'</span>
 <span class="p">}]);</span>
 </pre></div>
 
@@ -579,9 +579,9 @@ you are free to do so.</p>
 <p>Sets <code>aws</code>, AWS Signing Credentials, on <code>Request.options</code></p>
 
 <div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">aws</span><span class="p">({</span> 
-  <span class="nx">key</span><span class="o">:</span> <span class="s1">'AWS_S3_KEY'</span>
-<span class="p">,</span> <span class="nx">secret</span><span class="o">:</span> <span class="s1">'AWS_S3_SECRET'</span>
-<span class="p">,</span> <span class="nx">bucket</span><span class="o">:</span> <span class="s1">'BUCKET NAME'</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">'AWS_S3_KEY'</span><span class="p">,</span>
+  <span class="nx">secret</span><span class="o">:</span> <span class="s1">'AWS_S3_SECRET'</span><span class="p">,</span>
+  <span class="nx">bucket</span><span class="o">:</span> <span class="s1">'BUCKET NAME'</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -593,30 +593,30 @@ you are free to do so.</p>
 <div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.twitter.com/oauth/request_token'</span><span class="p">);</span>
 
 <span class="nx">Request</span><span class="p">.</span><span class="nx">oauth</span><span class="p">({</span>
-  <span class="nx">callback</span><span class="o">:</span> <span class="s1">'http://mysite.com/callback/'</span>
-<span class="p">,</span> <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span>
-<span class="p">,</span> <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span>
+  <span class="nx">callback</span><span class="o">:</span> <span class="s1">'http://mysite.com/callback/'</span><span class="p">,</span>
+  <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span><span class="p">,</span>
+  <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span>
 <span class="p">}).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">access_token</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
 
   <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'https://api.twitter.com/oauth/access_token'</span><span class="p">);</span>
   <span class="nx">Request</span><span class="p">.</span><span class="nx">oauth</span><span class="p">({</span>
-    <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span>
-  <span class="p">,</span> <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span>
-  <span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">access_token</span><span class="p">.</span><span class="nx">oauth_token</span>
-  <span class="p">,</span> <span class="nx">verifier</span><span class="o">:</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">access_token</span><span class="p">.</span><span class="nx">oauth_verifier</span>
+    <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span><span class="p">,</span>
+    <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span><span class="p">,</span>
+    <span class="nx">token</span><span class="o">:</span> <span class="nx">access_token</span><span class="p">.</span><span class="nx">oauth_token</span><span class="p">,</span>
+    <span class="nx">verifier</span><span class="o">:</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">access_token</span><span class="p">.</span><span class="nx">oauth_verifier</span>
   <span class="p">}).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
 
     <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.twitter.com/1/users/show.json'</span><span class="p">);</span>
     <span class="nx">Request</span><span class="p">.</span><span class="nx">oauth</span><span class="p">({</span>
-      <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span>
-    <span class="p">,</span> <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span>
-    <span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">oauth_token</span>
-    <span class="p">,</span> <span class="nx">token_secret</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">oauth_token_secret</span>
+      <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span><span class="p">,</span>
+      <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span><span class="p">,</span>
+      <span class="nx">token</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">oauth_token</span><span class="p">,</span>
+      <span class="nx">token_secret</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">oauth_token_secret</span>
     <span class="p">}).</span><span class="nx">query</span><span class="p">({</span>
-      <span class="nx">screen_name</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">screen_name</span>
-    <span class="p">,</span> <span class="nx">user_id</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">user_id</span>
+      <span class="nx">screen_name</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">screen_name</span><span class="p">,</span>
+      <span class="nx">user_id</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">user_id</span>
     <span class="p">}).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
     <span class="p">});</span>
@@ -633,9 +633,9 @@ you are free to do so.</p>
 
 <div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">hawk</span><span class="p">({</span>
   <span class="nx">credentials</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">key</span><span class="o">:</span> <span class="s1">'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn'</span>
-  <span class="p">,</span> <span class="nx">algorithm</span><span class="o">:</span> <span class="s1">'sha256'</span>
-  <span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="s1">'Steve'</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="s1">'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn'</span><span class="p">,</span>
+    <span class="nx">algorithm</span><span class="o">:</span> <span class="s1">'sha256'</span><span class="p">,</span>
+    <span class="nx">user</span><span class="o">:</span> <span class="s1">'Steve'</span>
   <span class="p">}</span>
 <span class="p">});</span>
 </pre></div>
