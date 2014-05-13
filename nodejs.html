@@ -362,7 +362,7 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 <li>
 <code>name</code> (<code>String</code>) - File field name</li>
 <li>
-<code>path</code> (<code>String</code> | <code>Object</code>) - File value, A <code>String</code> will be parsed based on its value. If <code>path</code> contains <code>http</code> or <code>https</code> Request will handle it as a <code>remote file</code>, otherwise if it contains <code>://</code> and not <code>http</code> or <code>https</code> it will consider it to be a <code>direct file path</code>. If no <code>://</code> is found it will be considered a <code>relative file path</code>. An <code>Object</code> is directly set, so you can do pre-processing if you want without worrying about the string value.</li>
+<code>path</code> (<code>String</code> | <code>Object</code>) - File value, A <code>String</code> will be parsed based on its value. If <code>path</code> contains <code>http</code> or <code>https</code> Request will handle it as a <code>remote file</code>.  If <code>path</code> does not contain <code>http</code> or <code>https</code> then unirest will assume that it is the path to a local file and attempt to find it using <code>path.resolve</code>. An <code>Object</code> is directly set, so you can do pre-processing if you want without worrying about the string value.</li>
 </ul><p><strong>Object</strong></p>
 
 <div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
