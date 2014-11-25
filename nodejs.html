@@ -27,77 +27,72 @@
   </nav>
 
   <div class="documentation"><h1>
-<a name="user-content-unirest-for-nodejs-" class="anchor" href="#unirest-for-nodejs-"><span class="octicon octicon-link"></span></a>Unirest for Node.js <a href="https://travis-ci.org/Mashape/unirest-nodejs"><img src="https://camo.githubusercontent.com/6fb32bc3e1e26ce8f7c4cad6e8764bc9aa7e44a0/68747470733a2f2f7472617669732d63692e6f72672f4d6173686170652f756e69726573742d6e6f64656a732e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/Mashape/unirest-nodejs.png?branch=master" style="max-width:100%;"></a>
+<a id="user-content-unirest-for-nodejs--" class="anchor" href="#unirest-for-nodejs--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Node.js <a href="https://travis-ci.org/Mashape/unirest-nodejs"><img src="https://camo.githubusercontent.com/b965686fa9b8d9c5f7f8c83051c66e0e20dfe033/687474703a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d6e6f64656a732f6d61737465722e737667" alt="Build Status" data-canonical-src="http://img.shields.io/travis/Mashape/unirest-nodejs/master.svg" style="max-width:100%;"></a> <a href="https://camo.githubusercontent.com/2c3e6303d6dc544a0c7225f3d87f55f82feada5e/687474703a2f2f696d672e736869656c64732e696f2f6e706d2f762f756e69726573742e737667" target="_blank"><img src="https://camo.githubusercontent.com/2c3e6303d6dc544a0c7225f3d87f55f82feada5e/687474703a2f2f696d672e736869656c64732e696f2f6e706d2f762f756e69726573742e737667" alt="NPM Version" data-canonical-src="http://img.shields.io/npm/v/unirest.svg" style="max-width:100%;"></a>
 </h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages.</p>
 
-<p>Created with love by <a href="http://github.com/nijikokun">nijikokun</a> @ <a href="http://mashape.com">mashape.com</a></p>
+<p>Developed with love by <a href="http://github.com/nijikokun">nijikokun</a> @ <a href="http://mashape.com">mashape.com</a></p>
 
 <h2>
-<a name="user-content-installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+<a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
 
 <p>To utilize unirest for node.js install the the <code>npm</code> module:</p>
 
-<div class="highlight highlight-bash"><pre><span class="nv">$ </span>npm install unirest
-</pre></div>
+<div class="highlight highlight-bash"><pre>$ npm install unirest</pre></div>
 
 <p>After installing the <code>npm</code> package you can now start simplifying requests like so:</p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">unirest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'unirest'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> unirest <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>unirest<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
-<a name="user-content-creating-requests" class="anchor" href="#creating-requests"><span class="octicon octicon-link"></span></a>Creating Requests</h2>
+<a id="user-content-creating-requests" class="anchor" href="#creating-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Requests</h2>
 
 <p>You're probably wondering how by using <strong>Unirest</strong> makes creating requests easier. Besides automatically supporting gzip, and parsing responses, lets start with a basic working example:</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">headers</span><span class="p">({</span> <span class="s1">'Accept'</span><span class="o">:</span> <span class="s1">'application/json'</span> <span class="p">})</span>
-<span class="p">.</span><span class="nx">send</span><span class="p">({</span> <span class="s2">"parameter"</span><span class="o">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s2">"foo"</span><span class="o">:</span> <span class="s2">"bar"</span> <span class="p">})</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.<span class="pl-s3">send</span>({ <span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">23</span>, <span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> })
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+});</pre></div>
 
 <h2>
-<a name="user-content-uploading-files" class="anchor" href="#uploading-files"><span class="octicon octicon-link"></span></a>Uploading Files</h2>
+<a id="user-content-uploading-files" class="anchor" href="#uploading-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Uploading Files</h2>
 
 <p>Transferring file data has been simplified:</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">headers</span><span class="p">({</span> <span class="s1">'Accept'</span><span class="o">:</span> <span class="s1">'application/json'</span> <span class="p">})</span>
-<span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="s1">'parameter'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">)</span> <span class="c1">// Form field</span>
-<span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="s1">'file'</span><span class="p">,</span> <span class="s1">'/tmp/file'</span><span class="p">)</span> <span class="c1">// Attachment</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.field(<span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>) <span class="pl-c">// Form field</span>
+.attach(<span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>/tmp/file<span class="pl-pds">'</span></span>) <span class="pl-c">// Attachment</span>
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+});</pre></div>
 
 <h2>
-<a name="user-content-custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+<a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">headers</span><span class="p">({</span> <span class="s1">'Accept'</span><span class="o">:</span> <span class="s1">'application/json'</span> <span class="p">})</span>
-<span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="k">new</span> <span class="nx">Buffer</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.<span class="pl-s3">send</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]))
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+});</pre></div>
 
 <h1>
-<a name="user-content-unirest" class="anchor" href="#unirest"><span class="octicon octicon-link"></span></a>Unirest</h1>
+<a id="user-content-unirest" class="anchor" href="#unirest" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest</h1>
 
 <p>A request can be initiated by invoking the appropriate method on the unirest object, then calling <code>.end()</code> to send the request. Alternatively you can send the request directly by providing a callback along with the url.</p>
 
 <h2>
-<a name="user-content-unirestmethod--uri-headers-body-callback" class="anchor" href="#unirestmethod--uri-headers-body-callback"><span class="octicon octicon-link"></span></a>unirest(method [, uri, headers, body, callback])</h2>
+<a id="user-content-unirestmethod--uri-headers-body-callback" class="anchor" href="#unirestmethod--uri-headers-body-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest(method [, uri, headers, body, callback])</h2>
 
 <ul>
 <li>
 <code>method</code> - Request type (GET, PUT, POST, etc...)</li>
 <li>
-<code>uri</code> - <em>Optional</em>; When declared the method will return a <a href="#request">Request</a> object. 
+<code>uri</code> - <em>Optional</em>; When declared the method will return a <a href="#request">Request</a> object.
       Otherwise it will return the method below with <code>method</code> set to the method given.</li>
 <li>
 <code>headers</code> (<code>Object</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>headers</code> argument when <code>uri</code> is present.</li>
@@ -105,8 +100,10 @@
 <code>body</code> (<code>Mixed</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>body</code> argument when <code>uri</code> is present.</li>
 <li>
 <code>callback</code> (<code>Function</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>callback</code> argument when <code>uri</code> is present.</li>
-</ul><h2>
-<a name="user-content-unirestmethodurl--headers-body-callback" class="anchor" href="#unirestmethodurl--headers-body-callback"><span class="octicon octicon-link"></span></a>unirest[method](url [, headers, body, callback])</h2>
+</ul>
+
+<h2>
+<a id="user-content-unirestmethodurl--headers-body-callback" class="anchor" href="#unirestmethodurl--headers-body-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest[method](url [, headers, body, callback])</h2>
 
 <ul>
 <li>
@@ -114,101 +111,96 @@
 <li>
 <code>url</code> - Request location.</li>
 <li>
-<code>headers</code> (<code>Object</code> | <code>Function</code>) - <em>Optional</em>; When <code>Object</code> headers are passed along to the <code>Request.set()</code> method, 
+<code>headers</code> (<code>Object</code> | <code>Function</code>) - <em>Optional</em>; When <code>Object</code> headers are passed along to the <code>Request.set()</code> method,
 when <code>Function</code> this argument is used as the <code>callback</code>.</li>
 <li>
 <code>body</code> (<code>Mixed</code> | <code>Function</code>) - <em>Optional</em>; When <code>body</code> is not a <code>Function</code> it will be passed along to <code>Request.send()</code> method,
 otherwise when a <code>Function</code> it will be used as the <code>callback</code>.</li>
 <li>
 <code>callback</code> (<code>Function</code>) - <em>Optional</em>; Calls end with given argument, otherwise <code>Request</code> is returned.</li>
-</ul><p>All arguments above, with the exclusion of <code>url</code>, will accept a <code>Function</code> as the <code>callback</code>. 
+</ul>
+
+<p>All arguments above, with the exclusion of <code>url</code>, will accept a <code>Function</code> as the <code>callback</code>.
 When no <code>callback</code> is present, the <a href="#request">Request</a> object will be returned.</p>
 
 <h3>
-<a name="user-content-get" class="anchor" href="#get"><span class="octicon octicon-link"></span></a>get</h3>
+<a id="user-content-get" class="anchor" href="#get" aria-hidden="true"><span class="octicon octicon-link"></span></a>get</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>GET</code></p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://httpbin.org/get'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
-<a name="user-content-head" class="anchor" href="#head"><span class="octicon octicon-link"></span></a>head</h3>
+<a id="user-content-head" class="anchor" href="#head" aria-hidden="true"><span class="octicon octicon-link"></span></a>head</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>HEAD</code></p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="s1">'http://httpbin.org/get'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.head(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
-<a name="user-content-post" class="anchor" href="#post"><span class="octicon octicon-link"></span></a>post</h3>
+<a id="user-content-post" class="anchor" href="#post" aria-hidden="true"><span class="octicon octicon-link"></span></a>post</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>POST</code></p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
-<a name="user-content-patch" class="anchor" href="#patch"><span class="octicon octicon-link"></span></a>patch</h3>
+<a id="user-content-patch" class="anchor" href="#patch" aria-hidden="true"><span class="octicon octicon-link"></span></a>patch</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>PATCH</code></p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s1">'http://httpbin.org/patch'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.patch(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/patch<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
-<a name="user-content-delete" class="anchor" href="#delete"><span class="octicon octicon-link"></span></a>delete</h3>
+<a id="user-content-delete" class="anchor" href="#delete" aria-hidden="true"><span class="octicon octicon-link"></span></a>delete</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>DELETE</code></p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'http://httpbin.org/delete'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.delete(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/delete<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
-<a name="user-content-unirestjar" class="anchor" href="#unirestjar"><span class="octicon octicon-link"></span></a>unirest.jar()</h2>
+<a id="user-content-unirestjar" class="anchor" href="#unirestjar" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest.jar()</h2>
 
 <p>Creates a container to store multiple cookies, i.e. a cookie jar.</p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">CookieJar</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">jar</span><span class="p">();</span>
-<span class="nx">CookieJar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">unirest</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s1">'some value'</span><span class="p">));</span>
-<span class="nx">unirest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://httpbin.org/get'</span><span class="p">).</span><span class="nx">jar</span><span class="p">(</span><span class="nx">CookieJar</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> CookieJar <span class="pl-k">=</span> unirest.jar();
+CookieJar.<span class="pl-s3">add</span>(<span class="pl-s1"><span class="pl-pds">'</span>key=value<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>); <span class="pl-c">// Cookie string, pathname / url</span>
+unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>).jar(CookieJar);</pre></div>
 
 <h2>
-<a name="user-content-unirestcookiestring" class="anchor" href="#unirestcookiestring"><span class="octicon octicon-link"></span></a>unirest.cookie(String)</h2>
+<a id="user-content-unirestcookiestring" class="anchor" href="#unirestcookiestring" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest.cookie(String)</h2>
 
 <p>Creates a cookie, see above for example.</p>
 
 <h2>
-<a name="user-content-unirestrequest" class="anchor" href="#unirestrequest"><span class="octicon octicon-link"></span></a>unirest.request</h2>
+<a id="user-content-unirestrequest" class="anchor" href="#unirestrequest" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest.request</h2>
 
 <p><code>mikeal/request</code> library (the underlying layer of unirest-nodejs) for direct use.</p>
 
 <h1>
-<a name="user-content-request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+<a id="user-content-request" class="anchor" href="#request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request</h1>
 
-<p>Provides simple and easy to use methods for manipulating the request prior to being sent. This object is created when a 
-Unirest Method is invoked. This object contains methods that are chainable like other libraries such as jQuery and popular 
+<p>Provides simple and easy to use methods for manipulating the request prior to being sent. This object is created when a
+Unirest Method is invoked. This object contains methods that are chainable like other libraries such as jQuery and popular
 request module Superagent (which this library is modeled after slightly).</p>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">);</span>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>);
 
-<span class="nx">Request</span><span class="p">.</span><span class="nx">headers</span><span class="p">({</span>
-  <span class="s1">'Accepts'</span><span class="o">:</span> <span class="s1">'application/json'</span>
-<span class="p">}).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">...</span>
-<span class="p">});</span>
-</pre></div>
+Request.<span class="pl-sc">headers</span>({
+  <span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>
+}).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  ...
+});</pre></div>
 
 <h2>
-<a name="user-content-request-methods" class="anchor" href="#request-methods"><span class="octicon octicon-link"></span></a>Request Methods</h2>
+<a id="user-content-request-methods" class="anchor" href="#request-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Methods</h2>
 
 <p>Request Methods differ from Option Methods (See Below) in that these methods transform, or handle the data in a sugared way, where as Option Methods require a more <em>hands on</em> approach.</p>
 
 <h4>
-<a name="user-content-requestauthobject-or-user-pass-sendimmediately" class="anchor" href="#requestauthobject-or-user-pass-sendimmediately"><span class="octicon octicon-link"></span></a>Request.auth(Object) or (user, pass, sendImmediately)</h4>
+<a id="user-content-requestauthobject-or-user-pass-sendimmediately" class="anchor" href="#requestauthobject-or-user-pass-sendimmediately" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.auth(Object) or (user, pass, sendImmediately)</h4>
 
 <p>Accepts either an <code>Object</code> containing <code>user</code>, <code>pass</code>, and optionally <code>sendImmediately</code>.</p>
 
@@ -219,22 +211,22 @@ request module Superagent (which this library is modeled after slightly).</p>
 <code>pass</code> (<code>String</code>) - Authentication Password</li>
 <li>
 <code>sendImmediately</code> (<code>String</code>) - <em>Optional</em>; Defaults to <code>true</code>; Flag to determine whether Request should send the basic authentication header along with the request. Upon being <em>false</em>, Request will retry with a <em>proper</em> authentication header after receiving a <code>401</code> response from the server (which must contain a <code>WWW-Authenticate</code> header indicating the required authentication method)</li>
-</ul><p><strong>Object</strong></p>
+</ul>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">auth</span><span class="p">({</span>
-  <span class="nx">user</span><span class="o">:</span> <span class="s1">'Nijiko'</span><span class="p">,</span>
-  <span class="nx">pass</span><span class="o">:</span> <span class="s1">'insecure'</span><span class="p">,</span>
-  <span class="nx">sendImmediately</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">});</span>
-</pre></div>
+<p><strong>Object</strong></p>
+
+<div class="highlight highlight-js"><pre>Request.auth({
+  user<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Nijiko<span class="pl-pds">'</span></span>,
+  pass<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>insecure<span class="pl-pds">'</span></span>,
+  sendImmediately<span class="pl-k">:</span> <span class="pl-c1">true</span>
+});</pre></div>
 
 <p><strong>Arguments</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">auth</span><span class="p">(</span><span class="s1">'Nijiko'</span><span class="p">,</span> <span class="s1">'insecure'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.auth(<span class="pl-s1"><span class="pl-pds">'</span>Nijiko<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>insecure<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>);</pre></div>
 
 <h4>
-<a name="user-content-requestheaderobject-or-field-value" class="anchor" href="#requestheaderobject-or-field-value"><span class="octicon octicon-link"></span></a>Request.header(Object) or (field, value)</h4>
+<a id="user-content-requestheaderobject-or-field-value" class="anchor" href="#requestheaderobject-or-field-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.header(Object) or (field, value)</h4>
 
 <p><strong>Suggested Method for setting Headers</strong></p>
 
@@ -246,22 +238,23 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 <code>field</code> (<code>String</code>) - Header name, such as <code>Accepts</code>
 </li>
 <li>
-<code>value</code> (<code>String</code>) - Header value, such as <code>application/json</code> </li>
-</ul><p><strong>Object</strong></p>
+<code>value</code> (<code>String</code>) - Header value, such as <code>application/json</code>
+</li>
+</ul>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
-  <span class="s1">'Accepts'</span><span class="o">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'User-Agent'</span><span class="o">:</span> <span class="s1">'Unirest Node.js'</span>
-<span class="p">})</span>
-</pre></div>
+<p><strong>Object</strong></p>
+
+<div class="highlight highlight-js"><pre>Request.set({
+  <span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>,
+  <span class="pl-s1"><span class="pl-pds">'</span>User-Agent<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Unirest Node.js<span class="pl-pds">'</span></span>
+})</pre></div>
 
 <p><strong>Arguments</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'Accepts'</span><span class="p">,</span> <span class="s1">'application/json'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.set(<span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>);</pre></div>
 
 <h4>
-<a name="user-content-requestpartobject" class="anchor" href="#requestpartobject"><span class="octicon octicon-link"></span></a>Request.part(Object)</h4>
+<a id="user-content-requestpartobject" class="anchor" href="#requestpartobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.part(Object)</h4>
 
 <p><strong>Experimental</strong></p>
 
@@ -269,32 +262,30 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 
 <p>Each object is then appended to the <code>Request.options.multipart</code> array.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">part</span><span class="p">({</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="nx">body</span><span class="o">:</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span> <span class="p">}</span>
-<span class="p">}).</span><span class="nx">part</span><span class="p">({</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'text/html'</span><span class="p">,</span>
-  <span class="nx">body</span><span class="o">:</span> <span class="s1">'&lt;strong&gt;Hello World!&lt;/strong&gt;'</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.part({
+  <span class="pl-s1"><span class="pl-pds">'</span>content-type<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>,
+  body<span class="pl-k">:</span> { foo<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span> }
+}).part({
+  <span class="pl-s1"><span class="pl-pds">'</span>content-type<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>text/html<span class="pl-pds">'</span></span>,
+  body<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>&lt;strong&gt;Hello World!&lt;/strong&gt;<span class="pl-pds">'</span></span>
+});</pre></div>
 
 <h4>
-<a name="user-content-requestqueryobject-or-string" class="anchor" href="#requestqueryobject-or-string"><span class="octicon octicon-link"></span></a>Request.query(Object) or (String)</h4>
+<a id="user-content-requestqueryobject-or-string" class="anchor" href="#requestqueryobject-or-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.query(Object) or (String)</h4>
 
 <p>When <code>Object</code> is passed value is processed as a <code>querystring</code> representation, otherwise we directly use the <code>String</code> passed and append it to <code>Request.options.url</code>. If <code>Request.options.url</code> has a trailing <code>?</code> already, we append it with <code>&amp; + value</code> otherwise we append as <code>? + value</code></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/get'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">'name=nijiko'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">query</span><span class="p">({</span>
-  <span class="nx">pet</span><span class="o">:</span> <span class="s1">'spot'</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>)
+.query(<span class="pl-s1"><span class="pl-pds">'</span>name=nijiko<span class="pl-pds">'</span></span>)
+.query({
+  pet<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>spot<span class="pl-pds">'</span></span>
+})
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response);
+});</pre></div>
 
 <h4>
-<a name="user-content-requestsendobject--string" class="anchor" href="#requestsendobject--string"><span class="octicon octicon-link"></span></a>Request.send(Object | String)</h4>
+<a id="user-content-requestsendobject--string" class="anchor" href="#requestsendobject--string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.send(Object | String)</h4>
 
 <p>Ease of use method for setting the body without having to worry about processing the data for popular formats such as <code>JSON</code>, <code>Form Encoded</code>, otherwise the <code>body</code> is set on <code>Request.options</code> as the given value.</p>
 
@@ -302,59 +293,55 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 
 <p><strong>JSON</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s1">'json'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">send</span><span class="p">({</span>
-  <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span><span class="p">,</span>
-  <span class="nx">hello</span><span class="o">:</span> <span class="mi">3</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">})</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds">'</span>json<span class="pl-pds">'</span></span>)
+.<span class="pl-s3">send</span>({
+  foo<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>,
+  hello<span class="pl-k">:</span> <span class="pl-c1">3</span>
+})
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+})</pre></div>
 
 <p><strong>FORM Encoded</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Body would be:</span>
-<span class="c1">// name=nijiko&amp;pet=turtle</span>
-<span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'name=nijiko'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'pet=spot'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-c">// Body would be:</span>
+<span class="pl-c">// name=nijiko&amp;pet=turtle</span>
+unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.<span class="pl-s3">send</span>(<span class="pl-s1"><span class="pl-pds">'</span>name=nijiko<span class="pl-pds">'</span></span>)
+.<span class="pl-s3">send</span>(<span class="pl-s1"><span class="pl-pds">'</span>pet=spot<span class="pl-pds">'</span></span>)
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+});</pre></div>
 
 <p><strong>HTML / Other</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'Content-Type'</span><span class="p">,</span> <span class="s1">'text/html'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'&lt;strong&gt;Hello World!&lt;/strong&gt;'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.set(<span class="pl-s1"><span class="pl-pds">'</span>Content-Type<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>text/html<span class="pl-pds">'</span></span>)
+.<span class="pl-s3">send</span>(<span class="pl-s1"><span class="pl-pds">'</span>&lt;strong&gt;Hello World!&lt;/strong&gt;<span class="pl-pds">'</span></span>)
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+});</pre></div>
 
 <h4>
-<a name="user-content-requesttypestring" class="anchor" href="#requesttypestring"><span class="octicon octicon-link"></span></a>Request.type(String)</h4>
+<a id="user-content-requesttypestring" class="anchor" href="#requesttypestring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.type(String)</h4>
 
-<p>Sets the header <code>Content-Type</code> through either lookup for extensions (<code>xml</code>, <code>png</code>, <code>json</code>, etc...) using <code>mime</code> or using the full value such as <code>application/json</code>. </p>
+<p>Sets the header <code>Content-Type</code> through either lookup for extensions (<code>xml</code>, <code>png</code>, <code>json</code>, etc...) using <code>mime</code> or using the full value such as <code>application/json</code>.</p>
 
 <p>Uses <code>Request.header()</code> to set header value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s1">'application/json'</span><span class="p">)</span> <span class="c1">// Content-Type: application/json</span>
-<span class="nx">Request</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s1">'json'</span><span class="p">)</span> <span class="c1">// Content-Type: application/json</span>
-<span class="nx">Request</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s1">'html'</span><span class="p">)</span> <span class="c1">// Content-Type: text/html</span>
-<span class="err">…</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>) <span class="pl-c">// Content-Type: application/json</span>
+Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds">'</span>json<span class="pl-pds">'</span></span>) <span class="pl-c">// Content-Type: application/json</span>
+Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds">'</span>html<span class="pl-pds">'</span></span>) <span class="pl-c">// Content-Type: text/html</span>
+…</pre></div>
 
 <h2>
-<a name="user-content-request-form-methods" class="anchor" href="#request-form-methods"><span class="octicon octicon-link"></span></a>Request Form Methods</h2>
+<a id="user-content-request-form-methods" class="anchor" href="#request-form-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Form Methods</h2>
 
 <p>The following methods are sugar methods for attaching files, and form fields. Instead of handling files and processing them yourself Unirest can do that for you.</p>
 
 <h4>
-<a name="user-content-requestattachobject-or-name-path" class="anchor" href="#requestattachobject-or-name-path"><span class="octicon octicon-link"></span></a>Request.attach(Object) or (name, path)</h4>
+<a id="user-content-requestattachobject-or-name-path" class="anchor" href="#requestattachobject-or-name-path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.attach(Object) or (name, path)</h4>
 
 <p><code>Object</code> should consist of <code>name: 'path'</code> otherwise use <code>name</code> and <code>path</code>.</p>
 
@@ -363,47 +350,54 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 <code>name</code> (<code>String</code>) - File field name</li>
 <li>
 <code>path</code> (<code>String</code> | <code>Object</code>) - File value, A <code>String</code> will be parsed based on its value. If <code>path</code> contains <code>http</code> or <code>https</code> Request will handle it as a <code>remote file</code>.  If <code>path</code> does not contain <code>http</code> or <code>https</code> then unirest will assume that it is the path to a local file and attempt to find it using <code>path.resolve</code>. An <code>Object</code> is directly set, so you can do pre-processing if you want without worrying about the string value.</li>
-</ul><p><strong>Object</strong></p>
+</ul>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">headers</span><span class="p">({</span> <span class="s1">'Accept'</span><span class="o">:</span> <span class="s1">'application/json'</span> <span class="p">})</span>
-<span class="p">.</span><span class="nx">field</span><span class="p">({</span>
-  <span class="s1">'parameter'</span><span class="o">:</span> <span class="s1">'value'</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">attach</span><span class="p">({</span>
-  <span class="s1">'file'</span><span class="o">:</span> <span class="s1">'dog.png'</span><span class="p">,</span>
-  <span class="s1">'relative file'</span><span class="o">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'dog.png'</span><span class="p">),</span>
-  <span class="s1">'remote file'</span><span class="o">:</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'http://google.com/doodle.png'</span><span class="p">)</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">})</span>
-</pre></div>
+<p><strong>Object</strong></p>
+
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.field({
+  <span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>
+})
+.attach({
+  <span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>,
+  <span class="pl-s1"><span class="pl-pds">'</span>relative file<span class="pl-pds">'</span></span><span class="pl-k">:</span> fs.createReadStream(path.<span class="pl-s3">join</span>(<span class="pl-sv">__dirname</span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>),
+  <span class="pl-s1"><span class="pl-pds">'</span>remote file<span class="pl-pds">'</span></span><span class="pl-k">:</span> unirest.request(<span class="pl-s1"><span class="pl-pds">'</span>http://google.com/doodle.png<span class="pl-pds">'</span></span>)
+})
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+})</pre></div>
 
 <p><strong>Arguments</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://httpbin.org/post'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">headers</span><span class="p">({</span> <span class="s1">'Accept'</span><span class="o">:</span> <span class="s1">'application/json'</span> <span class="p">})</span>
-<span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="s1">'parameter'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">)</span> <span class="c1">// Form field</span>
-<span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="s1">'file'</span><span class="p">,</span> <span class="s1">'dog.png'</span><span class="p">)</span> <span class="c1">// Attachment</span>
-<span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="s1">'remote file'</span><span class="p">,</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'dog.png'</span><span class="p">))</span> <span class="c1">// Same as above.</span>
-<span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="s1">'remote file'</span><span class="p">,</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'http://google.com/doodle.png'</span><span class="p">))</span>
-<span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.field(<span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>) <span class="pl-c">// Form field</span>
+.attach(<span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>) <span class="pl-c">// Attachment</span>
+.attach(<span class="pl-s1"><span class="pl-pds">'</span>remote file<span class="pl-pds">'</span></span>, fs.createReadStream(path.<span class="pl-s3">join</span>(<span class="pl-sv">__dirname</span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>)) <span class="pl-c">// Same as above.</span>
+.attach(<span class="pl-s1"><span class="pl-pds">'</span>remote file<span class="pl-pds">'</span></span>, unirest.request(<span class="pl-s1"><span class="pl-pds">'</span>http://google.com/doodle.png<span class="pl-pds">'</span></span>))
+.end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+});</pre></div>
 
 <h4>
-<a name="user-content-requestfieldobject-or-name-value" class="anchor" href="#requestfieldobject-or-name-value"><span class="octicon octicon-link"></span></a>Request.field(Object) or (name, value)</h4>
+<a id="user-content-requestfieldobject-or-name-value" class="anchor" href="#requestfieldobject-or-name-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.field(Object) or (name, value)</h4>
 
 <p><code>Object</code> should consist of <code>name: 'value'</code> otherwise use <code>name</code> and <code>value</code></p>
 
 <p>See <code>Request.attach</code> for usage.</p>
 
-<h2>
-<a name="user-content-requestoptions" class="anchor" href="#requestoptions"><span class="octicon octicon-link"></span></a>Request.options</h2>
+<h4>
+<a id="user-content-requeststream" class="anchor" href="#requeststream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.stream()</h4>
 
-<p>The <em>options</em> <code>object</code> is where almost all of the request settings live. Each option method sugars to a field on this object to allow for chaining and ease of use. If 
+<p>Sets <code>_stream</code> flag to use <code>request</code> streaming instead of direct <code>form-data</code> usage.
+This seemingly appears to only work for node servers, use streaming only if you are a hundred percent sure it will work.
+Tread carefully.</p>
+
+<h2>
+<a id="user-content-requestoptions" class="anchor" href="#requestoptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.options</h2>
+
+<p>The <em>options</em> <code>object</code> is where almost all of the request settings live. Each option method sugars to a field on this object to allow for chaining and ease of use. If
 you have trouble with an option method and wish to directly access the <em>options</em> object
 you are free to do so.</p>
 
@@ -456,40 +450,41 @@ you are free to do so.</p>
 <li>
 <code>localAddress</code> (<code>String</code>) - See <code>Request.localAddress()</code> Below.</li>
 <li>
-<code>pool</code> &amp;&amp; <code>pool.maxSockets</code> - Advanced agent technology, that is supported.</li>
-</ul><h2>
-<a name="user-content-request-option-methods" class="anchor" href="#request-option-methods"><span class="octicon octicon-link"></span></a>Request Option Methods</h2>
+<code>pool</code> (<code>Object</code>) - See <code>Reuqest.pool()</code> Below.</li>
+<li>
+<code>forever</code> (<code>Boolean</code>) - Default <code>undefined</code>; See <code>Request.forever()</code> Below</li>
+</ul>
+
+<h2>
+<a id="user-content-request-option-methods" class="anchor" href="#request-option-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Option Methods</h2>
 
 <h4>
-<a name="user-content-requesturlstring" class="anchor" href="#requesturlstring"><span class="octicon octicon-link"></span></a>Request.url(String)</h4>
+<a id="user-content-requesturlstring" class="anchor" href="#requesturlstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.url(String)</h4>
 
 <p>Sets <code>url</code> location of the current request on <code>Request.options</code> to the given <code>String</code></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">url</span><span class="p">(</span><span class="s1">'http://httpbin.org/get'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.url(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>);</pre></div>
 
 <h4>
-<a name="user-content-requestmethodstring" class="anchor" href="#requestmethodstring"><span class="octicon octicon-link"></span></a>Request.method(String)</h4>
+<a id="user-content-requestmethodstring" class="anchor" href="#requestmethodstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.method(String)</h4>
 
 <p>Sets <code>method</code> value on <code>Request.options</code> to the given value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">method</span><span class="p">(</span><span class="s1">'HEAD'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.<span class="pl-sc">method</span>(<span class="pl-s1"><span class="pl-pds">'</span>HEAD<span class="pl-pds">'</span></span>);</pre></div>
 
 <h4>
-<a name="user-content-requestformobject" class="anchor" href="#requestformobject"><span class="octicon octicon-link"></span></a>Request.form(Object)</h4>
+<a id="user-content-requestformobject" class="anchor" href="#requestformobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.form(Object)</h4>
 
 <p>Sets <code>form</code> object on <code>Request.options</code> to the given object.</p>
 
 <p>When used <code>body</code> is set to the object passed as a <code>querystring</code> representation and the <code>Content-Type</code> header to <code>application/x-www-form-urlencoded; charset=utf-8</code></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">form</span><span class="p">({</span>
-  <span class="nx">key</span><span class="o">:</span> <span class="s1">'value'</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.<span class="pl-sc">form</span>({
+  key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>
+});</pre></div>
 
 <h4>
-<a name="user-content-requestmultipartarray" class="anchor" href="#requestmultipartarray"><span class="octicon octicon-link"></span></a>Request.multipart(Array)</h4>
+<a id="user-content-requestmultipartarray" class="anchor" href="#requestmultipartarray" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.multipart(Array)</h4>
 
 <p><strong>Experimental</strong></p>
 
@@ -497,225 +492,233 @@ you are free to do so.</p>
 
 <p>Each objects property with the exclusion of <code>body</code> is treated as a header value. Each <code>body</code> value must be pre-processed if necessary when using this method.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">multipart</span><span class="p">([{</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span>
-  <span class="p">})</span>
-<span class="p">},</span> <span class="p">{</span>
-  <span class="s1">'content-type'</span><span class="o">:</span> <span class="s1">'text/html'</span><span class="p">,</span>
-  <span class="nx">body</span><span class="o">:</span> <span class="s1">'&lt;strong&gt;Hello World!&lt;/strong&gt;'</span>
-<span class="p">}]);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.multipart([{
+  <span class="pl-s1"><span class="pl-pds">'</span>content-type<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>,
+  body<span class="pl-k">:</span> JSON.stringify({
+    foo<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>
+  })
+}, {
+  <span class="pl-s1"><span class="pl-pds">'</span>content-type<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>text/html<span class="pl-pds">'</span></span>,
+  body<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>&lt;strong&gt;Hello World!&lt;/strong&gt;<span class="pl-pds">'</span></span>
+}]);</pre></div>
 
 <h4>
-<a name="user-content-requestmaxredirectsnumber" class="anchor" href="#requestmaxredirectsnumber"><span class="octicon octicon-link"></span></a>Request.maxRedirects(Number)</h4>
+<a id="user-content-requestmaxredirectsnumber" class="anchor" href="#requestmaxredirectsnumber" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.maxRedirects(Number)</h4>
 
 <p>Sets <code>maxRedirects</code>, the number of redirects the current Request will follow, on <code>Request.options</code> based on the given value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">maxRedirects</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.maxRedirects(<span class="pl-c1">6</span>)</pre></div>
 
 <h4>
-<a name="user-content-requestfollowredirectboolean" class="anchor" href="#requestfollowredirectboolean"><span class="octicon octicon-link"></span></a>Request.followRedirect(Boolean)</h4>
+<a id="user-content-requestfollowredirectboolean" class="anchor" href="#requestfollowredirectboolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.followRedirect(Boolean)</h4>
 
 <p>Sets <code>followRedirect</code> flag on <code>Request.options</code> for whether the current Request should follow HTTP redirects based on the given value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">followRedirect</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.followRedirect(<span class="pl-c1">true</span>);</pre></div>
 
 <h4>
-<a name="user-content-requesttimeoutnumber" class="anchor" href="#requesttimeoutnumber"><span class="octicon octicon-link"></span></a>Request.timeout(Number)</h4>
+<a id="user-content-requesttimeoutnumber" class="anchor" href="#requesttimeoutnumber" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.timeout(Number)</h4>
 
 <p>Sets <code>timeout</code>, number of milliseconds Request should wait for a response before aborting, on <code>Request.options</code> based on the given value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.timeout(<span class="pl-c1">2000</span>)</pre></div>
 
 <h4>
-<a name="user-content-requestencodingstring" class="anchor" href="#requestencodingstring"><span class="octicon octicon-link"></span></a>Request.encoding(String)</h4>
+<a id="user-content-requestencodingstring" class="anchor" href="#requestencodingstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.encoding(String)</h4>
 
 <p>Sets <code>encoding</code>, encoding to be used on setEncoding of response data if set to null, the body is returned as a Buffer, on <code>Request.options</code> based on given value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">encoding</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.<span class="pl-sc">encoding</span>(<span class="pl-s1"><span class="pl-pds">'</span>utf-8<span class="pl-pds">'</span></span>)</pre></div>
 
 <h4>
-<a name="user-content-requeststrictsslboolean" class="anchor" href="#requeststrictsslboolean"><span class="octicon octicon-link"></span></a>Request.strictSSL(Boolean)</h4>
+<a id="user-content-requeststrictsslboolean" class="anchor" href="#requeststrictsslboolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.strictSSL(Boolean)</h4>
 
 <p>Sets <code>strictSSL</code> flag to require that SSL certificates be valid on <code>Request.options</code> based on given value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">strictSSL</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.strictSSL(<span class="pl-c1">true</span>);</pre></div>
 
 <h4>
-<a name="user-content-requesthttpsignatureobject" class="anchor" href="#requesthttpsignatureobject"><span class="octicon octicon-link"></span></a>Request.httpSignature(Object)</h4>
+<a id="user-content-requesthttpsignatureobject" class="anchor" href="#requesthttpsignatureobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.httpSignature(Object)</h4>
 
-<p>Sets <code>httpSignature</code> </p>
+<p>Sets <code>httpSignature</code></p>
 
 <h4>
-<a name="user-content-requestproxystring" class="anchor" href="#requestproxystring"><span class="octicon octicon-link"></span></a>Request.proxy(String)</h4>
+<a id="user-content-requestproxystring" class="anchor" href="#requestproxystring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.proxy(String)</h4>
 
 <p>Sets <code>proxy</code>, HTTP Proxy to be set on <code>Request.options</code> based on value.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="s1">'http://localproxy.com'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.proxy(<span class="pl-s1"><span class="pl-pds">'</span>http://localproxy.com<span class="pl-pds">'</span></span>);</pre></div>
 
 <h4>
-<a name="user-content-requestsecureprotocolstring" class="anchor" href="#requestsecureprotocolstring"><span class="octicon octicon-link"></span></a>Request.secureProtocol(String)</h4>
+<a id="user-content-requestsecureprotocolstring" class="anchor" href="#requestsecureprotocolstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.secureProtocol(String)</h4>
 
 <p>Sets the secure protocol to use:</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">secureProtocol</span><span class="p">(</span><span class="s1">'SSLv2_method'</span><span class="p">);</span>
-<span class="c1">// or </span>
-<span class="nx">Request</span><span class="p">.</span><span class="nx">secureProtocol</span><span class="p">(</span><span class="s1">'SSLv3_client_method'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.secureProtocol(<span class="pl-s1"><span class="pl-pds">'</span>SSLv2_method<span class="pl-pds">'</span></span>);
+<span class="pl-c">// or</span>
+Request.secureProtocol(<span class="pl-s1"><span class="pl-pds">'</span>SSLv3_client_method<span class="pl-pds">'</span></span>);</pre></div>
 
 <p>See <a href="https://www.openssl.org/docs/ssl/SSL_CTX_new.html">openssl.org</a> for all possible values.</p>
 
 <h4>
-<a name="user-content-requestawsobject" class="anchor" href="#requestawsobject"><span class="octicon octicon-link"></span></a>Request.aws(Object)</h4>
+<a id="user-content-requestawsobject" class="anchor" href="#requestawsobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.aws(Object)</h4>
 
 <p>Sets <code>aws</code>, AWS Signing Credentials, on <code>Request.options</code></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">aws</span><span class="p">({</span> 
-  <span class="nx">key</span><span class="o">:</span> <span class="s1">'AWS_S3_KEY'</span><span class="p">,</span>
-  <span class="nx">secret</span><span class="o">:</span> <span class="s1">'AWS_S3_SECRET'</span><span class="p">,</span>
-  <span class="nx">bucket</span><span class="o">:</span> <span class="s1">'BUCKET NAME'</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.aws({
+  key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>AWS_S3_KEY<span class="pl-pds">'</span></span>,
+  secret<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>AWS_S3_SECRET<span class="pl-pds">'</span></span>,
+  bucket<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>BUCKET NAME<span class="pl-pds">'</span></span>
+});</pre></div>
 
 <h4>
-<a name="user-content-requestoauthobject" class="anchor" href="#requestoauthobject"><span class="octicon octicon-link"></span></a>Request.oauth(Object)</h4>
+<a id="user-content-requestoauthobject" class="anchor" href="#requestoauthobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.oauth(Object)</h4>
 
 <p>Sets <code>oauth</code>, list of oauth credentials, on <code>Request.options</code> based on given object.</p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.twitter.com/oauth/request_token'</span><span class="p">);</span>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>https://api.twitter.com/oauth/request_token<span class="pl-pds">'</span></span>);
 
-<span class="nx">Request</span><span class="p">.</span><span class="nx">oauth</span><span class="p">({</span>
-  <span class="nx">callback</span><span class="o">:</span> <span class="s1">'http://mysite.com/callback/'</span><span class="p">,</span>
-  <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span><span class="p">,</span>
-  <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span>
-<span class="p">}).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">access_token</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+Request.oauth({
+  callback<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>http://mysite.com/callback/<span class="pl-pds">'</span></span>,
+  consumer_key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>CONSUMER_KEY<span class="pl-pds">'</span></span>,
+  consumer_secret<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>CONSUMER_SECRET<span class="pl-pds">'</span></span>
+}).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-s">var</span> access_token <span class="pl-k">=</span> response.<span class="pl-sc">body</span>;
 
-  <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'https://api.twitter.com/oauth/access_token'</span><span class="p">);</span>
-  <span class="nx">Request</span><span class="p">.</span><span class="nx">oauth</span><span class="p">({</span>
-    <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span><span class="p">,</span>
-    <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span><span class="p">,</span>
-    <span class="nx">token</span><span class="o">:</span> <span class="nx">access_token</span><span class="p">.</span><span class="nx">oauth_token</span><span class="p">,</span>
-    <span class="nx">verifier</span><span class="o">:</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">access_token</span><span class="p">.</span><span class="nx">oauth_verifier</span>
-  <span class="p">}).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+  Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>https://api.twitter.com/oauth/access_token<span class="pl-pds">'</span></span>);
+  Request.oauth({
+    consumer_key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>CONSUMER_KEY<span class="pl-pds">'</span></span>,
+    consumer_secret<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>CONSUMER_SECRET<span class="pl-pds">'</span></span>,
+    token<span class="pl-k">:</span> access_token.oauth_token,
+    verifier<span class="pl-k">:</span> token<span class="pl-k">:</span> access_token.oauth_verifier
+  }).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+    <span class="pl-s">var</span> token <span class="pl-k">=</span> response.<span class="pl-sc">body</span>;
 
-    <span class="nx">Request</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.twitter.com/1/users/show.json'</span><span class="p">);</span>
-    <span class="nx">Request</span><span class="p">.</span><span class="nx">oauth</span><span class="p">({</span>
-      <span class="nx">consumer_key</span><span class="o">:</span> <span class="s1">'CONSUMER_KEY'</span><span class="p">,</span>
-      <span class="nx">consumer_secret</span><span class="o">:</span> <span class="s1">'CONSUMER_SECRET'</span><span class="p">,</span>
-      <span class="nx">token</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">oauth_token</span><span class="p">,</span>
-      <span class="nx">token_secret</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">oauth_token_secret</span>
-    <span class="p">}).</span><span class="nx">query</span><span class="p">({</span>
-      <span class="nx">screen_name</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">screen_name</span><span class="p">,</span>
-      <span class="nx">user_id</span><span class="o">:</span> <span class="nx">token</span><span class="p">.</span><span class="nx">user_id</span>
-    <span class="p">}).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">})</span>
-<span class="p">});</span>
-</pre></div>
+    Request <span class="pl-k">=</span> unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>https://api.twitter.com/1/users/show.json<span class="pl-pds">'</span></span>);
+    Request.oauth({
+      consumer_key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>CONSUMER_KEY<span class="pl-pds">'</span></span>,
+      consumer_secret<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>CONSUMER_SECRET<span class="pl-pds">'</span></span>,
+      token<span class="pl-k">:</span> token.oauth_token,
+      token_secret<span class="pl-k">:</span> token.oauth_token_secret
+    }).query({
+      screen_name<span class="pl-k">:</span> token.screen_name,
+      user_id<span class="pl-k">:</span> token.user_id
+    }).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+      <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
+    });
+  })
+});</pre></div>
 
 <h4>
-<a name="user-content-requesthawkobject" class="anchor" href="#requesthawkobject"><span class="octicon octicon-link"></span></a>Request.hawk(Object)</h4>
+<a id="user-content-requesthawkobject" class="anchor" href="#requesthawkobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.hawk(Object)</h4>
 
 <p>Sets <code>hawk</code> object on <code>Request.options</code> to the given object.</p>
 
 <p>Hawk requires a field <code>credentials</code> as seen in their <a href="https://github.com/hueniverse/hawk#usage-example">documentation</a>, and below.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">hawk</span><span class="p">({</span>
-  <span class="nx">credentials</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">key</span><span class="o">:</span> <span class="s1">'werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn'</span><span class="p">,</span>
-    <span class="nx">algorithm</span><span class="o">:</span> <span class="s1">'sha256'</span><span class="p">,</span>
-    <span class="nx">user</span><span class="o">:</span> <span class="s1">'Steve'</span>
-  <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.hawk({
+  credentials<span class="pl-k">:</span> {
+    key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn<span class="pl-pds">'</span></span>,
+    algorithm<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>sha256<span class="pl-pds">'</span></span>,
+    user<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Steve<span class="pl-pds">'</span></span>
+  }
+});</pre></div>
 
 <h4>
-<a name="user-content-requestlocaladdressstring" class="anchor" href="#requestlocaladdressstring"><span class="octicon octicon-link"></span></a>Request.localAddress(String)</h4>
+<a id="user-content-requestlocaladdressstring" class="anchor" href="#requestlocaladdressstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.localAddress(String)</h4>
 
 <p>Sets <code>localAddress</code>, local interface to bind for network connections, on <code>Request.options</code></p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Request</span><span class="p">.</span><span class="nx">localAddress</span><span class="p">(</span><span class="s1">'127.0.0.1'</span><span class="p">);</span>
-<span class="nx">Request</span><span class="p">.</span><span class="nx">localAddress</span><span class="p">(</span><span class="s1">'1.2.3.4'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-js"><pre>Request.localAddress(<span class="pl-s1"><span class="pl-pds">'</span>127.0.0.1<span class="pl-pds">'</span></span>);
+Request.localAddress(<span class="pl-s1"><span class="pl-pds">'</span>1.2.3.4<span class="pl-pds">'</span></span>);</pre></div>
 
 <h4>
-<a name="user-content-requestjarboolean-or-requestjarjar" class="anchor" href="#requestjarboolean-or-requestjarjar"><span class="octicon octicon-link"></span></a>Request.jar(Boolean) or Request.jar(Jar)</h4>
+<a id="user-content-requestjarboolean-or-requestjarjar" class="anchor" href="#requestjarboolean-or-requestjarjar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.jar(Boolean) or Request.jar(Jar)</h4>
 
 <p>Sets <code>jar</code>, cookie container, on <code>Request.options</code>. When set to <code>true</code> it stores cookies for future usage.</p>
 
 <p>See <code>unirest.jar</code> for more information on how to use <code>Jar</code> argument.</p>
 
+<h4>
+<a id="user-content-requestpoolobject" class="anchor" href="#requestpoolobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.pool(Object)</h4>
+
+<p>Sets <code>pool</code> object on <code>Request.options</code> to the given object.</p>
+
+<p>A maxSockets property can also be provided on the pool object to set the max number of sockets for all agents created.</p>
+
+<p>Note that if you are sending multiple requests in a loop and creating multiple new pool objects, maxSockets will not work as intended. To work around this, create the pool object with the maxSockets property outside of the loop.</p>
+
+<div class="highlight highlight-js"><pre>poolOption <span class="pl-k">=</span> { maxSockets<span class="pl-k">:</span> <span class="pl-c1">100</span> }
+
+Request.pool poolOption</pre></div>
+
+<h4>
+<a id="user-content-requestforeverboolean" class="anchor" href="#requestforeverboolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.forever(Boolean)</h4>
+
+<p>Sets <code>forever</code> flag to use <code>forever-agent</code> module. When set to <code>true</code>,  default http agent will be replaced by <code>forever-agent</code>, which keeps socket connections alive between keep-alive requests.</p>
+
+<div class="highlight highlight-js"><pre>Request.forever(<span class="pl-c1">true</span>);</pre></div>
+
 <h2>
-<a name="user-content-request-aliases" class="anchor" href="#request-aliases"><span class="octicon octicon-link"></span></a>Request Aliases</h2>
+<a id="user-content-request-aliases" class="anchor" href="#request-aliases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Aliases</h2>
 
 <h4>
-<a name="user-content-requestset" class="anchor" href="#requestset"><span class="octicon octicon-link"></span></a>Request.set</h4>
+<a id="user-content-requestset" class="anchor" href="#requestset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.set</h4>
 
 <p><strong>Alias</strong> for <code>Request.header()</code></p>
 
 <h4>
-<a name="user-content-requestheaders" class="anchor" href="#requestheaders"><span class="octicon octicon-link"></span></a>Request.headers</h4>
+<a id="user-content-requestheaders" class="anchor" href="#requestheaders" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.headers</h4>
 
 <p><strong>Alias</strong> for <code>Request.header()</code></p>
 
 <h4>
-<a name="user-content-requestredirects" class="anchor" href="#requestredirects"><span class="octicon octicon-link"></span></a>Request.redirects</h4>
+<a id="user-content-requestredirects" class="anchor" href="#requestredirects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.redirects</h4>
 
 <p><strong>Alias</strong> for <code>Request.maxRedirects()</code></p>
 
 <h4>
-<a name="user-content-requestredirect" class="anchor" href="#requestredirect"><span class="octicon octicon-link"></span></a>Request.redirect</h4>
+<a id="user-content-requestredirect" class="anchor" href="#requestredirect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.redirect</h4>
 
 <p><strong>Alias</strong> for <code>Request.followRedirect()</code></p>
 
 <h4>
-<a name="user-content-requestssl" class="anchor" href="#requestssl"><span class="octicon octicon-link"></span></a>Request.ssl</h4>
+<a id="user-content-requestssl" class="anchor" href="#requestssl" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.ssl</h4>
 
 <p><strong>Alias</strong> for <code>Request.strictSSL()</code></p>
 
 <h4>
-<a name="user-content-requestip" class="anchor" href="#requestip"><span class="octicon octicon-link"></span></a>Request.ip</h4>
+<a id="user-content-requestip" class="anchor" href="#requestip" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.ip</h4>
 
 <p><strong>Alias</strong> for <code>Request.localAddress()</code></p>
 
 <h4>
-<a name="user-content-requestcomplete" class="anchor" href="#requestcomplete"><span class="octicon octicon-link"></span></a>Request.complete</h4>
+<a id="user-content-requestcomplete" class="anchor" href="#requestcomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.complete</h4>
 
 <p><strong>Alias</strong> for <code>Request.end()</code></p>
 
 <h4>
-<a name="user-content-requestasjson" class="anchor" href="#requestasjson"><span class="octicon octicon-link"></span></a>Request.as.json</h4>
+<a id="user-content-requestasjson" class="anchor" href="#requestasjson" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.as.json</h4>
 
 <p><strong>Alias</strong> for <code>Request.end()</code></p>
 
 <h4>
-<a name="user-content-requestasbinary" class="anchor" href="#requestasbinary"><span class="octicon octicon-link"></span></a>Request.as.binary</h4>
+<a id="user-content-requestasbinary" class="anchor" href="#requestasbinary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.as.binary</h4>
 
 <p><strong>Alias</strong> for <code>Request.end()</code></p>
 
 <h4>
-<a name="user-content-requestasstring" class="anchor" href="#requestasstring"><span class="octicon octicon-link"></span></a>Request.as.string</h4>
+<a id="user-content-requestasstring" class="anchor" href="#requestasstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.as.string</h4>
 
 <p><strong>Alias</strong> for <code>Request.end()</code></p>
 
 <h1>
-<a name="user-content-response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+<a id="user-content-response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h1>
 
 <p>Upon ending a request, and recieving a Response the object that is returned contains a number of helpful properties to ease coding pains.</p>
 
 <h2>
-<a name="user-content-general" class="anchor" href="#general"><span class="octicon octicon-link"></span></a>General</h2>
+<a id="user-content-general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h2>
 
 <ul>
 <li>
@@ -749,8 +752,10 @@ you are free to do so.</p>
 <code>request</code> (<code>Object</code>) - Initial request object.</li>
 <li>
 <code>setEncoding</code> (<code>Function</code>) - Set encoding type.</li>
-</ul><h2>
-<a name="user-content-status-information" class="anchor" href="#status-information"><span class="octicon octicon-link"></span></a>Status Information</h2>
+</ul>
+
+<h2>
+<a id="user-content-status-information" class="anchor" href="#status-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status Information</h2>
 
 <ul>
 <li>
@@ -798,19 +803,21 @@ you are free to do so.</p>
 <code>forbidden</code> (<code>Boolean</code>) - Status Code <code>403</code>?</li>
 <li>
 <code>error</code> (<code>Boolean</code> | <code>Object</code>) - Dependant on status code range.</li>
-</ul><h2>
-<a name="user-content-responsecookiename" class="anchor" href="#responsecookiename"><span class="octicon octicon-link"></span></a>response.cookie(name)</h2>
+</ul>
+
+<h2>
+<a id="user-content-responsecookiename" class="anchor" href="#responsecookiename" aria-hidden="true"><span class="octicon octicon-link"></span></a>response.cookie(name)</h2>
 
 <p>Sugar method for retrieving a cookie from the <code>response.cookies</code> object.</p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">CookieJar</span> <span class="o">=</span> <span class="nx">unirest</span><span class="p">.</span><span class="nx">jar</span><span class="p">();</span>
-<span class="nx">CookieJar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">unirest</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s1">'another cookie=23'</span><span class="p">));</span>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> CookieJar <span class="pl-k">=</span> unirest.jar();
+CookieJar.<span class="pl-s3">add</span>(unirest.<span class="pl-sc">cookie</span>(<span class="pl-s1"><span class="pl-pds">'</span>another cookie=23<span class="pl-pds">'</span></span>));
 
-<span class="nx">unirest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://google.com'</span><span class="p">).</span><span class="nx">jar</span><span class="p">(</span><span class="nx">CookieJar</span><span class="p">).</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Except google trims the value passed :/</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s1">'another cookie'</span><span class="p">));</span>
-<span class="p">});</span>
-</pre></div>  </div>
+unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://google.com<span class="pl-pds">'</span></span>).jar(CookieJar).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  <span class="pl-c">// Except google trims the value passed :/</span>
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">cookie</span>(<span class="pl-s1"><span class="pl-pds">'</span>another cookie<span class="pl-pds">'</span></span>));
+});</pre></div>
+  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')
