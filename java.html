@@ -27,8 +27,14 @@
   </nav>
 
   <div class="documentation"><h1>
-<a id="user-content-unirest-for-java-" class="anchor" href="#unirest-for-java-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Java <a href="https://travis-ci.org/Mashape/unirest-java"><img src="https://camo.githubusercontent.com/862839b78dbcc60bdf0f260ac1377cfb84cdd943/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d6a6176612e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-java.png" style="max-width:100%;"></a>
+<a id="user-content-unirest-for-java--" class="anchor" href="#unirest-for-java--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Java <a href="https://travis-ci.org/Mashape/unirest-java"><img src="https://camo.githubusercontent.com/ea8257cb3507b7b17de8e5b895f312004592f907/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d6a6176612e7376673f7374796c653d666c6174" alt="Build Status" data-canonical-src="https://img.shields.io/travis/Mashape/unirest-java.svg?style=flat" style="max-width:100%;"></a> <a href="http://search.maven.org/#browse%7C1262490619"><img src="https://camo.githubusercontent.com/0df5f1e8736a077a98271de201fa8ddba1d4aa3f/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e6d6173686170652e756e69726573742f756e69726573742d6a6176612e7376673f7374796c653d666c6174" alt="version" data-canonical-src="https://img.shields.io/maven-central/v/com.mashape.unirest/unirest-java.svg?style=flat" style="max-width:100%;"></a>
 </h1>
+
+<p><a href="https://github.com/Mashape/unirest-java/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/d0e25b09a82bc4bfde9f1e048a092752eebbb4f3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e7376673f7374796c653d666c6174" alt="License" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://www.versioneye.com/user/projects/54b83a12050646ca5c0001fc"><img src="https://camo.githubusercontent.com/53bb47f96807727539ed2fba9815e14dcb1700ed/68747470733a2f2f7777772e76657273696f6e6579652e636f6d2f757365722f70726f6a656374732f3534623833613132303530363436636135633030303166632f62616467652e7376673f7374796c653d666c6174" alt="Dependencies" data-canonical-src="https://www.versioneye.com/user/projects/54b83a12050646ca5c0001fc/badge.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://gitter.im/Mashape/unirest-java"><img src="https://camo.githubusercontent.com/5818ff993808659f636e910854b9aefcda215da2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769747465722d4a6f696e253230436861742d626c75652e7376673f7374796c653d666c6174" alt="Gitter" data-canonical-src="https://img.shields.io/badge/Gitter-Join%20Chat-blue.svg?style=flat" style="max-width:100%;"></a></p>
+
+<p>Unirest is a set of lightweight HTTP libraries available in <a href="http://unirest.io">multiple languages</a>.</p>
 
 <p>Do yourself a favor, and start making HTTP requests like this:</p>
 
@@ -37,7 +43,8 @@
   .field(<span class="pl-s1"><span class="pl-pds">"</span>last<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Polo<span class="pl-pds">"</span></span>)
   .asJson()</pre></div>
 
-<p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
+<h2>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
 
 <ul>
 <li>Make <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code>, <code>HEAD</code>, <code>OPTIONS</code> requests</li>
@@ -51,8 +58,6 @@
 <li>Customizable <code>HttpClient</code> and <code>HttpAsyncClient</code> implementation</li>
 <li>Automatic JSON parsing into a native object for JSON responses</li>
 </ul>
-
-<p>Created with love by <a href="https://github.com/thefosk">thefosk</a> @ <a href="https://mashape.com">mashape.com</a></p>
 
 <h2>
 <a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
@@ -107,7 +112,7 @@
 
 <p>Alternatively if you don't use Maven, you can directly include the JAR file in the classpath: <a href="http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.3.27/unirest-java-1.3.27.jar">http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.3.27/unirest-java-1.3.27.jar</a></p>
 
-<p>Don't forget to also install the dependencies (<code>org.json</code>, <code>httpclient 4.3.6</code>, <code>httpmime 4.3.6</code>, <code>httpasyncclient 4.0.2</code>) in the classpath too.</p>
+<p>Don't forget to also install the dependencies (<a href="http://www.json.org/java/"><code>org.json</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpclient 4.3.6</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpmime 4.3.6</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpasyncclient 4.0.2</code></a>) in the classpath too.</p>
 
 <p>There is also a way to generate a Unirest-Java JAR file that already includes the required dependencies, but you will need Maven to generate it. Follow the instructions at <a href="http://blog.mashape.com/post/69117323931/installing-unirest-java-with-the-maven-assembly-plugin">http://blog.mashape.com/post/69117323931/installing-unirest-java-with-the-maven-assembly-plugin</a></p>
 
@@ -275,6 +280,10 @@
 <p>Unirest starts a background event loop and your Java application won't be able to exit until you manually shutdown all the threads by invoking:</p>
 
 <div class="highlight highlight-java"><pre><span class="pl-stj">Unirest</span><span class="pl-k">.</span>shutdown();</pre></div>
+
+<hr>
+
+<p>Made with ♥ from the <a href="https://www.mashape.com/">Mashape</a> team</p>
   </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">

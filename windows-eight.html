@@ -27,81 +27,76 @@
   </nav>
 
   <div class="documentation"><h1>
-<a name="user-content-unirest-for-windows-8" class="anchor" href="#unirest-for-windows-8"><span class="octicon octicon-link"></span></a>Unirest for Windows 8</h1>
+<a id="user-content-unirest-for-windows-8" class="anchor" href="#unirest-for-windows-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Windows 8</h1>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages.</p>
 
 <p>This is a port of the .NET library to Windows 8.</p>
 
 <h2>
-<a name="user-content-installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+<a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
 
 <p>Is easy as pie. Kidding. It's as easy as downloading from <a href="https://nuget.org/packages/Unirest-Net/1.0.0-beta">NuGet</a>.</p>
 
 <h2>
-<a name="user-content-creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
+<a id="user-content-creating-request" class="anchor" href="#creating-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Request</h2>
 
 <p>So you're probably wondering how using Unirest makes creating requests in .NET easier, here is a basic POST request that will explain everything:</p>
 
-<div class="highlight highlight-C#"><pre><span class="n">HttpResponse</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;</span> <span class="n">jsonResponse</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="s">"accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"parameter"</span><span class="p">,</span> <span class="s">"value"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"foo"</span><span class="p">,</span> <span class="s">"bar"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">asJson</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;();</span>
-</pre></div>
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; jsonResponse = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)
+  .asJson&lt;MyClass&gt;();</pre></div>
 
 <p>Requests are made when <code>as[Type]()</code> is invoked, possible types include <code>Json</code>, <code>Binary</code>, <code>String</code>. If the request supports this, a body  can be passed along with <code>.body(String)</code> or <code>body&lt;T&gt;(T)</code> to serialize an arbitary object to JSON. If you already have a dictionary of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Dictionary&lt;string, object&gt; parameters)</code> method that will serialize each key - value to form parameters on your request.</p>
 
 <p><code>.headers(Dictionary&lt;string, string&gt; headers)</code> is also supported in replacement of multiple header methods.</p>
 
 <h3>
-<a name="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h3>
+<a id="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h3>
 
 <p>Sometimes, well most of the time, you want your application to be asynchronous and not block, Unirest supports this in .NET with the TPL pattern and async/await:</p>
 
-<div class="highlight highlight-C#"><pre><span class="n">Task</span><span class="p">&lt;</span><span class="n">HttpResponse</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;&gt;</span> <span class="n">myClassTask</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="s">"accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"param1"</span><span class="p">,</span> <span class="s">"value1"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"param2"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">asJsonAsync</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;();</span>
-</pre></div>
+<div class="highlight highlight-C#"><pre>Task&lt;HttpResponse&lt;MyClass&gt;&gt; myClassTask = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>param1<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value1<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>param2<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value2<span class="pl-pds">"</span></span>)
+  .asJsonAsync&lt;MyClass&gt;();</pre></div>
 
 <h2>
-<a name="user-content-file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+<a id="user-content-file-uploads" class="anchor" href="#file-uploads" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Uploads</h2>
 
 <p>Creating <code>multipart</code> requests with .NET is trivial, simply pass along a <code>Stream</code> Object as a field:</p>
 
-<div class="highlight highlight-C#"><pre><span class="n">HttpResponse</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;</span> <span class="n">myClass</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="s">"accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"parameter"</span><span class="p">,</span> <span class="s">"value"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span> <span class="k">new</span> <span class="n">MemoryStream</span><span class="p">(</span><span class="s">"/tmp/file"</span><span class="p">))</span>
-  <span class="p">.</span><span class="n">asJson</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;();</span>
-</pre></div>
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>, <span class="pl-s">new</span> MemoryStream(<span class="pl-s1"><span class="pl-pds">"</span>/tmp/file<span class="pl-pds">"</span></span>))
+  .asJson&lt;MyClass&gt;();</pre></div>
 
 <h2>
-<a name="user-content-custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+<a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
-<div class="highlight highlight-C#"><pre><span class="n">HttpResponse</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;</span> <span class="n">myClass</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://httpbin.org/post"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="s">"accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">body</span><span class="p">(</span><span class="s">"{\"parameter\":\"value\", \"foo\":\"bar\"}"</span><span class="p">)</span>
-  <span class="p">.</span><span class="n">asJson</span><span class="p">&lt;</span><span class="n">MyClass</span><span class="p">&gt;();</span>
-</pre></div>
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .body(<span class="pl-s1"><span class="pl-pds">"</span>{<span class="pl-cce">\"</span>parameter<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>value<span class="pl-cce">\"</span>, <span class="pl-cce">\"</span>foo<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>bar<span class="pl-cce">\"</span>}<span class="pl-pds">"</span></span>)
+  .asJson&lt;MyClass&gt;();</pre></div>
 
 <h1>
-<a name="user-content-request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+<a id="user-content-request" class="anchor" href="#request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request</h1>
 
 <p>The <code>.NET</code> Unirest library follows the builder style conventions. 
 You start building your request by creating a <code>HttpRequest</code> object using one of the following:</p>
 
-<div class="highlight highlight-C#"><pre><span class="n">HttpRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">String</span> <span class="n">url</span><span class="p">);</span>
-<span class="n">HttpRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">String</span> <span class="n">url</span><span class="p">);</span>
-<span class="n">HttpRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="n">String</span> <span class="n">url</span><span class="p">);</span>
-<span class="n">HttpRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="n">String</span> <span class="n">url</span><span class="p">);</span>
-<span class="n">HttpRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">Unirest</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">String</span> <span class="n">url</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-C#"><pre>HttpRequest request = Unirest.<span class="pl-k">get</span>(String url);
+HttpRequest request = Unirest.post(String url);
+HttpRequest request = Unirest.put(String url);
+HttpRequest request = Unirest.patch(String url);
+HttpRequest request = Unirest.delete(String url);</pre></div>
 
 <h1>
-<a name="user-content-response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+<a id="user-content-response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h1>
 
 <p>Upon recieving a response Unirest returns the result in the form of an <code>Object</code>, this object should always have the same keys for each language regarding to the response details.</p>
 
@@ -114,7 +109,8 @@ You start building your request by creating a <code>HttpRequest</code> object us
 <code>.Body</code> - Parsed response body where applicable, for example JSON responses are parsed to Objects / Associative Arrays.</li>
 <li>
 <code>.Raw</code> - Un-parsed response body</li>
-</ul>  </div>
+</ul>
+  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')
