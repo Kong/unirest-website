@@ -27,10 +27,15 @@
   </nav>
 
   <div class="documentation"><h1>
-<a id="user-content-unirest-for-nodejs--" class="anchor" href="#unirest-for-nodejs--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Node.js <a href="https://travis-ci.org/Mashape/unirest-nodejs"><img src="https://camo.githubusercontent.com/b965686fa9b8d9c5f7f8c83051c66e0e20dfe033/687474703a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d6e6f64656a732f6d61737465722e737667" alt="Build Status" data-canonical-src="http://img.shields.io/travis/Mashape/unirest-nodejs/master.svg" style="max-width:100%;"></a> <a href="https://camo.githubusercontent.com/2c3e6303d6dc544a0c7225f3d87f55f82feada5e/687474703a2f2f696d672e736869656c64732e696f2f6e706d2f762f756e69726573742e737667" target="_blank"><img src="https://camo.githubusercontent.com/2c3e6303d6dc544a0c7225f3d87f55f82feada5e/687474703a2f2f696d672e736869656c64732e696f2f6e706d2f762f756e69726573742e737667" alt="NPM Version" data-canonical-src="http://img.shields.io/npm/v/unirest.svg" style="max-width:100%;"></a>
+<a id="user-content-unirest-for-nodejs--" class="anchor" href="#unirest-for-nodejs--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Node.js <a href="https://travis-ci.org/Mashape/unirest-nodejs"><img src="https://camo.githubusercontent.com/78660836f23889f7e49e251f0f47f44c02dc1693/687474703a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d6e6f64656a732f6d61737465722e7376673f7374796c653d666c6174" alt="Build Status" data-canonical-src="http://img.shields.io/travis/Mashape/unirest-nodejs/master.svg?style=flat" style="max-width:100%;"></a> <a href="https://www.npmjs.com/package/unirest"><img src="https://camo.githubusercontent.com/6f08eedf7814d1c6ca2f293051d4f620354b0d8e/68747470733a2f2f62616467652e667572792e696f2f6a732f756e69726573742e737667" alt="NPM Version" data-canonical-src="https://badge.fury.io/js/unirest.svg" style="max-width:100%;"></a>
 </h1>
 
-<p>Unirest is a set of lightweight HTTP libraries available in multiple languages.</p>
+<p><a href="https://raw.githubusercontent.com/Mashape/unirest-nodejs/master/LICENSE"><img src="https://camo.githubusercontent.com/d0e25b09a82bc4bfde9f1e048a092752eebbb4f3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e7376673f7374796c653d666c6174" alt="License" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://www.npmjs.com/package/unirest"><img src="https://camo.githubusercontent.com/265ee92c52f4bf0f0749d24025fe488972b4c186/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f646d2f756e69726573742e7376673f7374796c653d666c6174" alt="Downloads" data-canonical-src="https://img.shields.io/npm/dm/unirest.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://camo.githubusercontent.com/f205c11e289393dc4a89299eee6db37ab1b03be3/68747470733a2f2f696d672e736869656c64732e696f2f64617669642f6d6173686170652f756e69726573742d6e6f64656a732e7376673f7374796c653d666c6174" target="_blank"><img src="https://camo.githubusercontent.com/f205c11e289393dc4a89299eee6db37ab1b03be3/68747470733a2f2f696d672e736869656c64732e696f2f64617669642f6d6173686170652f756e69726573742d6e6f64656a732e7376673f7374796c653d666c6174" alt="David" data-canonical-src="https://img.shields.io/david/mashape/unirest-nodejs.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://gitter.im/Mashape/unirest-php?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://camo.githubusercontent.com/83b2c0bef0306e2c8c75479baee4c0f9880a8a2d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545322538412541412532304749545445522532302d4a4f494e253230434841542532302545322538362539322d627269676874677265656e2e7376673f7374796c653d666c6174" alt="Gitter" data-canonical-src="https://img.shields.io/badge/%E2%8A%AA%20GITTER%20-JOIN%20CHAT%20%E2%86%92-brightgreen.svg?style=flat" style="max-width:100%;"></a></p>
+
+<p>Unirest is a set of lightweight HTTP clients available in multiple languages.</p>
 
 <p>Developed with love by <a href="http://github.com/nijikokun">nijikokun</a> @ <a href="http://mashape.com">mashape.com</a></p>
 
@@ -51,7 +56,7 @@
 <p>You're probably wondering how by using <strong>Unirest</strong> makes creating requests easier. Besides automatically supporting gzip, and parsing responses, lets start with a basic working example:</p>
 
 <div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
-.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.header(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .<span class="pl-s3">send</span>({ <span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">23</span>, <span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> })
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
   <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
@@ -63,7 +68,7 @@
 <p>Transferring file data has been simplified:</p>
 
 <div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
-.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.<span class="pl-sc">headers</span>(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .field(<span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>) <span class="pl-c">// Form field</span>
 .attach(<span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>/tmp/file<span class="pl-pds">'</span></span>) <span class="pl-c">// Attachment</span>
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
@@ -74,7 +79,7 @@
 <a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
 <div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
-.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.<span class="pl-sc">headers</span>(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .<span class="pl-s3">send</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]))
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
   <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
@@ -92,14 +97,14 @@
 <li>
 <code>method</code> - Request type (GET, PUT, POST, etc...)</li>
 <li>
-<code>uri</code> - <em>Optional</em>; When declared the method will return a <a href="#request">Request</a> object.
-      Otherwise it will return the method below with <code>method</code> set to the method given.</li>
+<code>uri</code> - <em>Optional</em>; When passed will return a <a href="#request">Request</a> object. Otherwise returns generated function with <code>method</code> pre-defined (e.g. <code>unirest.get</code>)</li>
 <li>
-<code>headers</code> (<code>Object</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>headers</code> argument when <code>uri</code> is present.</li>
+<code>headers</code> (<code>Object</code>) - <em>Optional</em>; HTTP Request headers</li>
 <li>
-<code>body</code> (<code>Mixed</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>body</code> argument when <code>uri</code> is present.</li>
+<code>body</code> (<code>Mixed</code>) - <em>Optional</em>; HTTP Request body</li>
 <li>
-<code>callback</code> (<code>Function</code>) - <em>Optional</em>; Will be aliased to unirest[method] <code>callback</code> argument when <code>uri</code> is present.</li>
+<code>callback</code> (<code>Function</code>) - <em>Optional</em>; Invoked when Request has finalized with the argument <a href="#response">Response</a>
+</li>
 </ul>
 
 <h2>
@@ -111,7 +116,7 @@
 <li>
 <code>url</code> - Request location.</li>
 <li>
-<code>headers</code> (<code>Object</code> | <code>Function</code>) - <em>Optional</em>; When <code>Object</code> headers are passed along to the <code>Request.set()</code> method,
+<code>headers</code> (<code>Object</code> | <code>Function</code>) - <em>Optional</em>; When <code>Object</code> headers are passed along to the <a href="#requestheaderobject-or-field-value"><code>Request.header</code></a> method,
 when <code>Function</code> this argument is used as the <code>callback</code>.</li>
 <li>
 <code>body</code> (<code>Mixed</code> | <code>Function</code>) - <em>Optional</em>; When <code>body</code> is not a <code>Function</code> it will be passed along to <code>Request.send()</code> method,
@@ -175,7 +180,7 @@ unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/
 <h2>
 <a id="user-content-unirestrequest" class="anchor" href="#unirestrequest" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest.request</h2>
 
-<p><code>mikeal/request</code> library (the underlying layer of unirest-nodejs) for direct use.</p>
+<p><code>mikeal/request</code> library (the underlying layer of unirest) for direct use.</p>
 
 <h1>
 <a id="user-content-request" class="anchor" href="#request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request</h1>
@@ -188,9 +193,7 @@ request module Superagent (which this library is modeled after slightly).</p>
 
 <div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>);
 
-Request.<span class="pl-sc">headers</span>({
-  <span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>
-}).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+Request.header(<span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
   ...
 });</pre></div>
 
@@ -244,14 +247,16 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 
 <p><strong>Object</strong></p>
 
-<div class="highlight highlight-js"><pre>Request.set({
+<div class="highlight highlight-js"><pre>Request.<span class="pl-sc">headers</span>({
   <span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>,
   <span class="pl-s1"><span class="pl-pds">'</span>User-Agent<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Unirest Node.js<span class="pl-pds">'</span></span>
 })</pre></div>
 
+<p>Note the usage of <a href="#requestheaders"><code>Request.headers</code></a> which is simply an alias to the <code>Request.header</code> method, you can also use <a href="#requestset"><code>Request.set</code></a> to set headers.</p>
+
 <p><strong>Arguments</strong></p>
 
-<div class="highlight highlight-js"><pre>Request.set(<span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-js"><pre>Request.header(<span class="pl-s1"><span class="pl-pds">'</span>Accepts<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>);</pre></div>
 
 <h4>
 <a id="user-content-requestpartobject" class="anchor" href="#requestpartobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.part(Object)</h4>
@@ -273,7 +278,9 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 <h4>
 <a id="user-content-requestqueryobject-or-string" class="anchor" href="#requestqueryobject-or-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.query(Object) or (String)</h4>
 
-<p>When <code>Object</code> is passed value is processed as a <code>querystring</code> representation, otherwise we directly use the <code>String</code> passed and append it to <code>Request.options.url</code>. If <code>Request.options.url</code> has a trailing <code>?</code> already, we append it with <code>&amp; + value</code> otherwise we append as <code>? + value</code></p>
+<p>Serializes argument passed to a querystring representation.</p>
+
+<p>Should <code>url</code> already contain a querystring, the representation will be appended to the <code>url</code>.</p>
 
 <div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>)
 .query(<span class="pl-s1"><span class="pl-pds">'</span>name=nijiko<span class="pl-pds">'</span></span>)
@@ -287,9 +294,12 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 <h4>
 <a id="user-content-requestsendobject--string" class="anchor" href="#requestsendobject--string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.send(Object | String)</h4>
 
-<p>Ease of use method for setting the body without having to worry about processing the data for popular formats such as <code>JSON</code>, <code>Form Encoded</code>, otherwise the <code>body</code> is set on <code>Request.options</code> as the given value.</p>
+<p>Data marshalling for HTTP request body data</p>
 
-<p>By default sending strings with no <code>Content-Type</code> preset will set <code>Content-Type</code> to <code>application/x-www-form-urlencoded</code>, and multiple calls will be concatenated with <code>&amp;</code>. Otherwise multiple calls will be appended to the previous <code>body</code> value.</p>
+<p>Determines whether data mime-type is <code>form</code> or <code>json</code>.
+For irregular mime-types the <code>.type()</code> method is used to infer the <code>content-type</code> header.</p>
+
+<p>When mime-type is <code>application/x-www-form-urlencoded</code> data is appended rather than overwritten.</p>
 
 <p><strong>JSON</strong></p>
 
@@ -328,7 +338,7 @@ unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org
 
 <p>Sets the header <code>Content-Type</code> through either lookup for extensions (<code>xml</code>, <code>png</code>, <code>json</code>, etc...) using <code>mime</code> or using the full value such as <code>application/json</code>.</p>
 
-<p>Uses <code>Request.header()</code> to set header value.</p>
+<p>Uses <a href="#requestheaderobject-or-field-value"><code>Request.header</code></a> to set header value.</p>
 
 <div class="highlight highlight-js"><pre>Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>) <span class="pl-c">// Content-Type: application/json</span>
 Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds">'</span>json<span class="pl-pds">'</span></span>) <span class="pl-c">// Content-Type: application/json</span>
@@ -355,13 +365,13 @@ Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds"
 <p><strong>Object</strong></p>
 
 <div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
-.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.header(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .field({
   <span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>
 })
 .attach({
   <span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>,
-  <span class="pl-s1"><span class="pl-pds">'</span>relative file<span class="pl-pds">'</span></span><span class="pl-k">:</span> fs.createReadStream(path.<span class="pl-s3">join</span>(<span class="pl-sv">__dirname</span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>),
+  <span class="pl-s1"><span class="pl-pds">'</span>relative file<span class="pl-pds">'</span></span><span class="pl-k">:</span> fs.createReadStream(path.<span class="pl-s3">join</span>(<span class="pl-sv">__dirname</span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>)),
   <span class="pl-s1"><span class="pl-pds">'</span>remote file<span class="pl-pds">'</span></span><span class="pl-k">:</span> unirest.request(<span class="pl-s1"><span class="pl-pds">'</span>http://google.com/doodle.png<span class="pl-pds">'</span></span>)
 })
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
@@ -371,10 +381,10 @@ Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds"
 <p><strong>Arguments</strong></p>
 
 <div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
-.<span class="pl-sc">headers</span>({ <span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span> })
+.header(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .field(<span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>) <span class="pl-c">// Form field</span>
 .attach(<span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>) <span class="pl-c">// Attachment</span>
-.attach(<span class="pl-s1"><span class="pl-pds">'</span>remote file<span class="pl-pds">'</span></span>, fs.createReadStream(path.<span class="pl-s3">join</span>(<span class="pl-sv">__dirname</span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>)) <span class="pl-c">// Same as above.</span>
+.attach(<span class="pl-s1"><span class="pl-pds">'</span>remote file<span class="pl-pds">'</span></span>, fs.createReadStream(path.<span class="pl-s3">join</span>(<span class="pl-sv">__dirname</span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>)))  <span class="pl-c">// Same as above.</span>
 .attach(<span class="pl-s1"><span class="pl-pds">'</span>remote file<span class="pl-pds">'</span></span>, unirest.request(<span class="pl-s1"><span class="pl-pds">'</span>http://google.com/doodle.png<span class="pl-pds">'</span></span>))
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
   <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">body</span>);
@@ -659,58 +669,68 @@ Request.pool poolOption</pre></div>
 
 <div class="highlight highlight-js"><pre>Request.forever(<span class="pl-c1">true</span>);</pre></div>
 
+<h4>
+<a id="user-content-requestendfunction-callback" class="anchor" href="#requestendfunction-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.end(Function callback)</h4>
+
+<p>Sends HTTP Request and awaits Response finalization. Request compression and Response decompression occurs here.
+Upon HTTP Response post-processing occurs and invokes <code>callback</code> with a single argument, the <code>[Response](#response)</code> object.</p>
+
+<div class="highlight highlight-js"><pre>unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+  ...
+});</pre></div>
+
 <h2>
 <a id="user-content-request-aliases" class="anchor" href="#request-aliases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Aliases</h2>
 
 <h4>
 <a id="user-content-requestset" class="anchor" href="#requestset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.set</h4>
 
-<p><strong>Alias</strong> for <code>Request.header()</code></p>
+<p><strong>Alias</strong> for <a href="#requestheaderobject-or-field-value"><code>Request.header()</code></a></p>
 
 <h4>
 <a id="user-content-requestheaders" class="anchor" href="#requestheaders" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.headers</h4>
 
-<p><strong>Alias</strong> for <code>Request.header()</code></p>
+<p><strong>Alias</strong> for <a href="#requestheaderobject-or-field-value"><code>Request.header()</code></a></p>
 
 <h4>
 <a id="user-content-requestredirects" class="anchor" href="#requestredirects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.redirects</h4>
 
-<p><strong>Alias</strong> for <code>Request.maxRedirects()</code></p>
+<p><strong>Alias</strong> for <a href="#requestmaxredirectsnumber"><code>Request.maxRedirects()</code></a></p>
 
 <h4>
 <a id="user-content-requestredirect" class="anchor" href="#requestredirect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.redirect</h4>
 
-<p><strong>Alias</strong> for <code>Request.followRedirect()</code></p>
+<p><strong>Alias</strong> for <a href="#requestfollowredirectboolean"><code>Request.followRedirect()</code></a></p>
 
 <h4>
 <a id="user-content-requestssl" class="anchor" href="#requestssl" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.ssl</h4>
 
-<p><strong>Alias</strong> for <code>Request.strictSSL()</code></p>
+<p><strong>Alias</strong> for <a href="#requeststrictsslboolean"><code>Request.strictSSL()</code></a></p>
 
 <h4>
 <a id="user-content-requestip" class="anchor" href="#requestip" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.ip</h4>
 
-<p><strong>Alias</strong> for <code>Request.localAddress()</code></p>
+<p><strong>Alias</strong> for <a href="#requestlocaladdressstring"><code>Request.localAddress()</code></a></p>
 
 <h4>
 <a id="user-content-requestcomplete" class="anchor" href="#requestcomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.complete</h4>
 
-<p><strong>Alias</strong> for <code>Request.end()</code></p>
+<p><strong>Alias</strong> for <a href="#requestlocaladdressstring"><code>Request.end()</code></a></p>
 
 <h4>
 <a id="user-content-requestasjson" class="anchor" href="#requestasjson" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.as.json</h4>
 
-<p><strong>Alias</strong> for <code>Request.end()</code></p>
+<p><strong>Alias</strong> for <a href="#requestendfunction-callback"><code>Request.end()</code></a></p>
 
 <h4>
 <a id="user-content-requestasbinary" class="anchor" href="#requestasbinary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.as.binary</h4>
 
-<p><strong>Alias</strong> for <code>Request.end()</code></p>
+<p><strong>Alias</strong> for <a href="#requestendfunction-callback"><code>Request.end()</code></a></p>
 
 <h4>
 <a id="user-content-requestasstring" class="anchor" href="#requestasstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.as.string</h4>
 
-<p><strong>Alias</strong> for <code>Request.end()</code></p>
+<p><strong>Alias</strong> for <a href="#requestendfunction-callback"><code>Request.end()</code></a></p>
 
 <h1>
 <a id="user-content-response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h1>
@@ -817,6 +837,22 @@ unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://google.com<s
   <span class="pl-c">// Except google trims the value passed :/</span>
   <span class="pl-en">console</span><span class="pl-s3">.log</span>(response.<span class="pl-sc">cookie</span>(<span class="pl-s1"><span class="pl-pds">'</span>another cookie<span class="pl-pds">'</span></span>));
 });</pre></div>
+
+<h2>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Licensed under the MIT license.</p>
+
+<h2>
+<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
   </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
