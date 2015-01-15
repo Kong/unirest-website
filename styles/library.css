@@ -177,14 +177,6 @@ p + hr {
   margin-bottom: 1.2em;
 }
 
-p a img {
-  background: hsl(167, 64%, 45%);
-  padding: 20px;
-  width: 100%;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
 .highlight, pre code {
   display: block;
   min-width: 460px;
