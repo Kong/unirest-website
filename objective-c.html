@@ -27,8 +27,13 @@
   </nav>
 
   <div class="documentation"><h1>
-<a name="user-content-unirest-for-objective-c-" class="anchor" href="#unirest-for-objective-c-"><span class="octicon octicon-link"></span></a>Unirest for Objective-C <a href="https://travis-ci.org/Mashape/unirest-obj-c"><img src="https://camo.githubusercontent.com/ce9d3c5f4c47f3bd04ec3886d040731aeb879a85/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d6f626a2d632e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-obj-c.png" style="max-width:100%;"></a>
+<a id="user-content-unirest-for-objective-c---" class="anchor" href="#unirest-for-objective-c---" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Objective-C  <a href="https://travis-ci.org/Mashape/unirest-obj-c"><img src="https://camo.githubusercontent.com/50683671a84ae7b33e47d71812ac0d7dd60a676f/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d6f626a2d632e7376673f7374796c653d666c61742d737175617265" alt="Build Status" data-canonical-src="https://img.shields.io/travis/Mashape/unirest-obj-c.svg?style=flat-square" style="max-width:100%;"></a> <a href="http://cocoadocs.org/docsets/Unirest"><img src="https://camo.githubusercontent.com/e0c4db3cf2d8b71d8687e727305c5971d7b5b0d0/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f762f556e69726573742e7376673f7374796c653d666c61742d737175617265" alt="version" data-canonical-src="https://img.shields.io/cocoapods/v/Unirest.svg?style=flat-square" style="max-width:100%;"></a>
 </h1>
+
+<p><a href="https://github.com/Mashape/unirest-obj-c/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/8c91866ecd0b2f6d5197864380f8115b72954952/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f6c2f556e69726573742e7376673f7374796c653d666c61742d737175617265" alt="License" data-canonical-src="https://img.shields.io/cocoapods/l/Unirest.svg?style=flat-square" style="max-width:100%;"></a>
+<a href="https://codeclimate.com/github/Mashape/unirest-obj-c"><img src="https://camo.githubusercontent.com/792895f73ab55cea225cd6e6ed59938392a9c5bb/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636c696d6174652f6769746875622f4d6173686170652f756e69726573742d6f626a2d632e7376673f7374796c653d666c61742d737175617265" alt="Code Climate" data-canonical-src="https://img.shields.io/codeclimate/github/Mashape/unirest-obj-c.svg?style=flat-square" style="max-width:100%;"></a>
+<a href="https://codeclimate.com/github/Mashape/unirest-obj-c"><img src="https://camo.githubusercontent.com/a6905f19f809fa5cb0994c7e480399a72aaed912/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636c696d6174652f636f7665726167652f6769746875622f4d6173686170652f756e69726573742d6f626a2d632e7376673f7374796c653d666c61742d737175617265" alt="Coverage Status" data-canonical-src="https://img.shields.io/codeclimate/coverage/github/Mashape/unirest-obj-c.svg?style=flat-square" style="max-width:100%;"></a>
+<a href="https://gitter.im/Mashape/unirest-obj-c"><img src="https://camo.githubusercontent.com/a367df5e0c296d42fe956bddfa46dfea7141b340/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769747465722d4a6f696e253230436861742d626c75652e7376673f7374796c653d666c61742d737175617265" alt="Gitter" data-canonical-src="https://img.shields.io/badge/Gitter-Join%20Chat-blue.svg?style=flat-square" style="max-width:100%;"></a></p>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
 
@@ -41,35 +46,32 @@
 <li>Customizable timeout</li>
 <li>Customizable default headers for every request (DRY)</li>
 <li>Automatic JSON parsing into native object (<code>NSDictionary</code> or <code>NSArray</code>) for JSON responses</li>
-</ul><p>Created with love by <a href="https://github.com/thefosk">thefosk</a> @ <a href="https://mashape.com">mashape.com</a></p>
+</ul>
 
 <h2>
-<a name="user-content-installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+<a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
 
 <p><a href="https://github.com/Mashape/unirest-obj-c/archive/master.zip">Download</a> the Objective-C Unirest Library from <a href="https://github.com/Mashape/unirest-obj-c">GitHub</a> (or clone the repo) and import the folder into your project. You can also install Unirest-obj-c with <a href="http://cocoapods.org/">CocoaPods</a>.</p>
 
 <h3>
-<a name="user-content-cocoapods" class="anchor" href="#cocoapods"><span class="octicon octicon-link"></span></a>CocoaPods</h3>
+<a id="user-content-cocoapods" class="anchor" href="#cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>CocoaPods</h3>
 
 <p>If you decide to use CocoaPods, create a <code>Podfile</code> file in your project's folder:</p>
 
-<div class="highlight highlight-bash"><pre><span class="nv">$ </span>edit Podfile
-platform :ios, <span class="s1">'5.0'</span>
-pod <span class="s1">'Unirest'</span>, <span class="s1">'~&gt; 1.1.3'</span>
-</pre></div>
+<div class="highlight highlight-bash"><pre>$ edit Podfile
+platform :ios, <span class="pl-s1"><span class="pl-pds">'</span>5.0<span class="pl-pds">'</span></span>
+pod <span class="pl-s1"><span class="pl-pds">'</span>Unirest<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>~&gt; 1.1.3<span class="pl-pds">'</span></span></pre></div>
 
 <p>and then execute <code>pod install</code>. Make sure to always open the Xcode <strong>workspace</strong> instead of the project file when building your project:</p>
 
-<div class="highlight highlight-bash"><pre><span class="nv">$ </span>open App.xcworkspace
-</pre></div>
+<div class="highlight highlight-bash"><pre>$ open App.xcworkspace</pre></div>
 
 <p>Now you can import your dependencies:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="cp">#import &lt;UNIRest.h&gt;</span>
-</pre></div>
+<div class="highlight highlight-objective-c"><pre>#<span class="pl-k">import</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>UNIRest.h<span class="pl-pds">&gt;</span></span></pre></div>
 
 <h3>
-<a name="user-content-requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
+<a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h3>
 
 <p>The Unirest-Obj-C client library requires ARC (Automatic Reference Counting) to be enabled in your Xcode project. To enable ARC select your project or target and then go to Build Settings and under the section Apple LLVM compiler 3.0 - Language you will see the option Objective-C Automatic Reference Counting:</p>
 
@@ -78,120 +80,113 @@ pod <span class="s1">'Unirest'</span>, <span class="s1">'~&gt; 1.1.3'</span>
 <p>For existing projects, fortunately Xcode offers a tool to convert existing code to ARC, which is available at Edit -&gt; Refactor  -&gt; Convert to Objective-C ARC</p>
 
 <h2>
-<a name="user-content-creating-request" class="anchor" href="#creating-request"><span class="octicon octicon-link"></span></a>Creating Request</h2>
+<a id="user-content-creating-request" class="anchor" href="#creating-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Request</h2>
 
 <p>So you're probably wondering how using Unirest makes creating requests in Objective-C easier, let's look at a working example:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="pl-s3">NSDictionary</span>* headers = @{<span class="pl-s1"><span class="pl-pds">@"</span>accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>application/json<span class="pl-pds">"</span></span>};
+<span class="pl-s3">NSDictionary</span>* parameters = @{<span class="pl-s1"><span class="pl-pds">@"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>value<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">@"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>bar<span class="pl-pds">"</span></span>};
 
-<span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
-<span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
-</pre></div>
+UNIHTTPJsonResponse *response = [[UNIRest <span class="pl-s3">post:</span>^(UNISimpleRequest *request) {
+  [request <span class="pl-s3">setUrl:</span><span class="pl-s1"><span class="pl-pds">@"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>];
+  [request <span class="pl-s3">setHeaders:</span>headers];
+  [request <span class="pl-s3">setParameters:</span>parameters];
+}] <span class="pl-s3">asJson</span>];</pre></div>
 
 <p>Just like in the Unirest Java library the Objective-C library supports multiple response types given as the last parameter. In the example above we use <code>asJson</code> to get a JSON response, likewise there are <code>asBinary</code> and <code>asString</code> for responses of other nature such as file data and hypermedia responses.</p>
 
 <h2>
-<a name="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
+<a id="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
 
 <p>For non-blocking requests you will want to make an asychronous request to keep your application going while data is fetched or updated in the background, doing so with unirest is extremely easy with barely any code change from the previous example:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="pl-s3">NSDictionary</span> *headers = @{<span class="pl-s1"><span class="pl-pds">@"</span>accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>application/json<span class="pl-pds">"</span></span>};
+<span class="pl-s3">NSDictionary</span> *parameters = @{<span class="pl-s1"><span class="pl-pds">@"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>value<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">@"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>bar<span class="pl-pds">"</span></span>};
 
-<span class="p">[[</span><span class="n">UNIRest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
-<span class="p">}]</span> <span class="n">asJsonAsync</span><span class="o">:^</span><span class="p">(</span><span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// This is the asyncronous callback block</span>
-  <span class="n">NSInteger</span><span class="o">*</span> <span class="n">code</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">code</span><span class="p">];</span>
-  <span class="n">NSDictionary</span><span class="o">*</span> <span class="n">responseHeaders</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">headers</span><span class="p">];</span>
-  <span class="n">UNIJsonNode</span><span class="o">*</span> <span class="n">body</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">body</span><span class="p">];</span>
-  <span class="n">NSData</span><span class="o">*</span> <span class="n">rawBody</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="n">rawBody</span><span class="p">];</span>
-<span class="p">}];</span>
-</pre></div>
+[[UNIRest <span class="pl-s3">post:</span>^(UNISimpleRequest *request) {
+  [request <span class="pl-s3">setUrl:</span><span class="pl-s1"><span class="pl-pds">@"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>];
+  [request <span class="pl-s3">setHeaders:</span>headers];
+  [request <span class="pl-s3">setParameters:</span>parameters];
+}] <span class="pl-s3">asJsonAsync:</span>^(UNIHTTPJsonResponse* response, <span class="pl-s3">NSError</span> *error) {
+  <span class="pl-c">// This is the asyncronous callback block</span>
+  NSInteger code = response.<span class="pl-vo">code</span>;
+  <span class="pl-s3">NSDictionary</span> *responseHeaders = response.<span class="pl-vo">headers</span>;
+  UNIJsonNode *body = response.<span class="pl-vo">body</span>;
+  <span class="pl-s3">NSData</span> *rawBody = response.<span class="pl-vo">rawBody</span>;
+}];</pre></div>
 
 <h3>
-<a name="user-content-cancel-asynchronous-request" class="anchor" href="#cancel-asynchronous-request"><span class="octicon octicon-link"></span></a>Cancel Asynchronous Request</h3>
+<a id="user-content-cancel-asynchronous-request" class="anchor" href="#cancel-asynchronous-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cancel Asynchronous Request</h3>
 
 <p>You can cancel an asyncronous request by invoking the <code>cancel</code> method on the <code>UNIUrlConnection</code> object:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">UNIUrlConnection</span><span class="o">*</span> <span class="n">asyncConnection</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">get</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span> <span class="o">*</span><span class="n">simpleRequest</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/get"</span><span class="p">];</span>
-<span class="p">}]</span> <span class="n">asJsonAsync</span><span class="o">:^</span><span class="p">(</span><span class="n">UNIHTTPJsonResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Do something</span>
-<span class="p">}];</span>
+<div class="highlight highlight-objective-c"><pre>UNIUrlConnection *asyncConnection = [[UNIRest <span class="pl-s3">get:</span>^(UNISimpleRequest *simpleRequest) {
+    [request <span class="pl-s3">setUrl:</span><span class="pl-s1"><span class="pl-pds">@"</span>http://httpbin.org/get<span class="pl-pds">"</span></span>];
+}] <span class="pl-s3">asJsonAsync:</span>^(UNIHTTPJsonResponse *response, <span class="pl-s3">NSError</span> *error) {
+    <span class="pl-c">// Do something</span>
+}];
 
-<span class="p">[</span><span class="n">asyncConnection</span> <span class="n">cancel</span><span class="p">];</span> <span class="c1">// Cancel request</span>
-</pre></div>
+[asyncConnection <span class="pl-s3">cancel</span>]; <span class="pl-c">// Cancel request</span></pre></div>
 
 <h2>
-<a name="user-content-file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+<a id="user-content-file-uploads" class="anchor" href="#file-uploads" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Uploads</h2>
 
 <p>Transferring files through request with unirest in Objective-C can be done by creating a <code>NSURL</code> object and passing it along as a parameter value with a <code>UNISimpleRequest</code> like so:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
-<span class="n">NSURL</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"file"</span><span class="o">:</span> <span class="n">file</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="pl-s3">NSDictionary</span>* headers = @{<span class="pl-s1"><span class="pl-pds">@"</span>accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>application/json<span class="pl-pds">"</span></span>};
+<span class="pl-s3">NSURL</span>* file = <span class="pl-c1">nil</span>;
+<span class="pl-s3">NSDictionary</span>* parameters = @{<span class="pl-s1"><span class="pl-pds">@"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>value<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">@"</span>file<span class="pl-pds">"</span></span>: file};
 
-<span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">post</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setParameters</span><span class="o">:</span><span class="n">parameters</span><span class="p">];</span>
-<span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
-</pre></div>
+UNIHTTPJsonResponse *response = [[UNIRest <span class="pl-s3">post:</span>^(UNISimpleRequest *request) {
+  [request <span class="pl-s3">setUrl:</span><span class="pl-s1"><span class="pl-pds">@"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>];
+  [request <span class="pl-s3">setHeaders:</span>headers];
+  [request <span class="pl-s3">setParameters:</span>parameters];
+}] <span class="pl-s3">asJson</span>];</pre></div>
 
 <h2>
-<a name="user-content-custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+<a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
 <p>To send a custom body such as JSON simply serialize your data utilizing the <code>NSJSONSerialization</code> with a <code>BodyRequest</code> and <code>[method]Entity</code> instead of just <code>[method]</code> block like so:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSDictionary</span><span class="o">*</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"accept"</span><span class="o">:</span> <span class="s">@"application/json"</span><span class="p">};</span>
-<span class="n">NSDictionary</span><span class="o">*</span> <span class="n">parameters</span> <span class="o">=</span> <span class="p">@{</span><span class="s">@"parameter"</span><span class="o">:</span> <span class="s">@"value"</span><span class="p">,</span> <span class="s">@"foo"</span><span class="o">:</span> <span class="s">@"bar"</span><span class="p">};</span>
+<div class="highlight highlight-objective-c"><pre><span class="pl-s3">NSDictionary</span> *headers = @{<span class="pl-s1"><span class="pl-pds">@"</span>accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>application/json<span class="pl-pds">"</span></span>};
+<span class="pl-s3">NSDictionary</span> *parameters = @{<span class="pl-s1"><span class="pl-pds">@"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>value<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">@"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">@"</span>bar<span class="pl-pds">"</span></span>};
 
-<span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">postEntity</span><span class="o">:^</span><span class="p">(</span><span class="n">UNIBodyRequest</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/post"</span><span class="p">];</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setHeaders</span><span class="o">:</span><span class="n">headers</span><span class="p">];</span>
-  <span class="c1">// Converting NSDictionary to JSON:</span>
-  <span class="p">[</span><span class="n">request</span> <span class="n">setBody</span><span class="o">:</span><span class="p">[</span><span class="n">NSJSONSerialization</span> <span class="n">dataWithJSONObject</span><span class="o">:</span><span class="n">headers</span> <span class="n">options</span><span class="o">:</span><span class="mi">0</span> <span class="n">error</span><span class="o">:</span><span class="nb">nil</span><span class="p">]];</span>
-<span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
-</pre></div>
+UNIHTTPJsonResponse *response = [[UNIRest <span class="pl-s3">postEntity:</span>^(UNIBodyRequest *request) {
+  [request <span class="pl-s3">setUrl:</span><span class="pl-s1"><span class="pl-pds">@"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>];
+  [request <span class="pl-s3">setHeaders:</span>headers];
+  <span class="pl-c">// Converting NSDictionary to JSON:</span>
+  [request <span class="pl-s3">setBody:</span>[<span class="pl-s3">NSJSONSerialization</span> <span class="pl-s3">dataWithJSONObject:</span>parameters <span class="pl-s3">options:</span><span class="pl-c1">0</span> <span class="pl-s3">error:</span><span class="pl-c1">nil</span>]];
+}] <span class="pl-s3">asJson</span>];</pre></div>
 
 <h2>
-<a name="user-content-basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h2>
+<a id="user-content-basic-authentication" class="anchor" href="#basic-authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Authentication</h2>
 
 <p>Authenticating the request with basic authentication can be done by setting the <code>username</code> and <code>password</code> properties in the builder:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">UNIHTTPJsonResponse</span><span class="o">*</span> <span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNIRest</span> <span class="n">get</span><span class="o">:^</span><span class="p">(</span><span class="n">UNISimpleRequest</span> <span class="o">*</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">[</span><span class="n">request</span> <span class="n">setUrl</span><span class="o">:</span><span class="s">@"http://httpbin.org/get"</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">request</span> <span class="n">setUsername</span><span class="o">:</span><span class="s">@"user"</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">request</span> <span class="n">setPassword</span><span class="o">:</span><span class="s">@"password"</span><span class="p">];</span>
-<span class="p">}]</span> <span class="n">asJson</span><span class="p">];</span>
-</pre></div>
+<div class="highlight highlight-objective-c"><pre>UNIHTTPJsonResponse *response = [[UNIRest <span class="pl-s3">get:</span>^(UNISimpleRequest *request) {
+    [request <span class="pl-s3">setUrl:</span><span class="pl-s1"><span class="pl-pds">@"</span>http://httpbin.org/get<span class="pl-pds">"</span></span>];
+    [request <span class="pl-s3">setUsername:</span><span class="pl-s1"><span class="pl-pds">@"</span>user<span class="pl-pds">"</span></span>];
+    [request <span class="pl-s3">setPassword:</span><span class="pl-s1"><span class="pl-pds">@"</span>password<span class="pl-pds">"</span></span>];
+}] <span class="pl-s3">asJson</span>];</pre></div>
 
 <h1>
-<a name="user-content-request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+<a id="user-content-request" class="anchor" href="#request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request</h1>
 
 <p>The Objective-C unirest library uses configuration blocks of type UNISimpleRequest and UNIBodyRequest to configure the URL, Headers, and Parameters / Body of the request.</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequest</span><span class="o">*</span><span class="p">)</span> <span class="nf">get:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNISimpleRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
+<div class="highlight highlight-objective-c"><pre>+(UNIHTTPRequest*) get:(<span class="pl-st">void</span> (^)(UNISimpleRequestBlock*)) config;
 
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">post:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNISimpleRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">postEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNIBodyRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
++(UNIHTTPRequestWithBody*) post:(<span class="pl-st">void</span> (^)(UNISimpleRequestBlock*)) config;
++(UNIHTTPRequestWithBody*) postEntity:(<span class="pl-st">void</span> (^)(UNIBodyRequestBlock*)) config;
 
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">put:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNISimpleRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">putEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNIBodyRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
++(UNIHTTPRequestWithBody*) put:(<span class="pl-st">void</span> (^)(UNISimpleRequestBlock*)) config;
++(UNIHTTPRequestWithBody*) putEntity:(<span class="pl-st">void</span> (^)(UNIBodyRequestBlock*)) config;
 
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">patch:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNISimpleRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">patchEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNIBodyRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
++(UNIHTTPRequestWithBody*) patch:(<span class="pl-st">void</span> (^)(UNISimpleRequestBlock*)) config;
++(UNIHTTPRequestWithBody*) patchEntity:(<span class="pl-st">void</span> (^)(UNIBodyRequestBlock*)) config;
 
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">delete:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNISimpleRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
-<span class="k">+</span><span class="p">(</span><span class="n">UNIHTTPRequestWithBody</span><span class="o">*</span><span class="p">)</span> <span class="nf">deleteEntity:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UNIBodyRequestBlock</span><span class="o">*</span><span class="p">))</span> <span class="n">config</span><span class="p">;</span>
-</pre></div>
++(UNIHTTPRequestWithBody*) delete:(<span class="pl-st">void</span> (^)(UNISimpleRequestBlock*)) config;
++(UNIHTTPRequestWithBody*) deleteEntity:(<span class="pl-st">void</span> (^)(UNIBodyRequestBlock*)) config;</pre></div>
 
 <ul>
 <li>
@@ -219,23 +214,24 @@ pod <span class="s1">'Unirest'</span>, <span class="s1">'~&gt; 1.1.3'</span>
 
 <p>Sends equivalent request with method type to given URL</p>
 </li>
-</ul><h1>
-<a name="user-content-response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+</ul>
+
+<h1>
+<a id="user-content-response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h1>
 
 <p>The <code>UNIHTTPRequest</code> and <code>UNIHTTPRequestWithBody</code> can then be executed by calling one of:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span><span class="p">(</span><span class="n">UNIHTTPStringResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asString</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="n">UNIHTTPStringResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asString:</span><span class="p">(</span><span class="n">NSError</span><span class="o">**</span><span class="p">)</span> <span class="n">error</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="n">UNIUrlConnection</span><span class="o">*</span><span class="p">)</span> <span class="nf">asStringAsync:</span><span class="p">(</span><span class="n">UNIHTTPStringResponseBlock</span><span class="p">)</span> <span class="n">response</span><span class="p">;</span>
+<div class="highlight highlight-objective-c"><pre>-(UNIHTTPStringResponse*) asString;
+-(UNIHTTPStringResponse*) asString:(<span class="pl-s3">NSError</span>**) error;
+-(UNIUrlConnection*) asStringAsync:(UNIHTTPStringResponseBlock) response;
 
-<span class="k">-</span><span class="p">(</span><span class="n">UNIHTTPBinaryResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asBinary</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="n">UNIHTTPBinaryResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asBinary:</span><span class="p">(</span><span class="n">NSError</span><span class="o">**</span><span class="p">)</span> <span class="n">error</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="n">UNIUrlConnection</span><span class="o">*</span><span class="p">)</span> <span class="nf">asBinaryAsync:</span><span class="p">(</span><span class="n">UNIHTTPBinaryResponseBlock</span><span class="p">)</span> <span class="n">response</span><span class="p">;</span>
+-(UNIHTTPBinaryResponse*) asBinary;
+-(UNIHTTPBinaryResponse*) asBinary:(<span class="pl-s3">NSError</span>**) error;
+-(UNIUrlConnection*) asBinaryAsync:(UNIHTTPBinaryResponseBlock) response;
 
-<span class="k">-</span><span class="p">(</span><span class="n">UNIHTTPJsonResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asJson</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="n">UNIHTTPJsonResponse</span><span class="o">*</span><span class="p">)</span> <span class="nf">asJson:</span><span class="p">(</span><span class="n">NSError</span><span class="o">**</span><span class="p">)</span> <span class="n">error</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="n">UNIUrlConnection</span><span class="o">*</span><span class="p">)</span> <span class="nf">asJsonAsync:</span><span class="p">(</span><span class="n">UNIHTTPJsonResponseBlock</span><span class="p">)</span> <span class="n">response</span><span class="p">;</span>
-</pre></div>
+-(UNIHTTPJsonResponse*) asJson;
+-(UNIHTTPJsonResponse*) asJson:(<span class="pl-s3">NSError</span>**) error;
+-(UNIUrlConnection*) asJsonAsync:(UNIHTTPJsonResponseBlock) response;</pre></div>
 
 <ul>
 <li>
@@ -283,34 +279,38 @@ pod <span class="s1">'Unirest'</span>, <span class="s1">'~&gt; 1.1.3'</span>
 
 <p>Asynchronous request call with response returned as JSON.</p>
 </li>
-</ul><h1>
-<a name="user-content-advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
+</ul>
+
+<h1>
+<a id="user-content-advanced-configuration" class="anchor" href="#advanced-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
 
 <p>You can set some advanced configuration to tune Unirest-Obj-C:</p>
 
 <h3>
-<a name="user-content-timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
+<a id="user-content-timeout" class="anchor" href="#timeout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timeout</h3>
 
 <p>You can set a custom timeout value (in <strong>seconds</strong>):</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="n">UNIRest</span> <span class="n">timeout</span><span class="o">:</span><span class="mi">2</span><span class="p">];</span>
-</pre></div>
+<div class="highlight highlight-objective-c"><pre>[UNIRest <span class="pl-s3">timeout:</span><span class="pl-c1">2</span>];</pre></div>
 
 <p>By default the timeout is <code>60</code>.</p>
 
 <h3>
-<a name="user-content-default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
+<a id="user-content-default-request-headers" class="anchor" href="#default-request-headers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
 
 <p>You can set default headers that will be sent on every request:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="n">UNIRest</span> <span class="n">defaultHeader</span><span class="o">:</span><span class="s">@"Header1"</span> <span class="n">value</span><span class="o">:</span><span class="s">@"Value1"</span><span class="p">];</span>
-<span class="p">[</span><span class="n">UNIRest</span> <span class="n">defaultHeader</span><span class="o">:</span><span class="s">@"Header2"</span> <span class="n">value</span><span class="o">:</span><span class="s">@"Value2"</span><span class="p">];</span>
-</pre></div>
+<div class="highlight highlight-objective-c"><pre>[UNIRest <span class="pl-s3">defaultHeader:</span><span class="pl-s1"><span class="pl-pds">@"</span>Header1<span class="pl-pds">"</span></span> <span class="pl-s3">value:</span><span class="pl-s1"><span class="pl-pds">@"</span>Value1<span class="pl-pds">"</span></span>];
+[UNIRest <span class="pl-s3">defaultHeader:</span><span class="pl-s1"><span class="pl-pds">@"</span>Header2<span class="pl-pds">"</span></span> <span class="pl-s3">value:</span><span class="pl-s1"><span class="pl-pds">@"</span>Value2<span class="pl-pds">"</span></span>];</pre></div>
 
 <p>You can clear the default headers anytime with:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="n">UNIRest</span> <span class="n">clearDefaultHeaders</span><span class="p">];</span>
-</pre></div>  </div>
+<div class="highlight highlight-objective-c"><pre>[UNIRest <span class="pl-s3">clearDefaultHeaders</span>];</pre></div>
+
+<hr>
+
+<p>Made with ♥ from the <a href="https://www.mashape.com/">Mashape</a> team</p>
+  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')

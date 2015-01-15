@@ -27,8 +27,13 @@
   </nav>
 
   <div class="documentation"><h1>
-<a name="user-content-unirest-for-ruby-" class="anchor" href="#unirest-for-ruby-"><span class="octicon octicon-link"></span></a>Unirest for Ruby <a href="https://travis-ci.org/Mashape/unirest-ruby"><img src="https://camo.githubusercontent.com/2c2140205fd17aaa9d3eb8abbca3bbd8d8e6e98e/68747470733a2f2f6170692e7472617669732d63692e6f72672f4d6173686170652f756e69726573742d727562792e706e67" alt="Build Status" data-canonical-src="https://api.travis-ci.org/Mashape/unirest-ruby.png" style="max-width:100%;"></a>
+<a id="user-content-unirest-for-ruby--" class="anchor" href="#unirest-for-ruby--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Ruby <a href="https://travis-ci.org/Mashape/unirest-ruby"><img src="https://camo.githubusercontent.com/9a27de5639fb76edc7f94a2664dc8483c778053c/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d727562792e7376673f7374796c653d666c61742d737175617265" alt="Build Status" data-canonical-src="https://img.shields.io/travis/Mashape/unirest-ruby.svg?style=flat-square" style="max-width:100%;"></a> <a href="https://rubygems.org/gems/unirest"><img src="https://camo.githubusercontent.com/b8f9f6022210e1a4306fab484c387e2ca413ac10/68747470733a2f2f696d672e736869656c64732e696f2f67656d2f762f756e69726573742e7376673f7374796c653d666c61742d737175617265" alt="version" data-canonical-src="https://img.shields.io/gem/v/unirest.svg?style=flat-square" style="max-width:100%;"></a>
 </h1>
+
+<p><a href="https://github.com/Mashape/unirest-ruby/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/4b5966a2a252ee0f241a1e03b13417178eb4964f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e7376673f7374796c653d666c61742d737175617265" alt="License" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" style="max-width:100%;"></a>
+<a href="https://rubygems.org/gems/unirest"><img src="https://camo.githubusercontent.com/feffe0b081a5c08c5d1fe7efd7ee107c93e7ea35/68747470733a2f2f696d672e736869656c64732e696f2f67656d2f64742f756e69726573742e7376673f7374796c653d666c61742d737175617265" alt="Downloads" data-canonical-src="https://img.shields.io/gem/dt/unirest.svg?style=flat-square" style="max-width:100%;"></a>
+<a href="https://codeclimate.com/github/Mashape/unirest-ruby"><img src="https://camo.githubusercontent.com/1c25b5fc8953b77d5a8d976bd882d43c70ae90ea/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636c696d6174652f6769746875622f4d6173686170652f756e69726573742d727562792e7376673f7374796c653d666c61742d737175617265" alt="Code Climate" data-canonical-src="https://img.shields.io/codeclimate/github/Mashape/unirest-ruby.svg?style=flat-square" style="max-width:100%;"></a>
+<a href="https://gitter.im/Mashape/unirest-ruby"><img src="https://camo.githubusercontent.com/a367df5e0c296d42fe956bddfa46dfea7141b340/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769747465722d4a6f696e253230436861742d626c75652e7376673f7374796c653d666c61742d737175617265" alt="Gitter" data-canonical-src="https://img.shields.io/badge/Gitter-Join%20Chat-blue.svg?style=flat-square" style="max-width:100%;"></a></p>
 
 <p>Unirest is a set of lightweight HTTP libraries available in multiple languages, ideal for most applications:</p>
 
@@ -41,86 +46,78 @@
 <li>Customizable timeout</li>
 <li>Customizable default headers for every request (DRY)</li>
 <li>Automatic JSON parsing into a native object for JSON responses</li>
-</ul><p>Created with love by <a href="https://github.com/thefosk">thefosk</a> @ <a href="https://mashape.com">mashape.com</a></p>
+</ul>
 
 <h2>
-<a name="user-content-installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h2>
+<a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
 
 <p>Requirements: <strong>Ruby &gt;= 2.0</strong></p>
 
 <p>To utilize unirest, install the <code>unirest</code> gem:</p>
 
-<div class="highlight highlight-bash"><pre>gem install unirest
-</pre></div>
+<div class="highlight highlight-bash"><pre>gem install unirest</pre></div>
 
 <p>After installing the gem package you can now begin to simplifying requests by requiring <code>unirest</code>:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'unirest'</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s1"><span class="pl-pds">'</span>unirest<span class="pl-pds">'</span></span></pre></div>
 
 <h2>
-<a name="user-content-creating-requests" class="anchor" href="#creating-requests"><span class="octicon octicon-link"></span></a>Creating Requests</h2>
+<a id="user-content-creating-requests" class="anchor" href="#creating-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Requests</h2>
 
 <p>So you're probably wondering how using Unirest makes creating requests in Ruby easier, let's start with a working example:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="no">Unirest</span><span class="o">.</span><span class="n">post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span> 
-                        <span class="ss">headers</span><span class="p">:{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span> 
-                        <span class="ss">parameters</span><span class="p">:{</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="mi">23</span><span class="p">,</span> <span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span> <span class="p">}</span>
+<div class="highlight highlight-ruby"><pre>response <span class="pl-k">=</span> <span class="pl-s3">Unirest</span>.post <span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, 
+                        <span class="pl-c1">headers:</span>{ <span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, 
+                        <span class="pl-c1">parameters:</span>{ <span class="pl-c1">:age</span> =&gt; <span class="pl-c1">23</span>, <span class="pl-c1">:foo</span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> }
 
-<span class="n">response</span><span class="o">.</span><span class="n">code</span> <span class="c1"># Status code</span>
-<span class="n">response</span><span class="o">.</span><span class="n">headers</span> <span class="c1"># Response headers</span>
-<span class="n">response</span><span class="o">.</span><span class="n">body</span> <span class="c1"># Parsed body</span>
-<span class="n">response</span><span class="o">.</span><span class="n">raw_body</span> <span class="c1"># Unparsed body</span>
-</pre></div>
+response.code <span class="pl-c"># Status code</span>
+response.headers <span class="pl-c"># Response headers</span>
+response.body <span class="pl-c"># Parsed body</span>
+response.raw_body <span class="pl-c"># Unparsed body</span></pre></div>
 
 <h2>
-<a name="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
+<a id="user-content-asynchronous-requests" class="anchor" href="#asynchronous-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Requests</h2>
 
 <p>Unirest-Ruby also supports asynchronous requests with a callback function specified inside a block, like:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="no">Unirest</span><span class="o">.</span><span class="n">post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span> 
-                        <span class="ss">headers</span><span class="p">:{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span> 
-                        <span class="ss">parameters</span><span class="p">:{</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="mi">23</span><span class="p">,</span> <span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span> <span class="p">}</span> <span class="p">{</span><span class="o">|</span><span class="n">response</span><span class="o">|</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">code</span> <span class="c1"># Status code</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">headers</span> <span class="c1"># Response headers</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">body</span> <span class="c1"># Parsed body</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">raw_body</span> <span class="c1"># Unparsed body</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre>response <span class="pl-k">=</span> <span class="pl-s3">Unirest</span>.post <span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, 
+                        <span class="pl-c1">headers:</span>{ <span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, 
+                        <span class="pl-c1">parameters:</span>{ <span class="pl-c1">:age</span> =&gt; <span class="pl-c1">23</span>, <span class="pl-c1">:foo</span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> } {|<span class="pl-vo">response</span>|
+    response.code <span class="pl-c"># Status code</span>
+    response.headers <span class="pl-c"># Response headers</span>
+    response.body <span class="pl-c"># Parsed body</span>
+    response.raw_body <span class="pl-c"># Unparsed body</span>
+}</pre></div>
 
 <h2>
-<a name="user-content-file-uploads" class="anchor" href="#file-uploads"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+<a id="user-content-file-uploads" class="anchor" href="#file-uploads" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Uploads</h2>
 
-<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="no">Unirest</span><span class="o">.</span><span class="n">post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span> 
-                        <span class="ss">headers</span><span class="p">:{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span> 
-                        <span class="ss">parameters</span><span class="p">:{</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="mi">23</span><span class="p">,</span> <span class="ss">:file</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"/path/to/file"</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre>response <span class="pl-k">=</span> <span class="pl-s3">Unirest</span>.post <span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, 
+                        <span class="pl-c1">headers:</span>{ <span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, 
+                        <span class="pl-c1">parameters:</span>{ <span class="pl-c1">:age</span> =&gt; <span class="pl-c1">23</span>, <span class="pl-c1">:file</span> =&gt; <span class="pl-s3">File</span>.<span class="pl-k">new</span>(<span class="pl-s1"><span class="pl-pds">"</span>/path/to/file<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>) }</pre></div>
 
 <h2>
-<a name="user-content-custom-entity-body" class="anchor" href="#custom-entity-body"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
+<a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
-<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="no">Unirest</span><span class="o">.</span><span class="n">post</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span> 
-                        <span class="ss">headers</span><span class="p">:{</span> <span class="s2">"Accept"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span> <span class="p">},</span> 
-                        <span class="ss">parameters</span><span class="p">:{</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="s2">"value"</span><span class="p">,</span> <span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="s2">"bar"</span> <span class="p">}</span><span class="o">.</span><span class="n">to_json</span> <span class="c1"># Converting the Hash to a JSON string</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre>response <span class="pl-k">=</span> <span class="pl-s3">Unirest</span>.post <span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, 
+                        <span class="pl-c1">headers:</span>{ <span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, 
+                        <span class="pl-c1">parameters:</span>{ <span class="pl-c1">:age</span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>, <span class="pl-c1">:foo</span> =&gt; <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> }.to_json <span class="pl-c"># Converting the Hash to a JSON string</span></pre></div>
 
 <h3>
-<a name="user-content-basic-authentication" class="anchor" href="#basic-authentication"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
+<a id="user-content-basic-authentication" class="anchor" href="#basic-authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
 
 <p>Authenticating the request with basic authentication can be done by providing an <code>auth</code> Hash with <code>:user</code> and <code>:password</code> keys like:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="n">response</span> <span class="o">=</span> <span class="no">Unirest</span><span class="o">.</span><span class="n">get</span> <span class="s2">"http://httpbin.org/get"</span><span class="p">,</span> <span class="ss">auth</span><span class="p">:{</span><span class="ss">:user</span><span class="o">=&gt;</span><span class="s2">"username"</span><span class="p">,</span> <span class="ss">:password</span><span class="o">=&gt;</span><span class="s2">"password"</span><span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre>response <span class="pl-k">=</span> <span class="pl-s3">Unirest</span>.get <span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/get<span class="pl-pds">"</span></span>, <span class="pl-c1">auth:</span>{<span class="pl-c1">:user</span>=&gt;<span class="pl-s1"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>, <span class="pl-c1">:password</span>=&gt;<span class="pl-s1"><span class="pl-pds">"</span>password<span class="pl-pds">"</span></span>}</pre></div>
 
 <h1>
-<a name="user-content-request" class="anchor" href="#request"><span class="octicon octicon-link"></span></a>Request</h1>
+<a id="user-content-request" class="anchor" href="#request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request</h1>
 
-<div class="highlight highlight-ruby"><pre><span class="no">Unirest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="p">{},</span> <span class="ss">parameters</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">auth</span><span class="p">:</span><span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-<span class="no">Unirest</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="p">{},</span> <span class="ss">parameters</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">auth</span><span class="p">:</span><span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-<span class="no">Unirest</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="p">{},</span> <span class="ss">parameters</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">auth</span><span class="p">:</span><span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-<span class="no">Unirest</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="p">{},</span> <span class="ss">parameters</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">auth</span><span class="p">:</span><span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-<span class="no">Unirest</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="p">{},</span> <span class="ss">parameters</span><span class="p">:</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">auth</span><span class="p">:</span><span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre><span class="pl-s3">Unirest</span>.get(url, <span class="pl-c1">headers:</span> {}, <span class="pl-c1">parameters:</span> <span class="pl-c1">nil</span>, <span class="pl-c1">auth:</span><span class="pl-c1">nil</span>, <span class="pl-k">&amp;</span>callback)
+<span class="pl-s3">Unirest</span>.post(url, <span class="pl-c1">headers:</span> {}, <span class="pl-c1">parameters:</span> <span class="pl-c1">nil</span>, <span class="pl-c1">auth:</span><span class="pl-c1">nil</span>, <span class="pl-k">&amp;</span>callback)
+<span class="pl-s3">Unirest</span>.delete(url, <span class="pl-c1">headers:</span> {}, <span class="pl-c1">parameters:</span> <span class="pl-c1">nil</span>, <span class="pl-c1">auth:</span><span class="pl-c1">nil</span>, <span class="pl-k">&amp;</span>callback)
+<span class="pl-s3">Unirest</span>.put(url, <span class="pl-c1">headers:</span> {}, <span class="pl-c1">parameters:</span> <span class="pl-c1">nil</span>, <span class="pl-c1">auth:</span><span class="pl-c1">nil</span>, <span class="pl-k">&amp;</span>callback)
+<span class="pl-s3">Unirest</span>.patch(url, <span class="pl-c1">headers:</span> {}, <span class="pl-c1">parameters:</span> <span class="pl-c1">nil</span>, <span class="pl-c1">auth:</span><span class="pl-c1">nil</span>, <span class="pl-k">&amp;</span>callback)</pre></div>
 
 <ul>
 <li>
@@ -131,8 +128,10 @@
 <code>parameters</code> (<code>Array</code> | <code>Object</code> | <code>String</code>) - Request Body associative array or object</li>
 <li>
 <code>callback</code> (<code>Function</code>) - <em>Optional</em>; Asychronous callback method to be invoked upon result.</li>
-</ul><h1>
-<a name="user-content-response" class="anchor" href="#response"><span class="octicon octicon-link"></span></a>Response</h1>
+</ul>
+
+<h1>
+<a id="user-content-response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h1>
 
 <p>Upon receiving a response Unirest returns the result in the form of an Object, this object should always have the same keys for each language regarding to the response details.</p>
 
@@ -145,32 +144,44 @@
 <code>body</code> - Parsed response body where applicable, for example JSON responses are parsed to Objects / Associative Arrays.</li>
 <li>
 <code>raw_body</code> - Un-parsed response body</li>
-</ul><h1>
-<a name="user-content-advanced-configuration" class="anchor" href="#advanced-configuration"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
+</ul>
+
+<h1>
+<a id="user-content-advanced-configuration" class="anchor" href="#advanced-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced Configuration</h1>
 
 <p>You can set some advanced configuration to tune Unirest-Ruby:</p>
 
 <h3>
-<a name="user-content-timeout" class="anchor" href="#timeout"><span class="octicon octicon-link"></span></a>Timeout</h3>
+<a id="user-content-timeout" class="anchor" href="#timeout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timeout</h3>
 
 <p>You can set a custom timeout value (in <strong>seconds</strong>):</p>
 
-<div class="highlight highlight-ruby"><pre><span class="no">Unirest</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5s timeout</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre><span class="pl-s3">Unirest</span>.timeout(<span class="pl-c1">5</span>) <span class="pl-c"># 5s timeout</span></pre></div>
 
 <h3>
-<a name="user-content-default-request-headers" class="anchor" href="#default-request-headers"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
+<a id="user-content-default-request-headers" class="anchor" href="#default-request-headers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Request Headers</h3>
 
 <p>You can set default headers that will be sent on every request:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="no">Unirest</span><span class="o">.</span><span class="n">default_header</span><span class="p">(</span><span class="s1">'Header1'</span><span class="p">,</span><span class="s1">'Value1'</span><span class="p">)</span>
-<span class="no">Unirest</span><span class="o">.</span><span class="n">default_header</span><span class="p">(</span><span class="s1">'Header2'</span><span class="p">,</span><span class="s1">'Value2'</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre><span class="pl-s3">Unirest</span>.default_header(<span class="pl-s1"><span class="pl-pds">'</span>Header1<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>Value1<span class="pl-pds">'</span></span>)
+<span class="pl-s3">Unirest</span>.default_header(<span class="pl-s1"><span class="pl-pds">'</span>Header2<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>Value2<span class="pl-pds">'</span></span>)</pre></div>
 
 <p>You can clear the default headers anytime with:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="no">Unirest</span><span class="o">.</span><span class="n">clear_default_headers</span><span class="p">()</span>
-</pre></div>  </div>
+<div class="highlight highlight-ruby"><pre><span class="pl-s3">Unirest</span>.clear_default_headers()</pre></div>
+
+<h3>
+<a id="user-content-user-agent" class="anchor" href="#user-agent" aria-hidden="true"><span class="octicon octicon-link"></span></a>User-Agent</h3>
+
+<p>The default User-Agent string is <code>unirest-ruby/1.1</code>. You can customize
+it like this:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-s3">Unirest</span>.user_agent(<span class="pl-s1"><span class="pl-pds">"</span>custom_user_agent<span class="pl-pds">"</span></span>)</pre></div>
+
+<hr>
+
+<p>Made with ♥ from the <a href="https://www.mashape.com/">Mashape</a> team</p>
+  </div>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')
