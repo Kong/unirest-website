@@ -33,7 +33,7 @@
 <p><a href="https://packagist.org/packages/Mashape/unirest-php"><img src="https://camo.githubusercontent.com/51b9d488105c7664937ec9fa055d74e8f055c49c/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f646d2f4d6173686170652f756e69726573742d7068702e7376673f7374796c653d666c6174" alt="Downloads" data-canonical-src="https://img.shields.io/packagist/dm/Mashape/unirest-php.svg?style=flat" style="max-width:100%;"></a>
 <a href="https://codeclimate.com/github/Mashape/unirest-php"><img src="https://camo.githubusercontent.com/b6e9080cd3256b4121c8673f5933da37442be54b/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636c696d6174652f6769746875622f4d6173686170652f756e69726573742d7068702e7376673f7374796c653d666c6174" alt="Code Climate" data-canonical-src="https://img.shields.io/codeclimate/github/Mashape/unirest-php.svg?style=flat" style="max-width:100%;"></a>
 <a href="https://codeclimate.com/github/Mashape/unirest-php"><img src="https://camo.githubusercontent.com/beb9251148434c6a7a1c13743c23239d4c3de794/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636c696d6174652f636f7665726167652f6769746875622f4d6173686170652f756e69726573742d7068702e7376673f7374796c653d666c6174" alt="Coverage Status" data-canonical-src="https://img.shields.io/codeclimate/coverage/github/Mashape/unirest-php.svg?style=flat" style="max-width:100%;"></a>
-<a href="https://www.versioneye.com/user/projects/54b82450050646ca5c0001f3"><img src="https://camo.githubusercontent.com/97e79229ea9de5306fe51de09307bca771f936ed/68747470733a2f2f696d672e736869656c64732e696f2f76657273696f6e6579652f642f757365722f70726f6a656374732f3534623832343530303530363436636135633030303166332e7376673f7374796c653d666c6174" alt="Dependencies" data-canonical-src="https://img.shields.io/versioneye/d/user/projects/54b82450050646ca5c0001f3.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://www.versioneye.com/user/projects/54b82450050646ca5c0001f3"><img src="https://camo.githubusercontent.com/8c2fa06b0a4ab15825e834fe0e3609e64b713174/68747470733a2f2f696d672e736869656c64732e696f2f76657273696f6e6579652f642f7068702f6d6173686170653a756e69726573742d7068702e7376673f7374796c653d666c6174" alt="Dependencies" data-canonical-src="https://img.shields.io/versioneye/d/php/mashape:unirest-php.svg?style=flat" style="max-width:100%;"></a>
 <a href="https://gitter.im/Mashape/unirest-php"><img src="https://camo.githubusercontent.com/5818ff993808659f636e910854b9aefcda215da2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769747465722d4a6f696e253230436861742d626c75652e7376673f7374796c653d666c6174" alt="Gitter" data-canonical-src="https://img.shields.io/badge/Gitter-Join%20Chat-blue.svg?style=flat" style="max-width:100%;"></a>
 <a href="https://github.com/Mashape/unirest-php/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/81afec6de3129c5afb378c617967bc1be00d44f7/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f6c2f4d6173686170652f756e69726573742d7068702e7376673f7374796c653d666c6174" alt="License" data-canonical-src="https://img.shields.io/packagist/l/Mashape/unirest-php.svg?style=flat" style="max-width:100%;"></a></p>
 
@@ -140,7 +140,12 @@
 <h3>
 <a id="user-content-authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h3>
 
-<p>Passing a username, password <em>(optional)</em>, defaults to Basic Authentication:</p>
+<p>First, if you are using <a href="https://www.mashape.com/">Mashape</a>:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// Mashape auth</span></span>
+<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>setMashapeKey(<span class="pl-s1"><span class="pl-pds">'</span>&lt;mashape_key&gt;<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Otherwise, passing a username, password <em>(optional)</em>, defaults to Basic Authentication:</p>
 
 <div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// basic auth</span></span>
 <span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>auth(<span class="pl-s1"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>);</span></pre></div>
@@ -149,7 +154,7 @@
 
 <p>If more than one bit is set, Unirest <em>(at PHP's libcurl level)</em> will first query the site to see what authentication methods it supports and then pick the best one you allow it to use. <em>For some methods, this will induce an extra network round-trip.</em></p>
 
-<p><strong>Supported Method</strong></p>
+<p><strong>Supported Methods</strong></p>
 
 <table>
 <thead>
