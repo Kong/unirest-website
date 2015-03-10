@@ -110,7 +110,7 @@
 <div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s2"><span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>hellow<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span>
+<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span>
 <span class="pl-s2"></span>
 <span class="pl-s2"><span class="pl-vo">$response</span><span class="pl-k">-&gt;</span><span class="pl-vo">code</span>;        <span class="pl-c">// HTTP Status code</span></span>
 <span class="pl-s2"><span class="pl-vo">$response</span><span class="pl-k">-&gt;</span><span class="pl-vo">headers</span>;     <span class="pl-c">// Headers</span></span>
@@ -125,7 +125,7 @@
 <div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s2"><span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">File</span><span class="pl-k">::</span>add(<span class="pl-s1"><span class="pl-pds">"</span>/tmp/file.txt<span class="pl-pds">"</span></span>));</span>
 <span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span></pre></div>
+<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span></pre></div>
 
 <h3>
 <a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h3>
@@ -135,7 +135,7 @@
 <div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s2"><span class="pl-vo">$body</span> <span class="pl-k">=</span>   <span class="pl-s3">json_encode</span>(<span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>hellow<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>));</span>
 <span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span></pre></div>
+<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span></pre></div>
 
 <h3>
 <a id="user-content-authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h3>
@@ -212,7 +212,7 @@
 
 <p>Previous versions of <strong>Unirest</strong> support <em>Basic Authentication</em> by providing the <code>username</code> and <code>password</code> arguments:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>get(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/get<span class="pl-pds">"</span></span>, <span class="pl-c1">null</span>, <span class="pl-c1">null</span>, <span class="pl-s1"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>password<span class="pl-pds">"</span></span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>get(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-c1">null</span>, <span class="pl-c1">null</span>, <span class="pl-s1"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>password<span class="pl-pds">"</span></span>);</span></pre></div>
 
 <p><strong>This has been deprecated, and will be completely removed in <code>v.3.0.0</code> please use the <code>Unirest\Request::auth()</code> method instead</strong></p>
 
@@ -265,7 +265,7 @@
 <a id="user-content-custom-json-decode-flags" class="anchor" href="#custom-json-decode-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom JSON Decode Flags</h4>
 
 <p>Unirest uses PHP's <a href="http://php.net/manual/en/book.json.php">JSON Extension</a> for automatically decoding JSON responses.
-sometime you may want to return associative arrays, limit the depth of recursion, or use any of the <a href="http://php.net/manual/en/json.constants.php#constant.json-hex-tag">customization flags</a>.</p>
+sometime you may want to return associative arrays, limit the depth of recursion, or use any of the <a href="http://php.net/manual/en/json.constants.php">customization flags</a>.</p>
 
 <p>To do so, simply set the desired options using the <code>jsonOpts</code> request method:</p>
 
@@ -340,6 +340,15 @@ sometime you may want to return associative arrays, limit the depth of recursion
 <div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>verifyPeer(<span class="pl-c1">false</span>); <span class="pl-c">// Disables SSL cert validation</span></span></pre></div>
 
 <p>By default is <code>true</code>.</p>
+
+<h4>
+<a id="user-content-utility-methods" class="anchor" href="#utility-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utility Methods</h4>
+
+<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// alias for `curl_getinfo`</span></span>
+<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>getInfo()</span>
+<span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-c">// returns internal cURL handle</span></span>
+<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>getCurlHandle()</span></pre></div>
 
 <hr>
 

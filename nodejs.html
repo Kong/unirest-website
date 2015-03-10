@@ -53,7 +53,7 @@
 
 <p>You're probably wondering how by using <strong>Unirest</strong> makes creating requests easier. Besides automatically supporting gzip, and parsing responses, lets start with a basic working example:</p>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .header(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .<span class="pl-s3">send</span>({ <span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">23</span>, <span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> })
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
@@ -65,7 +65,7 @@
 
 <p>Transferring file data has been simplified:</p>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .<span class="pl-sc">headers</span>({<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>})
 .field(<span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>) <span class="pl-c">// Form field</span>
 .attach(<span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>/tmp/file<span class="pl-pds">'</span></span>) <span class="pl-c">// Attachment</span>
@@ -76,7 +76,7 @@
 <h2>
 <a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .<span class="pl-sc">headers</span>({<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>})
 .<span class="pl-s3">send</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]))
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
@@ -131,35 +131,35 @@ When no <code>callback</code> is present, the <a href="#request">Request</a> obj
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>GET</code></p>
 
-<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
 <a id="user-content-head" class="anchor" href="#head" aria-hidden="true"><span class="octicon octicon-link"></span></a>head</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>HEAD</code></p>
 
-<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.head(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.head(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
 <a id="user-content-post" class="anchor" href="#post" aria-hidden="true"><span class="octicon octicon-link"></span></a>post</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>POST</code></p>
 
-<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
 <a id="user-content-patch" class="anchor" href="#patch" aria-hidden="true"><span class="octicon octicon-link"></span></a>patch</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>PATCH</code></p>
 
-<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.patch(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/patch<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.patch(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>);</pre></div>
 
 <h3>
 <a id="user-content-delete" class="anchor" href="#delete" aria-hidden="true"><span class="octicon octicon-link"></span></a>delete</h3>
 
 <p>Returns a <a href="#request">Request</a> object with the <code>method</code> option set to <code>DELETE</code></p>
 
-<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.delete(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/delete<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.delete(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
 <a id="user-content-unirestjar" class="anchor" href="#unirestjar" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest.jar()</h2>
@@ -168,7 +168,7 @@ When no <code>callback</code> is present, the <a href="#request">Request</a> obj
 
 <div class="highlight highlight-js"><pre><span class="pl-s">var</span> CookieJar <span class="pl-k">=</span> unirest.jar();
 CookieJar.<span class="pl-s3">add</span>(<span class="pl-s1"><span class="pl-pds">'</span>key=value<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>); <span class="pl-c">// Cookie string, pathname / url</span>
-unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>).jar(CookieJar);</pre></div>
+unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>).jar(CookieJar);</pre></div>
 
 <h2>
 <a id="user-content-unirestcookiestring" class="anchor" href="#unirestcookiestring" aria-hidden="true"><span class="octicon octicon-link"></span></a>unirest.cookie(String)</h2>
@@ -189,7 +189,7 @@ request module Superagent (which this library is modeled after slightly).</p>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>);
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Request <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>);
 
 Request.header(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
   ...
@@ -280,7 +280,7 @@ or <code>field</code> and <code>value</code> arguments. Each entry is then store
 
 <p>Should <code>url</code> already contain a querystring, the representation will be appended to the <code>url</code>.</p>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .query(<span class="pl-s1"><span class="pl-pds">'</span>name=nijiko<span class="pl-pds">'</span></span>)
 .query({
   pet<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>spot<span class="pl-pds">'</span></span>
@@ -301,7 +301,7 @@ For irregular mime-types the <code>.type()</code> method is used to infer the <c
 
 <p><strong>JSON</strong></p>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds">'</span>json<span class="pl-pds">'</span></span>)
 .<span class="pl-s3">send</span>({
   foo<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>,
@@ -315,7 +315,7 @@ For irregular mime-types the <code>.type()</code> method is used to infer the <c
 
 <div class="highlight highlight-js"><pre><span class="pl-c">// Body would be:</span>
 <span class="pl-c">// name=nijiko&amp;pet=turtle</span>
-unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .<span class="pl-s3">send</span>(<span class="pl-s1"><span class="pl-pds">'</span>name=nijiko<span class="pl-pds">'</span></span>)
 .<span class="pl-s3">send</span>(<span class="pl-s1"><span class="pl-pds">'</span>pet=spot<span class="pl-pds">'</span></span>)
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
@@ -324,7 +324,7 @@ unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org
 
 <p><strong>HTML / Other</strong></p>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .set(<span class="pl-s1"><span class="pl-pds">'</span>Content-Type<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>text/html<span class="pl-pds">'</span></span>)
 .<span class="pl-s3">send</span>(<span class="pl-s1"><span class="pl-pds">'</span>&lt;strong&gt;Hello World!&lt;/strong&gt;<span class="pl-pds">'</span></span>)
 .end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
@@ -362,7 +362,7 @@ Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds"
 
 <p><strong>Object</strong></p>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .header(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .field({
   <span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>
@@ -378,7 +378,7 @@ Request.<span class="pl-sc">type</span>(<span class="pl-s1"><span class="pl-pds"
 
 <p><strong>Arguments</strong></p>
 
-<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/post<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-js"><pre>unirest.post(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>)
 .header(<span class="pl-s1"><span class="pl-pds">'</span>Accept<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>application/json<span class="pl-pds">'</span></span>)
 .field(<span class="pl-s1"><span class="pl-pds">'</span>parameter<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>) <span class="pl-c">// Form field</span>
 .attach(<span class="pl-s1"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>dog.png<span class="pl-pds">'</span></span>) <span class="pl-c">// Attachment</span>
@@ -471,7 +471,7 @@ you are free to do so.</p>
 
 <p>Sets <code>url</code> location of the current request on <code>Request.options</code> to the given <code>String</code></p>
 
-<div class="highlight highlight-js"><pre>Request.url(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>);</pre></div>
+<div class="highlight highlight-js"><pre>Request.url(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>);</pre></div>
 
 <h4>
 <a id="user-content-requestmethodstring" class="anchor" href="#requestmethodstring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request.method(String)</h4>
@@ -673,7 +673,7 @@ Request.pool poolOption</pre></div>
 <p>Sends HTTP Request and awaits Response finalization. Request compression and Response decompression occurs here.
 Upon HTTP Response post-processing occurs and invokes <code>callback</code> with a single argument, the <code>[Response](#response)</code> object.</p>
 
-<div class="highlight highlight-js"><pre>unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://httpbin.org/get<span class="pl-pds">'</span></span>).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
+<div class="highlight highlight-js"><pre>unirest.get(<span class="pl-s1"><span class="pl-pds">'</span>http://mockbin.com/request<span class="pl-pds">'</span></span>).end(<span class="pl-st">function</span> (<span class="pl-vpf">response</span>) {
   ...
 });</pre></div>
 
