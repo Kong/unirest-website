@@ -9,22 +9,22 @@
 
   <!-- Viewport -->
   <meta name="viewport" content="width=480">
-
+  
   <!-- Stylesheet -->
   <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-  <nav>
-    <div class="right">
-      <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="small" data-related="mashape" data-count="none">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-php&type=fork&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="52" height="20"></iframe>
-    </div>
+  <a href="https://github.com/mashape/unirest-php"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+  <menu>
+    <right>
+      <a href="http://mashape.com">Mashape</a>
+      <a href="https://github.com/Mashape/unirest-php/graphs/contributors">Built By Mashapers</a>
+    </right>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
-  </nav>
+  </menu>
 
   <div class="documentation"><h1>
 <a id="user-content-unirest-for-php--" class="anchor" href="#unirest-for-php--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for PHP <a href="https://travis-ci.org/Mashape/unirest-php"><img src="https://camo.githubusercontent.com/430da92961546c0a0924936a97c3e7d2f98e6980/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d7068702e7376673f7374796c653d666c6174" alt="Build Status" data-canonical-src="https://img.shields.io/travis/Mashape/unirest-php.svg?style=flat" style="max-width:100%;"></a> <a href="https://packagist.org/packages/Mashape/unirest-php"><img src="https://camo.githubusercontent.com/93cebfe9a0b433b9b9beb0e3a3cd2eca4e04439a/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f762f4d6173686170652f756e69726573742d7068702e7376673f7374796c653d666c6174" alt="version" data-canonical-src="https://img.shields.io/packagist/v/Mashape/unirest-php.svg?style=flat" style="max-width:100%;"></a>
@@ -57,6 +57,7 @@
 
 <ul>
 <li><a href="http://php.net/manual/en/book.curl.php">cURL</a></li>
+<li>PHP 5.4+</li>
 </ul>
 
 <h2>
@@ -69,8 +70,8 @@
 <p>To install unirest-php with Composer, just add the following to your <code>composer.json</code> file:</p>
 
 <div class="highlight highlight-json"><pre>{
-    <span class="pl-s1"><span class="pl-pds">"</span>require-dev<span class="pl-pds">"</span></span>: {
-        <span class="pl-s1"><span class="pl-pds">"</span>mashape/unirest-php<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2.*<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>require-dev<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>mashape/unirest-php<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>2.*<span class="pl-pds">"</span></span>
     }
 }</pre></div>
 
@@ -84,7 +85,7 @@
 
 <p>Composer installs autoloader at <code>./vendor/autoloader.php</code>. to include the library in your script, add:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-k">require_once</span> <span class="pl-s1"><span class="pl-pds">'</span>vendor/autoload.php<span class="pl-pds">'</span></span>;</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>vendor/autoload.php<span class="pl-pds">'</span></span>;</span></pre></div>
 
 <p>If you use Symfony2, autoloader has to be detected automatically.</p>
 
@@ -93,11 +94,11 @@
 <h3>
 <a id="user-content-install-from-source" class="anchor" href="#install-from-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install from source</h3>
 
-<p>Unirest-PHP requires PHP <code>v5.4+</code>. Download the PHP library from Github, then include <code>Unirest.php</code> in your script:</p>
+<p>Download the PHP library from Github, then include <code>Unirest.php</code> in your script:</p>
 
 <div class="highlight highlight-shell"><pre>git clone git@github.com:Mashape/unirest-php.git </pre></div>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-k">require_once</span> <span class="pl-s1"><span class="pl-pds">'</span>/path/to/unirest-php/src/Unirest.php<span class="pl-pds">'</span></span>;</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>/path/to/unirest-php/src/Unirest.php<span class="pl-pds">'</span></span>;</span></pre></div>
 
 <h2>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -107,48 +108,48 @@
 
 <p>So you're probably wondering how using Unirest makes creating requests in PHP easier, let's look at a working example:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
-<span class="pl-s2"><span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>hellow<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>);</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$response</span><span class="pl-k">-&gt;</span><span class="pl-vo">code</span>;        <span class="pl-c">// HTTP Status code</span></span>
-<span class="pl-s2"><span class="pl-vo">$response</span><span class="pl-k">-&gt;</span><span class="pl-vo">headers</span>;     <span class="pl-c">// Headers</span></span>
-<span class="pl-s2"><span class="pl-vo">$response</span><span class="pl-k">-&gt;</span><span class="pl-vo">body</span>;        <span class="pl-c">// Parsed body</span></span>
-<span class="pl-s2"><span class="pl-vo">$response</span><span class="pl-k">-&gt;</span><span class="pl-vo">raw_body</span>;    <span class="pl-c">// Unparsed body</span></span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$body</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>hellow<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>post(<span class="pl-s"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-smi">$headers</span>, <span class="pl-smi">$body</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$response</span><span class="pl-k">-&gt;</span><span class="pl-smi">code</span>;        <span class="pl-c">// HTTP Status code</span></span>
+<span class="pl-s1"><span class="pl-smi">$response</span><span class="pl-k">-&gt;</span><span class="pl-smi">headers</span>;     <span class="pl-c">// Headers</span></span>
+<span class="pl-s1"><span class="pl-smi">$response</span><span class="pl-k">-&gt;</span><span class="pl-smi">body</span>;        <span class="pl-c">// Parsed body</span></span>
+<span class="pl-s1"><span class="pl-smi">$response</span><span class="pl-k">-&gt;</span><span class="pl-smi">raw_body</span>;    <span class="pl-c">// Unparsed body</span></span></pre></div>
 
 <h3>
 <a id="user-content-file-uploads" class="anchor" href="#file-uploads" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Uploads</h3>
 
 <p>To upload files in a multipart form representation use the return value of <code>Unirest\File::add($path)</code> as the value of a parameter:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
-<span class="pl-s2"><span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">File</span><span class="pl-k">::</span>add(<span class="pl-s1"><span class="pl-pds">"</span>/tmp/file.txt<span class="pl-pds">"</span></span>));</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$body</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">Unirest\</span><span class="pl-c1">File</span><span class="pl-k">::</span>add(<span class="pl-s"><span class="pl-pds">"</span>/tmp/file.txt<span class="pl-pds">"</span></span>));</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>post(<span class="pl-s"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-smi">$headers</span>, <span class="pl-smi">$body</span>);</span></pre></div>
 
 <h3>
 <a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h3>
 
 <p>Sending a custom body such as a JSON Object rather than a string or form style parameters we utilize json_encode for the body:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
-<span class="pl-s2"><span class="pl-vo">$body</span> <span class="pl-k">=</span>   <span class="pl-s3">json_encode</span>(<span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>hellow<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>));</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-vo">$headers</span>, <span class="pl-vo">$body</span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$body</span> <span class="pl-k">=</span>   <span class="pl-c1">json_encode</span>(<span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>hellow<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>));</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>post(<span class="pl-s"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-smi">$headers</span>, <span class="pl-smi">$body</span>);</span></pre></div>
 
 <h3>
 <a id="user-content-authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h3>
 
 <p>First, if you are using <a href="https://www.mashape.com/">Mashape</a>:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// Mashape auth</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>setMashapeKey(<span class="pl-s1"><span class="pl-pds">'</span>&lt;mashape_key&gt;<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c">// Mashape auth</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>setMashapeKey(<span class="pl-s"><span class="pl-pds">'</span>&lt;mashape_key&gt;<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>Otherwise, passing a username, password <em>(optional)</em>, defaults to Basic Authentication:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// basic auth</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>auth(<span class="pl-s1"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c">// basic auth</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>auth(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>The third parameter, which is a bitmask, will Unirest which HTTP authentication method(s) you want it to use for your proxy authentication.</p>
 
@@ -207,23 +208,36 @@
 </tbody>
 </table>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// custom auth method</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>proxyAuth(<span class="pl-s1"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>, <span class="pl-sc">CURLAUTH_DIGEST</span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c">// custom auth method</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>proxyAuth(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>, <span class="pl-c1">CURLAUTH_DIGEST</span>);</span></pre></div>
 
 <p>Previous versions of <strong>Unirest</strong> support <em>Basic Authentication</em> by providing the <code>username</code> and <code>password</code> arguments:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$response</span> <span class="pl-k">=</span> <span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>get(<span class="pl-s1"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-c1">null</span>, <span class="pl-c1">null</span>, <span class="pl-s1"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>password<span class="pl-pds">"</span></span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>get(<span class="pl-s"><span class="pl-pds">"</span>http://mockbin.com/request<span class="pl-pds">"</span></span>, <span class="pl-c1">null</span>, <span class="pl-c1">null</span>, <span class="pl-s"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>password<span class="pl-pds">"</span></span>);</span></pre></div>
 
 <p><strong>This has been deprecated, and will be completely removed in <code>v.3.0.0</code> please use the <code>Unirest\Request::auth()</code> method instead</strong></p>
 
 <h3>
+<a id="user-content-cookies" class="anchor" href="#cookies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookies</h3>
+
+<p>Set a cookie string to specify the contents of a cookie header. Multiple cookies are separated with a semicolon followed by a space (e.g., "fruit=apple; colour=red")</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>cookie(<span class="pl-smi">$cookie</span>)</span></pre></div>
+
+<p>Set a cookie file path for enabling cookie reading and storing cookies across multiple sequence of requests.</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>cookieFile(<span class="pl-smi">$cookieFile</span>)</span></pre></div>
+
+<p><code>$cookieFile</code> must be a correct path with write permission.</p>
+
+<h3>
 <a id="user-content-request-object" class="anchor" href="#request-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Object</h3>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>get(<span class="pl-vo">$url</span>, <span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(), <span class="pl-vo">$parameters</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>post(<span class="pl-vo">$url</span>, <span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(), <span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>put(<span class="pl-vo">$url</span>, <span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(), <span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>patch(<span class="pl-vo">$url</span>, <span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(), <span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>delete(<span class="pl-vo">$url</span>, <span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(), <span class="pl-vo">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>get(<span class="pl-smi">$url</span>, <span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(), <span class="pl-smi">$parameters</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>post(<span class="pl-smi">$url</span>, <span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(), <span class="pl-smi">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>put(<span class="pl-smi">$url</span>, <span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(), <span class="pl-smi">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>patch(<span class="pl-smi">$url</span>, <span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(), <span class="pl-smi">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>delete(<span class="pl-smi">$url</span>, <span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(), <span class="pl-smi">$body</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>)</span></pre></div>
 
 <ul>
 <li>
@@ -236,9 +250,9 @@
 
 <p>You can send a request with any <a href="http://www.iana.org/assignments/http-methods/http-methods.xhtml">standard</a> or custom HTTP Method:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>send(<span class="pl-s3">Unirest\</span><span class="pl-s3">Method</span><span class="pl-k">::</span><span class="pl-c1">LINK</span>, <span class="pl-vo">$url</span>, <span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(), <span class="pl-vo">$body</span>);</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>send(<span class="pl-s1"><span class="pl-pds">'</span>CHECKOUT<span class="pl-pds">'</span></span>, <span class="pl-vo">$url</span>, <span class="pl-vo">$headers</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(), <span class="pl-vo">$body</span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>send(<span class="pl-c1">Unirest\</span><span class="pl-c1">Method</span><span class="pl-k">::</span><span class="pl-c1">LINK</span>, <span class="pl-smi">$url</span>, <span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(), <span class="pl-smi">$body</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>send(<span class="pl-s"><span class="pl-pds">'</span>CHECKOUT<span class="pl-pds">'</span></span>, <span class="pl-smi">$url</span>, <span class="pl-smi">$headers</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(), <span class="pl-smi">$body</span>);</span></pre></div>
 
 <h3>
 <a id="user-content-response-object" class="anchor" href="#response-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response Object</h3>
@@ -269,14 +283,14 @@ sometime you may want to return associative arrays, limit the depth of recursion
 
 <p>To do so, simply set the desired options using the <code>jsonOpts</code> request method:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>jsonOpts(<span class="pl-c1">true</span>, <span class="pl-c1">512</span>, <span class="pl-sc">JSON_NUMERIC_CHECK</span> <span class="pl-k">&amp;</span> <span class="pl-sc">JSON_FORCE_OBJECT</span> <span class="pl-k">&amp;</span> <span class="pl-c1">JSON_UNESCAPED_SLASHES</span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>jsonOpts(<span class="pl-c1">true</span>, <span class="pl-c1">512</span>, <span class="pl-c1">JSON_NUMERIC_CHECK</span> <span class="pl-k">&amp;</span> <span class="pl-c1">JSON_FORCE_OBJECT</span> <span class="pl-k">&amp;</span> <span class="pl-c1">JSON_UNESCAPED_SLASHES</span>);</span></pre></div>
 
 <h4>
 <a id="user-content-timeout" class="anchor" href="#timeout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timeout</h4>
 
 <p>You can set a custom timeout value (in <strong>seconds</strong>):</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>timeout(<span class="pl-c1">5</span>); <span class="pl-c">// 5s timeout</span></span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>timeout(<span class="pl-c1">5</span>); <span class="pl-c">// 5s timeout</span></span></pre></div>
 
 <h4>
 <a id="user-content-proxy" class="anchor" href="#proxy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proxy</h4>
@@ -287,22 +301,22 @@ sometime you may want to return associative arrays, limit the depth of recursion
 
 <p><em>check the <a href="http://curl.haxx.se/libcurl/c/CURLOPT_PROXYTYPE.html">cURL docs</a> for more info</em>.</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// quick setup with default port: 1080</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>proxy(<span class="pl-s1"><span class="pl-pds">'</span>10.10.10.1<span class="pl-pds">'</span></span>);</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-c">// custom port and proxy type</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>proxy(<span class="pl-s1"><span class="pl-pds">'</span>10.10.10.1<span class="pl-pds">'</span></span>, <span class="pl-c1">8080</span>, <span class="pl-sc">CURLPROXY_HTTP</span>);</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-c">// enable tunneling</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>proxy(<span class="pl-s1"><span class="pl-pds">'</span>10.10.10.1<span class="pl-pds">'</span></span>, <span class="pl-c1">8080</span>, <span class="pl-sc">CURLPROXY_HTTP</span>, <span class="pl-c1">true</span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c">// quick setup with default port: 1080</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>proxy(<span class="pl-s"><span class="pl-pds">'</span>10.10.10.1<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// custom port and proxy type</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>proxy(<span class="pl-s"><span class="pl-pds">'</span>10.10.10.1<span class="pl-pds">'</span></span>, <span class="pl-c1">8080</span>, <span class="pl-c1">CURLPROXY_HTTP</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// enable tunneling</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>proxy(<span class="pl-s"><span class="pl-pds">'</span>10.10.10.1<span class="pl-pds">'</span></span>, <span class="pl-c1">8080</span>, <span class="pl-c1">CURLPROXY_HTTP</span>, <span class="pl-c1">true</span>);</span></pre></div>
 
 <h5>
 <a id="user-content-proxy-authenticaton" class="anchor" href="#proxy-authenticaton" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proxy Authenticaton</h5>
 
 <p>Passing a username, password <em>(optional)</em>, defaults to Basic Authentication:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// basic auth</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>proxyAuth(<span class="pl-s1"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c">// basic auth</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>proxyAuth(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>The third parameter, which is a bitmask, will Unirest which HTTP authentication method(s) you want it to use for your proxy authentication. </p>
 
@@ -310,45 +324,62 @@ sometime you may want to return associative arrays, limit the depth of recursion
 
 <p>See <a href="#authentication">Authentication</a> for more details on methods supported.</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// basic auth</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>proxyAuth(<span class="pl-s1"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>, <span class="pl-sc">CURLAUTH_DIGEST</span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c">// basic auth</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>proxyAuth(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>, <span class="pl-c1">CURLAUTH_DIGEST</span>);</span></pre></div>
 
 <h4>
 <a id="user-content-default-request-headers" class="anchor" href="#default-request-headers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Request Headers</h4>
 
 <p>You can set default headers that will be sent on every request:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>defaultHeader(<span class="pl-s1"><span class="pl-pds">"</span>Header1<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Value1<span class="pl-pds">"</span></span>);</span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>defaultHeader(<span class="pl-s1"><span class="pl-pds">"</span>Header2<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Value2<span class="pl-pds">"</span></span>);</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>defaultHeader(<span class="pl-s"><span class="pl-pds">"</span>Header1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Value1<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>defaultHeader(<span class="pl-s"><span class="pl-pds">"</span>Header2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Value2<span class="pl-pds">"</span></span>);</span></pre></div>
 
-<p>You can do set default headers in bulk:</p>
+<p>You can set default headers in bulk by passing an array:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>defaultHeaders(<span class="pl-s3">array</span>(</span>
-<span class="pl-s2">    <span class="pl-s1"><span class="pl-pds">"</span>Header1<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>Value1<span class="pl-pds">"</span></span>,</span>
-<span class="pl-s2">    <span class="pl-s1"><span class="pl-pds">"</span>Header2<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">"</span>Value2<span class="pl-pds">"</span></span></span>
-<span class="pl-s2">));</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>defaultHeaders(<span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">"</span>Header1<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>Value1<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">"</span>Header2<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>Value2<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">));</span></pre></div>
 
 <p>You can clear the default headers anytime with:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>clearDefaultHeaders();</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>clearDefaultHeaders();</span></pre></div>
+
+<h4>
+<a id="user-content-default-curl-options" class="anchor" href="#default-curl-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default cURL Options</h4>
+
+<p>You can set default <a href="http://php.net/manual/en/function.curl-setopt.php">cURL options</a> that will be sent on every request:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>curlOpt(<span class="pl-c1">CURLOPT_COOKIE</span>, <span class="pl-s"><span class="pl-pds">"</span>foo=bar<span class="pl-pds">"</span></span>);</span></pre></div>
+
+<p>You can set options bulk by passing an array:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>curlOpts(<span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-c1">CURLOPT_COOKIE</span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>foo=bar<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">));</span></pre></div>
+
+<p>You can clear the default options anytime with:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>clearCurlOpts();</span></pre></div>
 
 <h4>
 <a id="user-content-ssl-validation" class="anchor" href="#ssl-validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>SSL validation</h4>
 
 <p>You can explicitly enable or disable SSL certificate validation when consuming an SSL protected endpoint:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>verifyPeer(<span class="pl-c1">false</span>); <span class="pl-c">// Disables SSL cert validation</span></span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>verifyPeer(<span class="pl-c1">false</span>); <span class="pl-c">// Disables SSL cert validation</span></span></pre></div>
 
 <p>By default is <code>true</code>.</p>
 
 <h4>
 <a id="user-content-utility-methods" class="anchor" href="#utility-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utility Methods</h4>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-c">// alias for `curl_getinfo`</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>getInfo()</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-c">// returns internal cURL handle</span></span>
-<span class="pl-s2"><span class="pl-s3">Unirest\</span><span class="pl-s3">Request</span><span class="pl-k">::</span>getCurlHandle()</span></pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c">// alias for `curl_getinfo`</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>getInfo()</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// returns internal cURL handle</span></span>
+<span class="pl-s1"><span class="pl-c1">Unirest\</span><span class="pl-c1">Request</span><span class="pl-k">::</span>getCurlHandle()</span></pre></div>
 
 <hr>
 
@@ -361,5 +392,7 @@ sometime you may want to return associative arrays, limit the depth of recursion
   <script type="text/javascript">
     var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.NET/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])}; analytics.load("xsv6p66v1y");
   </script>
+
+  <script type="text/javascript" src="//mashape.github.io/notification-bar/embed.js" async defer></script>
 </body>
 </html>
