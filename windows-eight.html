@@ -43,10 +43,10 @@
 
 <p>So you're probably wondering how using Unirest makes creating requests in .NET easier, here is a basic POST request that will explain everything:</p>
 
-<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; jsonResponse = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; jsonResponse = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)
   .asJson&lt;MyClass&gt;();</pre></div>
 
 <p>Requests are made when <code>as[Type]()</code> is invoked, possible types include <code>Json</code>, <code>Binary</code>, <code>String</code>. If the request supports this, a body  can be passed along with <code>.body(String)</code> or <code>body&lt;T&gt;(T)</code> to serialize an arbitary object to JSON. If you already have a dictionary of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Dictionary&lt;string, object&gt; parameters)</code> method that will serialize each key - value to form parameters on your request.</p>
@@ -58,10 +58,10 @@
 
 <p>Sometimes, well most of the time, you want your application to be asynchronous and not block, Unirest supports this in .NET with the TPL pattern and async/await:</p>
 
-<div class="highlight highlight-C#"><pre>Task&lt;HttpResponse&lt;MyClass&gt;&gt; myClassTask = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s1"><span class="pl-pds">"</span>param1<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value1<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s1"><span class="pl-pds">"</span>param2<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value2<span class="pl-pds">"</span></span>)
+<div class="highlight highlight-C#"><pre>Task&lt;HttpResponse&lt;MyClass&gt;&gt; myClassTask = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>param1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value1<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>param2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value2<span class="pl-pds">"</span></span>)
   .asJsonAsync&lt;MyClass&gt;();</pre></div>
 
 <h2>
@@ -69,18 +69,18 @@
 
 <p>Creating <code>multipart</code> requests with .NET is trivial, simply pass along a <code>Stream</code> Object as a field:</p>
 
-<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s1"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>, <span class="pl-s">new</span> MemoryStream(<span class="pl-s1"><span class="pl-pds">"</span>/tmp/file<span class="pl-pds">"</span></span>))
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> MemoryStream(<span class="pl-s"><span class="pl-pds">"</span>/tmp/file<span class="pl-pds">"</span></span>))
   .asJson&lt;MyClass&gt;();</pre></div>
 
 <h2>
 <a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
-<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .body(<span class="pl-s1"><span class="pl-pds">"</span>{<span class="pl-cce">\"</span>parameter<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>value<span class="pl-cce">\"</span>, <span class="pl-cce">\"</span>foo<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>bar<span class="pl-cce">\"</span>}<span class="pl-pds">"</span></span>)
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .body(<span class="pl-s"><span class="pl-pds">"</span>{<span class="pl-cce">\"</span>parameter<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>value<span class="pl-cce">\"</span>, <span class="pl-cce">\"</span>foo<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>bar<span class="pl-cce">\"</span>}<span class="pl-pds">"</span></span>)
   .asJson&lt;MyClass&gt;();</pre></div>
 
 <h1>
@@ -115,6 +115,7 @@ HttpRequest request = Unirest.delete(String url);</pre></div>
 
 <p>Made with ♥ from the <a href="https://www.mashape.com/">Mashape</a> team</p>
   </div>
+  <script type="text/javascript" src="//mashape.github.io/notification-bar/embed.js" async defer></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script type="text/javascript">
   $('a img').parent().css('border-bottom', '0px')
