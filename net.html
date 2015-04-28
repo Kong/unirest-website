@@ -9,22 +9,22 @@
 
   <!-- Viewport -->
   <meta name="viewport" content="width=480">
-  
+
   <!-- Stylesheet -->
   <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-  <a href="https://github.com/mashape/unirest-net"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-
-  <menu>
-    <right>
-      <a href="http://mashape.com">Mashape</a>
-      <a href="https://github.com/Mashape/unirest-net/graphs/contributors">Built By Mashapers</a>
-    </right>
+  <nav>
+    <div class="right">
+      <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="small" data-related="mashape" data-count="none">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-net&type=fork&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="52" height="20"></iframe>
+    </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
-  </menu>
+  </nav>
 
   <div class="documentation"><h1>
 <a id="user-content-unirest-for-net" class="anchor" href="#unirest-for-net" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for .Net</h1>
@@ -43,10 +43,10 @@
 
 <p>So you're probably wondering how using Unirest makes creating requests in .NET easier, here is a basic POST request that will explain everything:</p>
 
-<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; jsonResponse = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; jsonResponse = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)
   .asJson&lt;MyClass&gt;();</pre></div>
 
 <p>Requests are made when <code>as[Type]()</code> is invoked, possible types include <code>Json</code>, <code>Binary</code>, <code>String</code>. If the request supports this, a body  can be passed along with <code>.body(String)</code> or <code>body&lt;T&gt;(T)</code> to serialize an arbitary object to JSON. If you already have a dictionary of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Dictionary&lt;string, object&gt; parameters)</code> method that will serialize each key - value to form parameters on your request.</p>
@@ -58,10 +58,10 @@
 
 <p>Sometimes, well most of the time, you want your application to be asynchronous and not block, Unirest supports this in .NET with the TPL pattern and async/await:</p>
 
-<div class="highlight highlight-C#"><pre>Task&lt;HttpResponse&lt;MyClass&gt;&gt; myClassTask = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s"><span class="pl-pds">"</span>param1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value1<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s"><span class="pl-pds">"</span>param2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value2<span class="pl-pds">"</span></span>)
+<div class="highlight highlight-C#"><pre>Task&lt;HttpResponse&lt;MyClass&gt;&gt; myClassTask = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>param1<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value1<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>param2<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value2<span class="pl-pds">"</span></span>)
   .asJsonAsync&lt;MyClass&gt;();</pre></div>
 
 <h2>
@@ -69,19 +69,19 @@
 
 <p>Creating <code>multipart</code> requests with .NET is trivial, simply pass along a <code>Stream</code> Object as a field:</p>
 
-<div class="highlight highlight-C#"><pre><span class="pl-k">byte</span>[] data = File.ReadAllBytes(<span class="pl-s"><span class="pl-pds">@"filePath"</span></span>);
-HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
-  .field(<span class="pl-s"><span class="pl-pds">"</span>files<span class="pl-pds">"</span></span>, data)
+<div class="highlight highlight-C#"><pre><span class="pl-st">byte</span>[] data = File.ReadAllBytes(<span class="pl-s1"><span class="pl-pds">@"filePath"</span></span>);
+HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s1"><span class="pl-pds">"</span>files<span class="pl-pds">"</span></span>, data)
   .asJson&lt;MyClass&gt;();</pre></div>
 
 <h2>
 <a id="user-content-custom-entity-body" class="anchor" href="#custom-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Entity Body</h2>
 
-<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
-  .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
-  .body(<span class="pl-s"><span class="pl-pds">"</span>{<span class="pl-cce">\"</span>parameter<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>value<span class="pl-cce">\"</span>, <span class="pl-cce">\"</span>foo<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>bar<span class="pl-cce">\"</span>}<span class="pl-pds">"</span></span>)
+<div class="highlight highlight-C#"><pre>HttpResponse&lt;MyClass&gt; myClass = Unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .header(<span class="pl-s1"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+  .body(<span class="pl-s1"><span class="pl-pds">"</span>{<span class="pl-cce">\"</span>parameter<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>value<span class="pl-cce">\"</span>, <span class="pl-cce">\"</span>foo<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>bar<span class="pl-cce">\"</span>}<span class="pl-pds">"</span></span>)
   .asJson&lt;MyClass&gt;();</pre></div>
 
 <h1>
@@ -118,7 +118,5 @@ HttpRequest request = Unirest.delete(String url);</pre></div>
   <script type="text/javascript">
     var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.NET/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])}; analytics.load("xsv6p66v1y");
   </script>
-
-  <script type="text/javascript" src="//mashape.github.io/notification-bar/embed.js" async defer></script>
 </body>
 </html>

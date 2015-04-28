@@ -9,22 +9,22 @@
 
   <!-- Viewport -->
   <meta name="viewport" content="width=480">
-  
+
   <!-- Stylesheet -->
   <link href="styles/library.css" rel="stylesheet" type="text/css" data-inprogress="" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-  <a href="https://github.com/mashape/unirest-python"><img style="position: fixed; top: 64px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-
-  <menu>
-    <right>
-      <a href="http://mashape.com">Mashape</a>
-      <a href="https://github.com/Mashape/unirest-python/graphs/contributors">Built By Mashapers</a>
-    </right>
+  <nav>
+    <div class="right">
+      <a href="https://www.mashape.com/jobs">Created by Mashape <span>(We're Hiring!)</span></a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="mashape" data-size="small" data-related="mashape" data-count="none">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <iframe src="http://ghbtns.com/github-btn.html?user=mashape&repo=unirest-python&type=fork&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="52" height="20"></iframe>
+    </div>
 
     <a href="http://unirest.io"><span class="icon-chevron-left"></span> Go Back</a>
-  </menu>
+  </nav>
 
   <div class="documentation"><h1>
 <a id="user-content-unirest-for-python--" class="anchor" href="#unirest-for-python--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unirest for Python <a href="https://travis-ci.org/Mashape/unirest-python"><img src="https://camo.githubusercontent.com/f7b2bb716dea4e2e64ff9e44f8c76b73bb5b9a6a/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f4d6173686170652f756e69726573742d707974686f6e2e7376673f7374796c653d666c6174" alt="Build Status" data-canonical-src="https://img.shields.io/travis/Mashape/unirest-python.svg?style=flat" style="max-width:100%;"></a> <a href="https://pypi.python.org/pypi/Unirest/"><img src="https://camo.githubusercontent.com/22825d25286bb6477b103a8232726836439f789c/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f556e69726573742e7376673f7374796c653d666c6174" alt="version" data-canonical-src="https://img.shields.io/pypi/v/Unirest.svg?style=flat" style="max-width:100%;"></a>
@@ -67,7 +67,7 @@
 
 <p>So you're probably wondering how using Unirest makes creating requests in Python easier, let's start with a working example:</p>
 
-<div class="highlight highlight-python"><pre>response <span class="pl-k">=</span> unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-smi">headers</span><span class="pl-k">=</span>{ <span class="pl-s"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, <span class="pl-smi">params</span><span class="pl-k">=</span>{ <span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-c1">23</span>, <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> })
+<div class="highlight highlight-python"><pre>response <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-vpf">headers</span><span class="pl-k">=</span>{ <span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, <span class="pl-vpf">params</span><span class="pl-k">=</span>{ <span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-c1">23</span>, <span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> })
 
 response.code <span class="pl-c"># The HTTP status code</span>
 response.headers <span class="pl-c"># The HTTP headers</span>
@@ -79,23 +79,23 @@ response.raw_body <span class="pl-c"># The unparsed response</span></pre></div>
 
 <p>Python also supports asynchronous requests in which you can define a <code>callback</code> function to be passed along and invoked when Unirest receives the response:</p>
 
-<div class="highlight highlight-python"><pre><span class="pl-k">def</span> <span class="pl-en">callback_function</span>(<span class="pl-smi">response</span>):
+<div class="highlight highlight-python"><pre><span class="pl-st">def</span> <span class="pl-en">callback_function</span>(<span class="pl-vpf">response</span>):
   response.code <span class="pl-c"># The HTTP status code</span>
   response.headers <span class="pl-c"># The HTTP headers</span>
   response.body <span class="pl-c"># The parsed response</span>
   response.raw_body <span class="pl-c"># The unparsed response</span>
 
-thread <span class="pl-k">=</span> unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-smi">headers</span><span class="pl-k">=</span>{ <span class="pl-s"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, <span class="pl-smi">params</span><span class="pl-k">=</span>{ <span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-c1">23</span>, <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> }, <span class="pl-smi">callback</span><span class="pl-k">=</span>callback_function)</pre></div>
+thread <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-vpf">headers</span><span class="pl-k">=</span>{ <span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> }, <span class="pl-vpf">params</span><span class="pl-k">=</span>{ <span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-c1">23</span>, <span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> }, <span class="pl-vpf">callback</span><span class="pl-k">=</span>callback_function)</pre></div>
 
 <h2>
 <a id="user-content-file-uploads" class="anchor" href="#file-uploads" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Uploads</h2>
 
 <p>Transferring file data requires that you <code>open</code> the file in a readable <code>r</code> mode:</p>
 
-<div class="highlight highlight-python"><pre>response <span class="pl-k">=</span> unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-smi">headers</span><span class="pl-k">=</span>{<span class="pl-s"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>},
-  <span class="pl-smi">params</span><span class="pl-k">=</span>{
-    <span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>: <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">"</span>/tmp/file<span class="pl-pds">"</span></span>, <span class="pl-smi">mode</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span>)
+<div class="highlight highlight-python"><pre>response <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-vpf">headers</span><span class="pl-k">=</span>{<span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>},
+  <span class="pl-vpf">params</span><span class="pl-k">=</span>{
+    <span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>: <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">"</span>/tmp/file<span class="pl-pds">"</span></span>, <span class="pl-vpf">mode</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span>)
   }
 )</pre></div>
 
@@ -104,30 +104,30 @@ thread <span class="pl-k">=</span> unirest.post(<span class="pl-s"><span class="
 
 <div class="highlight highlight-python"><pre><span class="pl-k">import</span> json
 
-response <span class="pl-k">=</span> unirest.post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-smi">headers</span><span class="pl-k">=</span>{ <span class="pl-s"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> },
-  <span class="pl-smi">params</span><span class="pl-k">=</span>json.dumps({
-    <span class="pl-s"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>
+response <span class="pl-k">=</span> unirest.post(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>, <span class="pl-vpf">headers</span><span class="pl-k">=</span>{ <span class="pl-s1"><span class="pl-pds">"</span>Accept<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span> },
+  <span class="pl-vpf">params</span><span class="pl-k">=</span>json.dumps({
+    <span class="pl-s1"><span class="pl-pds">"</span>parameter<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>
   })
 )</pre></div>
 
-<p><strong>Note</strong>: For the sake of semplicity, even with custom entities in the body, the keyword argument is still <code>params</code> (instead of <code>data</code> for example). I'm looking for feedback on this.</p>
+<p><strong>Note</strong>: For the sake of simplicity, even with custom entities in the body, the keyword argument is still <code>params</code> (instead of <code>data</code> for example). I'm looking for feedback on this.</p>
 
 <h3>
 <a id="user-content-basic-authentication" class="anchor" href="#basic-authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Authentication</h3>
 
 <p>Authenticating the request with basic authentication can be done by providing an <code>auth</code> array like:</p>
 
-<div class="highlight highlight-python"><pre>response <span class="pl-k">=</span> unirest.get(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/get<span class="pl-pds">"</span></span>, <span class="pl-smi">auth</span><span class="pl-k">=</span>(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>))</pre></div>
+<div class="highlight highlight-python"><pre>response <span class="pl-k">=</span> unirest.get(<span class="pl-s1"><span class="pl-pds">"</span>http://httpbin.org/get<span class="pl-pds">"</span></span>, <span class="pl-vpf">auth</span><span class="pl-k">=</span>(<span class="pl-s1"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>))</pre></div>
 
 <h1>
 <a id="user-content-request" class="anchor" href="#request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request</h1>
 
-<div class="highlight highlight-python"><pre>unirest.get(url, <span class="pl-smi">headers</span> <span class="pl-k">=</span> {}, <span class="pl-smi">params</span> <span class="pl-k">=</span> {}, <span class="pl-smi">auth</span> <span class="pl-k">=</span> (), <span class="pl-smi">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)
-unirest.post(url, <span class="pl-smi">headers</span> <span class="pl-k">=</span> {}, <span class="pl-smi">params</span> <span class="pl-k">=</span> {}, <span class="pl-smi">auth</span> <span class="pl-k">=</span> (), <span class="pl-smi">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)
-unirest.put(url, <span class="pl-smi">headers</span> <span class="pl-k">=</span> {}, <span class="pl-smi">params</span> <span class="pl-k">=</span> {}, <span class="pl-smi">auth</span> <span class="pl-k">=</span> (), <span class="pl-smi">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)
-unirest.patch(url, <span class="pl-smi">headers</span> <span class="pl-k">=</span> {}, <span class="pl-smi">params</span> <span class="pl-k">=</span> {}, <span class="pl-smi">auth</span> <span class="pl-k">=</span> (), <span class="pl-smi">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)    
-unirest.delete(url, <span class="pl-smi">headers</span> <span class="pl-k">=</span> {}, <span class="pl-smi">params</span> <span class="pl-k">=</span> {}, <span class="pl-smi">auth</span> <span class="pl-k">=</span> (), <span class="pl-smi">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)</pre></div>
+<div class="highlight highlight-python"><pre>unirest.get(url, <span class="pl-vpf">headers</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">params</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">auth</span> <span class="pl-k">=</span> (), <span class="pl-vpf">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)
+unirest.post(url, <span class="pl-vpf">headers</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">params</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">auth</span> <span class="pl-k">=</span> (), <span class="pl-vpf">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)
+unirest.put(url, <span class="pl-vpf">headers</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">params</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">auth</span> <span class="pl-k">=</span> (), <span class="pl-vpf">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)
+unirest.patch(url, <span class="pl-vpf">headers</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">params</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">auth</span> <span class="pl-k">=</span> (), <span class="pl-vpf">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)    
+unirest.delete(url, <span class="pl-vpf">headers</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">params</span> <span class="pl-k">=</span> {}, <span class="pl-vpf">auth</span> <span class="pl-k">=</span> (), <span class="pl-vpf">callback</span> <span class="pl-k">=</span> <span class="pl-c1">None</span>)</pre></div>
 
 <ul>
 <li>
@@ -175,8 +175,8 @@ unirest.delete(url, <span class="pl-smi">headers</span> <span class="pl-k">=</sp
 
 <p>You can set default headers that will be sent on every request:</p>
 
-<div class="highlight highlight-python"><pre>unirest.default_header(<span class="pl-s"><span class="pl-pds">'</span>Header1<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>Value1<span class="pl-pds">'</span></span>)
-unirest.default_header(<span class="pl-s"><span class="pl-pds">'</span>Header2<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>Value2<span class="pl-pds">'</span></span>)</pre></div>
+<div class="highlight highlight-python"><pre>unirest.default_header(<span class="pl-s1"><span class="pl-pds">'</span>Header1<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>Value1<span class="pl-pds">'</span></span>)
+unirest.default_header(<span class="pl-s1"><span class="pl-pds">'</span>Header2<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>Value2<span class="pl-pds">'</span></span>)</pre></div>
 
 <p>You can clear the default headers anytime with:</p>
 
@@ -193,7 +193,5 @@ unirest.default_header(<span class="pl-s"><span class="pl-pds">'</span>Header2<s
   <script type="text/javascript">
     var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.NET/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])}; analytics.load("xsv6p66v1y");
   </script>
-
-  <script type="text/javascript" src="//mashape.github.io/notification-bar/embed.js" async defer></script>
 </body>
 </html>
