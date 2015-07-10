@@ -57,6 +57,7 @@
 <li>Customizable default headers for every request (DRY)</li>
 <li>Customizable <code>HttpClient</code> and <code>HttpAsyncClient</code> implementation</li>
 <li>Automatic JSON parsing into a native object for JSON responses</li>
+<li>Customizable binding, with mapping from response body to java Object </li>
 </ul>
 
 <h2>
@@ -72,7 +73,7 @@
 <div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;com.mashape.unirest&lt;/<span class="pl-ent">groupId</span>&gt;
     &lt;<span class="pl-ent">artifactId</span>&gt;unirest-java&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;1.4.5&lt;/<span class="pl-ent">version</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;1.4.6&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
 <p>There are dependencies for Unirest-Java, these should be already installed, and they are as follows:</p>
@@ -105,12 +106,18 @@
   &lt;<span class="pl-ent">artifactId</span>&gt;junit&lt;/<span class="pl-ent">artifactId</span>&gt;
   &lt;<span class="pl-ent">version</span>&gt;4.11&lt;/<span class="pl-ent">version</span>&gt;
   &lt;<span class="pl-ent">scope</span>&gt;test&lt;/<span class="pl-ent">scope</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;
+&lt;<span class="pl-ent">dependency</span>&gt;
+  &lt;<span class="pl-ent">groupId</span>&gt;commons-io&lt;/<span class="pl-ent">groupId</span>&gt;
+  &lt;<span class="pl-ent">artifactId</span>&gt;commons-io&lt;/<span class="pl-ent">artifactId</span>&gt;
+  &lt;<span class="pl-ent">version</span>&gt;2.4&lt;/<span class="pl-ent">version</span>&gt;
+  &lt;<span class="pl-ent">scope</span>&gt;test&lt;/<span class="pl-ent">scope</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
 <h3>
 <a id="user-content-without-maven" class="anchor" href="#without-maven" aria-hidden="true"><span class="octicon octicon-link"></span></a>Without Maven</h3>
 
-<p>Alternatively if you don't use Maven, you can directly include the JAR file in the classpath: <a href="http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.5/unirest-java-1.4.5.jar">http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.5/unirest-java-1.4.5.jar</a></p>
+<p>Alternatively if you don't use Maven, you can directly include the JAR file in the classpath: <a href="http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.6/unirest-java-1.4.6.jar">http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.6/unirest-java-1.4.6.jar</a></p>
 
 <p>Don't forget to also install the dependencies (<a href="http://www.json.org/java/"><code>org.json</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpclient 4.3.6</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpmime 4.3.6</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpasyncclient 4.0.2</code></a>) in the classpath too.</p>
 
@@ -128,9 +135,52 @@
   .field(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)
   .asJson();</pre></div>
 
-<p>Requests are made when <code>as[Type]()</code> is invoked, possible types include <code>Json</code>, <code>Binary</code>, <code>String</code>. If the request supports and it is of type <code>HttpRequestWithBody</code>, a body it can be passed along with <code>.body(String|JsonNode)</code>. If you already have a map of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Map&lt;String, Object&gt; fields)</code> method that will serialize each key - value to form parameters on your request.</p>
+<p>Requests are made when <code>as[Type]()</code> is invoked, possible types include <code>Json</code>, <code>Binary</code>, <code>String</code>, <code>Object</code>.</p>
+
+<p>If the request supports and it is of type <code>HttpRequestWithBody</code>, a body it can be passed along with <code>.body(String|JsonNode|Object)</code>. For using <code>.body(Object)</code> some pre-configuration is needed (see below).</p>
+
+<p>If you already have a map of parameters or do not wish to use seperate field methods for each one there is a <code>.fields(Map&lt;String, Object&gt; fields)</code> method that will serialize each key - value to form parameters on your request.</p>
 
 <p><code>.headers(Map&lt;String, String&gt; headers)</code> is also supported in replacement of multiple header methods.</p>
+
+<h2>
+<a id="user-content-serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h2>
+
+<p>Before an <code>asObject(Class)</code> or a <code>.body(Object)</code> invokation, is necessary to provide a custom implementation of the <code>ObjectMapper</code> interface.
+This should be done only the first time, as the instance of the ObjectMapper will be shared globally.</p>
+
+<p>For example, serializing Json from\to Object using the popular Jackson ObjectMapper takes only few lines of code.</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-c">// Only one time</span>
+<span class="pl-smi">Unirest</span><span class="pl-k">.</span>setObjectMapper(<span class="pl-k">new</span> <span class="pl-smi">ObjectMapper</span>() {
+    <span class="pl-k">private</span> <span class="pl-smi">com.fasterxml.jackson.databind<span class="pl-k">.</span>ObjectMapper</span> objectMapper 
+        <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">com.fasterxml.jackson.databind<span class="pl-k">.</span>ObjectMapper</span>();
+
+    <span class="pl-k">public</span> <span class="pl-smi">Object</span> <span class="pl-en">readValue</span>(<span class="pl-smi">String</span> <span class="pl-v">value</span>) {
+        <span class="pl-k">return</span> objectMapper<span class="pl-k">.</span>readValue(value);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">writeValue</span>(<span class="pl-smi">Object</span> <span class="pl-v">value</span>) {
+        <span class="pl-k">return</span> objectMapper<span class="pl-k">.</span>writeValueAsString(value);
+    }
+});
+
+<span class="pl-c">// Response to Object</span>
+<span class="pl-k">HttpResponse&lt;<span class="pl-smi">Book</span>&gt;</span> bookResponse <span class="pl-k">=</span> <span class="pl-smi">Unirest</span><span class="pl-k">.</span>get(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/books/1<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>asObject(<span class="pl-smi">Book</span><span class="pl-k">.</span>class);
+<span class="pl-smi">Book</span> bookObject <span class="pl-k">=</span> bookResponse<span class="pl-k">.</span>getBody();
+
+<span class="pl-k">HttpResponse&lt;<span class="pl-smi">Author</span>&gt;</span> authorResponse <span class="pl-k">=</span> <span class="pl-smi">Unirest</span><span class="pl-k">.</span>get(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/books/{id}/author<span class="pl-pds">"</span></span>)
+    .routeParam(<span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>, bookObject<span class="pl-k">.</span>getId())
+    .asObject(<span class="pl-smi">Author</span><span class="pl-k">.</span>class);
+
+<span class="pl-smi">Author</span> authorObject <span class="pl-k">=</span> authorResponse<span class="pl-k">.</span>getBody();
+
+<span class="pl-c">// Object to Json</span>
+<span class="pl-k">HttpResponse&lt;<span class="pl-smi">JsonNode</span>&gt;</span> postResponse <span class="pl-k">=</span> <span class="pl-smi">Unirest</span><span class="pl-k">.</span>post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/authors/post<span class="pl-pds">"</span></span>)
+        .header(<span class="pl-s"><span class="pl-pds">"</span>accept<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+        .header(<span class="pl-s"><span class="pl-pds">"</span>Content-Type<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>application/json<span class="pl-pds">"</span></span>)
+        .body(authorObject)
+        .asJson();</pre></div>
 
 <h3>
 <a id="user-content-route-parameters" class="anchor" href="#route-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Route Parameters</h3>
@@ -194,6 +244,26 @@
   .asJson();</pre></div>
 
 <h2>
+<a id="user-content-byte-stream-as-entity-body" class="anchor" href="#byte-stream-as-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Byte Stream as Entity Body</h2>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">final</span> <span class="pl-smi">InputStream</span> stream <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">FileInputStream</span>(<span class="pl-k">new</span> <span class="pl-smi">File</span>(getClass()<span class="pl-k">.</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>/image.jpg<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>toURI()));
+<span class="pl-k">final</span> <span class="pl-k">byte</span>[] bytes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">byte</span>[stream<span class="pl-k">.</span>available()];
+stream<span class="pl-k">.</span>read(bytes);
+stream<span class="pl-k">.</span>close();
+<span class="pl-k">final</span> <span class="pl-k">HttpResponse&lt;<span class="pl-smi">JsonNode</span>&gt;</span> jsonResponse <span class="pl-k">=</span> <span class="pl-smi">Unirest</span><span class="pl-k">.</span>post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Mark<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>, bytes, <span class="pl-s"><span class="pl-pds">"</span>image.jpg<span class="pl-pds">"</span></span>)
+  .asJson();</pre></div>
+
+<h2>
+<a id="user-content-inputstream-as-entity-body" class="anchor" href="#inputstream-as-entity-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>InputStream as Entity Body</h2>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">HttpResponse&lt;<span class="pl-smi">JsonNode</span>&gt;</span> jsonResponse <span class="pl-k">=</span> <span class="pl-smi">Unirest</span><span class="pl-k">.</span>post(<span class="pl-s"><span class="pl-pds">"</span>http://httpbin.org/post<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Mark<span class="pl-pds">"</span></span>)
+  .field(<span class="pl-s"><span class="pl-pds">"</span>file<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> <span class="pl-smi">FileInputStream</span>(<span class="pl-k">new</span> <span class="pl-smi">File</span>(getClass()<span class="pl-k">.</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>/image.jpg<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>toURI())), <span class="pl-smi">ContentType</span><span class="pl-c1"><span class="pl-k">.</span>APPLICATION_OCTET_STREAM</span>, <span class="pl-s"><span class="pl-pds">"</span>image.jpg<span class="pl-pds">"</span></span>)
+  .asJson();</pre></div>
+
+<h2>
 <a id="user-content-basic-authentication" class="anchor" href="#basic-authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Authentication</h2>
 
 <p>Authenticating the request with basic authentication can be done by calling the <code>basicAuth(username, password)</code> function:</p>
@@ -222,7 +292,7 @@
 <li>
 <code>.getStatus()</code> - HTTP Response Status Code (Example: 200)</li>
 <li>
-<code>.getStatusTest()</code> - HTTP Response Status Text (Example: "OK")</li>
+<code>.getStatusText()</code> - HTTP Response Status Text (Example: "OK")</li>
 <li>
 <code>.getHeaders()</code> - HTTP Response Headers</li>
 <li>
