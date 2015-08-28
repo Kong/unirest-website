@@ -34,7 +34,7 @@
 <a href="http://search.maven.org/#browse%7C1262490619"><img src="https://camo.githubusercontent.com/0df5f1e8736a077a98271de201fa8ddba1d4aa3f/68747470733a2f2f696d672e736869656c64732e696f2f6d6176656e2d63656e7472616c2f762f636f6d2e6d6173686170652e756e69726573742f756e69726573742d6a6176612e7376673f7374796c653d666c6174" alt="version" data-canonical-src="https://img.shields.io/maven-central/v/com.mashape.unirest/unirest-java.svg?style=flat" style="max-width:100%;"></a>
 <a href="https://gitter.im/Mashape/unirest-java"><img src="https://camo.githubusercontent.com/5818ff993808659f636e910854b9aefcda215da2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769747465722d4a6f696e253230436861742d626c75652e7376673f7374796c653d666c6174" alt="Gitter" data-canonical-src="https://img.shields.io/badge/Gitter-Join%20Chat-blue.svg?style=flat" style="max-width:100%;"></a></p>
 
-<p>Unirest is a set of lightweight HTTP libraries available in <a href="http://unirest.io">multiple languages</a>.</p>
+<p>Unirest is a set of lightweight HTTP libraries available in <a href="http://unirest.io">multiple languages</a>, built and maintained by the <a href="https://github.com/Mashape">Mashape team</a>.</p>
 
 <p>Do yourself a favor, and start making HTTP requests like this:</p>
 
@@ -73,7 +73,7 @@
 <div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;com.mashape.unirest&lt;/<span class="pl-ent">groupId</span>&gt;
     &lt;<span class="pl-ent">artifactId</span>&gt;unirest-java&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;1.4.6&lt;/<span class="pl-ent">version</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;1.4.7&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
 <p>There are dependencies for Unirest-Java, these should be already installed, and they are as follows:</p>
@@ -117,7 +117,7 @@
 <h3>
 <a id="user-content-without-maven" class="anchor" href="#without-maven" aria-hidden="true"><span class="octicon octicon-link"></span></a>Without Maven</h3>
 
-<p>Alternatively if you don't use Maven, you can directly include the JAR file in the classpath: <a href="http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.6/unirest-java-1.4.6.jar">http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.6/unirest-java-1.4.6.jar</a></p>
+<p>Alternatively if you don't use Maven, you can directly include the JAR file in the classpath: <a href="http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.7/unirest-java-1.4.7.jar">http://oss.sonatype.org/content/repositories/releases/com/mashape/unirest/unirest-java/1.4.7/unirest-java-1.4.7.jar</a></p>
 
 <p>Don't forget to also install the dependencies (<a href="http://www.json.org/java/"><code>org.json</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpclient 4.3.6</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpmime 4.3.6</code></a>, <a href="http://hc.apache.org/downloads.cgi"><code>httpasyncclient 4.0.2</code></a>) in the classpath too.</p>
 
@@ -153,15 +153,23 @@ This should be done only the first time, as the instance of the ObjectMapper wil
 
 <div class="highlight highlight-java"><pre><span class="pl-c">// Only one time</span>
 <span class="pl-smi">Unirest</span><span class="pl-k">.</span>setObjectMapper(<span class="pl-k">new</span> <span class="pl-smi">ObjectMapper</span>() {
-    <span class="pl-k">private</span> <span class="pl-smi">com.fasterxml.jackson.databind<span class="pl-k">.</span>ObjectMapper</span> objectMapper 
-        <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">com.fasterxml.jackson.databind<span class="pl-k">.</span>ObjectMapper</span>();
+    <span class="pl-k">private</span> <span class="pl-smi">com.fasterxml.jackson.databind<span class="pl-k">.</span>ObjectMapper</span> jacksonObjectMapper
+                <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">com.fasterxml.jackson.databind<span class="pl-k">.</span>ObjectMapper</span>();
 
-    <span class="pl-k">public</span> <span class="pl-smi">Object</span> <span class="pl-en">readValue</span>(<span class="pl-smi">String</span> <span class="pl-v">value</span>) {
-        <span class="pl-k">return</span> objectMapper<span class="pl-k">.</span>readValue(value);
+    <span class="pl-k">public</span> <span class="pl-k">&lt;<span class="pl-smi">T</span>&gt;</span> <span class="pl-smi">T</span> <span class="pl-en">readValue</span>(<span class="pl-smi">String</span> <span class="pl-v">value</span>, <span class="pl-k">Class&lt;<span class="pl-smi">T</span>&gt;</span> <span class="pl-v">valueType</span>) {
+        <span class="pl-k">try</span> {
+            <span class="pl-k">return</span> jacksonObjectMapper<span class="pl-k">.</span>readValue(value, valueType);
+        } <span class="pl-k">catch</span> (<span class="pl-smi">IOException</span> e) {
+            <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-smi">RuntimeException</span>(e);
+        }
     }
 
     <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">writeValue</span>(<span class="pl-smi">Object</span> <span class="pl-v">value</span>) {
-        <span class="pl-k">return</span> objectMapper<span class="pl-k">.</span>writeValueAsString(value);
+        <span class="pl-k">try</span> {
+            <span class="pl-k">return</span> jacksonObjectMapper<span class="pl-k">.</span>writeValueAsString(value);
+        } <span class="pl-k">catch</span> (<span class="pl-smi">JsonProcessingException</span> e) {
+            <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-smi">RuntimeException</span>(e);
+        }
     }
 });
 
