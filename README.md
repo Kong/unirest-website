@@ -1,8 +1,9 @@
 # [Unirest.io](http://unirest.io)
 
-Yesterday we released our newest open source project, which we called unicorn, unfortunately that was also the name of two other open source projects. We really dropped the ball and have been working hard to clean up the mess. We would like to apologize to anyone in the Ruby or Python community who was confused or annoyed. Hopefully you can look past our mistake and see the value in this project.
 
-Since yesterday, we have decided on a new name, Unirest, which we think is a great fit for the project.  We also made a [new website](http://unirest.io), updated our docs and [marketplace](http://mashape.com) which autogenerates unirest code snippets.
+We released our newest open source project, which we called unicorn, unfortunately that was also the name of two other open source projects. We really dropped the ball and have been working hard to clean up the mess. We would like to apologize to anyone in the Ruby or Python community who was confused or annoyed. Hopefully you can look past our mistake and see the value in this project.
+
+So, we have decided on a new name, Unirest, which we think is a great fit for the project.  We also made a [new website](http://unirest.io), updated our docs and [marketplace](http://mashape.com) which autogenerates unirest code snippets.
 
 ### What problem does Unirest solve?
 
