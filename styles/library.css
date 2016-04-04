@@ -95,8 +95,8 @@ nav iframe {
 }
 
 article {
-    max-width: 944px;
-    margin: auto;
+  max-width: 944px;
+  margin: auto;
 }
 
 h1 {
@@ -164,6 +164,8 @@ h6 {
 hr {
   border-top: 1px solid hsl(0, 0%, 93%);
   border-bottom: none;
+  margin: 30px auto;
+  max-width: 860px;
 }
 
 p {
